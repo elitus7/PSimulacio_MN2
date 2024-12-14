@@ -1,1 +1,1 @@
-# PSimulaci-_MN2
+# PSimulació_MN2
