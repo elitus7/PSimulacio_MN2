@@ -1,0 +1,61 @@
+\documentclass[10pt, twoside]{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[catalan]{babel}
+\usepackage[titles]{tocloft}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2.15cm, right=2.15cm, top=30mm, bottom=20mm]{geometry}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{bookmark}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{labelfont=bf}
+\begin{document}
+
+\begin{titlepage}
+\centering
+{\LARGE Mètodes Numèrics II \par}
+\vspace{2cm}
+{\Huge \textbf{Pràctica de simulació:} \par}
+\vspace{1cm}
+{\Huge \textbf{TITOLTITOLTITOL} \par}
+\vspace{3cm}
+{\Large G01 \par}
+\vspace{0.5cm}
+{\Large 1548086: Bujones Umbert, Jun Shan\\1666739: Franco Avilés, Eric\\  1672980: González Barea, Eric\\1644841: Vilarrúbias Morral, Natàlia \par}
+\vspace{2cm}
+{\Large Gener 2025 \par}
+\vspace{2cm}
+\includegraphics[width=0.4\textwidth]{Logo_UAB.png}
+
+
+\end{titlepage}
+
+\pagenumbering{gobble}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftdotsep}{0.2}
+\setlength{\cftbeforesecskip}{0.5em}
+\setlength{\cftbeforesubsecskip}{0.5em}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\pagestyle{fancy}
+\lhead{\textbf{Pràctica de Simulació}}
+\rhead{\textbf{Mètodes Numèrics II}}
+
+\section{Introducció}
+Here goes \textit{blahblahblah}
+
+
+
+\end{document}
