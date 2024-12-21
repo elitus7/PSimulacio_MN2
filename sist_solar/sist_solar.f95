@@ -1,5 +1,6 @@
 program sist_solar
     implicit none(type, external)
+
     !Primer definim els factors de normalització, algunes constants i les variables que seran necessàries. Molts cops especifiquem (kind=8) per tal de tenir un grau de precissió major.
     real(kind=8), parameter :: d_0 = 1.495978707E11_8 !Unitat astronòmica (metres).
     real, parameter :: M_0 = 1.98847E30 !Massa del Sol (kilograms).
@@ -7,6 +8,7 @@ program sist_solar
     real :: t_0 = ((d_0**3)/(M_0*G))**(0.5) !Factor de normalització temporal (segons).
     real(kind=8), parameter :: dt = 1 !Discretització.
     real(kind=8) :: t = 0.0 !Temps. El Fixem inicialment a 0.
+    integer :: i, j, k
 
     integer, parameter :: n = 2 !Dimensions. Treballem en el pla, per tant aquest valor és 2
     integer, parameter :: p = 9 !Número de cossos al sistema solar modelitzat.
@@ -54,7 +56,8 @@ program sist_solar
     real(kind=8), dimension(2) :: v0_sat = (/ 7.093807804551229E-04, 5.475097536527790E-03 /)
     real(kind=8), dimension(2) :: v0_ura = (/ -3.273722830755306E-03, 2.053528375126505E-03 /)
     real(kind=8), dimension(2) :: v0_nep = (/ 3.941595250081164E-05, 3.160389775728832E-03 /)
-    
+
+        !Inicialitzem tots els vectors.
     m(1) = M_0/M_0
     m(2) = m_mer
     m(3) = m_ven
@@ -85,11 +88,10 @@ program sist_solar
     v(8,:) = v0_ura
     v(9,:) = v0_nep
 
-    write(*,*) r
-     
-
-
-
-
+    open(unit=10, file="p0_ssolar.dat",status="replace")
+        do i = 1, 9
+            write(10,*) (r(i,:))
+        end do
+    close(10)
     
 end program sist_solar
