@@ -3,4 +3,5 @@
 \contentsline {section}{\numberline {2}Plantejament del problema del Sistema Solar}{1}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Modelització del Sistema Solar}{1}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Normalització de les equacions}{1}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Condicions inicials}{2}{section.3}%
 \contentsline {section}{\numberline {A}Normalització sistema solar}{4}{appendix.A}%

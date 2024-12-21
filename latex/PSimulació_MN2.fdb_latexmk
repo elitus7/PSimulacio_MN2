@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1734798686.38456 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1734798687.36989 0
+["pdflatex"] 1734803537.60901 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1734803538.75342 0
   "C:/Users/ericg/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1734632120 81043 787296dcccf959cefd61d1a07b638763 ""
   "C:/Users/ericg/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1734286068 11986914 f71833969763cc9b819a0f1b13bc620a ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1233951848 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -22,6 +22,7 @@
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr12.tfm" 1136765053 1288 655e228510b4c2a1abe905c368440826 ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr17.tfm" 1136765053 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmti10.tfm" 1136765053 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
+  "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmtt10.tfm" 1136765053 768 1321e9409b4137d6fb428ac9dc956269 ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb" 1247596666 34793 ae7a3e2775dc0ce90475eeabcb46f9f1 ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
@@ -37,6 +38,7 @@
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1247596667 31099 342ef5a582aacbd3346f3cf4579679fa ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575571100 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1731069673 143218 b56ba929001097bf81564e098af1c174 ""
@@ -111,10 +113,10 @@
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/tocloft/tocloft.sty" 1578908763 37263 3e78d14f0f4b1a30560fea5e04de805d ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "Logo_UAB.png" 1734205029 13234 625c1691be58ba47ff71434956c6b32e ""
-  "PSimulació_MN2.aux" 1734798687 2955 22573e3c5c12b7a995b4b84fe7730aa7 "pdflatex"
-  "PSimulació_MN2.tex" 1734798685 5322 d5afbfbbc4e91337ad2087f98d435c44 ""
-  "PSimulació_MN2.toc" 1734798687 476 93248b4bc68330d1136a359817edb211 "pdflatex"
-  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1734798685 5322 d5afbfbbc4e91337ad2087f98d435c44 ""
+  "PSimulació_MN2.aux" 1734803538 3342 ae49d86e893ced901f69656cd10f31e2 "pdflatex"
+  "PSimulació_MN2.tex" 1734803536 5726 fd8d92c247a19bf6f87d8f85aff454c9 ""
+  "PSimulació_MN2.toc" 1734803538 551 22082b9b9199b82b677721de06124114 "pdflatex"
+  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1734803536 5726 fd8d92c247a19bf6f87d8f85aff454c9 ""
   (generated)
   "PSimulació_MN2.aux"
   "PSimulació_MN2.log"
