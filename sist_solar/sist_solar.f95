@@ -104,17 +104,21 @@ program sist_solar
     Nt = ceiling((t_final - t)/dt)
 
 
-    !Per treballar més cómodament ara definirem un vecot d'estat que agrupi, per cada cos, (posicions, velocitats).
+    !Per treballar més cómodament ara definirem un vecot d'estat que agrupi, per cada cos, (posicions, velocitats). Per exemple, el vector d'estat inicial és:
+    
     call vector_estat(r,v,estat,p)
-    write(*,*) estat(1,:)
-
-    open(unit=10, file="estat0_ssolar.dat",status="replace")
+    open(unit=10, file="estat0_ssolar.dat",status="replace") !Arxiu amb el vector estat inicial. Cada fila és un cos i es llegeix com (x,y,vx,vy).
         do i = 1, 6
             write(10,*) (estat(i,:))
         end do
     close(10)
 
     
+    
+
+
+
+
 
     contains
         subroutine vector_estat(r,v,estat,p)

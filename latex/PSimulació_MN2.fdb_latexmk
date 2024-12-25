@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1734803537.60901 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1734803538.75342 0
-  "C:/Users/ericg/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1734632120 81043 787296dcccf959cefd61d1a07b638763 ""
+["pdflatex"] 1735054873.22647 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1735054874.24723 0
+  "C:/Users/ericg/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1735034399 81043 787296dcccf959cefd61d1a07b638763 ""
   "C:/Users/ericg/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1734286068 11986914 f71833969763cc9b819a0f1b13bc620a ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1233951848 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1233951848 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -113,10 +113,10 @@
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/tocloft/tocloft.sty" 1578908763 37263 3e78d14f0f4b1a30560fea5e04de805d ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "Logo_UAB.png" 1734205029 13234 625c1691be58ba47ff71434956c6b32e ""
-  "PSimulació_MN2.aux" 1734803538 3342 ae49d86e893ced901f69656cd10f31e2 "pdflatex"
-  "PSimulació_MN2.tex" 1734803536 5726 fd8d92c247a19bf6f87d8f85aff454c9 ""
-  "PSimulació_MN2.toc" 1734803538 551 22082b9b9199b82b677721de06124114 "pdflatex"
-  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1734803536 5726 fd8d92c247a19bf6f87d8f85aff454c9 ""
+  "PSimulació_MN2.aux" 1735054874 3342 ae49d86e893ced901f69656cd10f31e2 "pdflatex"
+  "PSimulació_MN2.tex" 1735054871 5735 febee0cd30bc3b9bc6cee719a6b75ca2 ""
+  "PSimulació_MN2.toc" 1735054874 551 22082b9b9199b82b677721de06124114 "pdflatex"
+  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1735054871 5735 febee0cd30bc3b9bc6cee719a6b75ca2 ""
   (generated)
   "PSimulació_MN2.aux"
   "PSimulació_MN2.log"

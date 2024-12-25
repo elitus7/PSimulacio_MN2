@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  21 DEC 2024 18:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  24 DEC 2024 16:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -413,16 +413,16 @@ LaTeX Info: Redefining \L on input line 18.
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: <default>
+* paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
-* h-part:(L,W,R)=(61.17325pt, 491.9485pt, 61.17325pt)
-* v-part:(T,H,B)=(85.35826pt, 652.70622pt, 56.9055pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=491.9485pt
-* \textheight=652.70622pt
+* h-part:(L,W,R)=(61.17325pt, 475.16138pt, 61.17325pt)
+* v-part:(T,H,B)=(85.35826pt, 702.78308pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=475.16138pt
+* \textheight=702.78308pt
 * \oddsidemargin=-11.09674pt
 * \evensidemargin=-11.09674pt
 * \topmargin=-23.91173pt
@@ -430,7 +430,7 @@ LaTeX Info: Redefining \L on input line 18.
 * \headsep=25.0pt
 * \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=121.0pt
+* \marginparwidth=111.0pt
 * \marginparsep=11.0pt
 * \columnsep=10.0pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
@@ -469,7 +469,7 @@ Package caption Info: End \AtBeginDocument code.
 File: Logo_UAB.png Graphic file (type png)
 <use Logo_UAB.png>
 Package pdftex.def Info: Logo_UAB.png  used on input line 34.
-(pdftex.def)             Requested size: 196.7764pt x 77.75351pt.
+(pdftex.def)             Requested size: 190.06165pt x 75.0999pt.
 
 
 [1
@@ -494,8 +494,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.97 \end{equation}
-                    [1]
+l.101 \end{equation}
+                     [1]
 
 [2]
 
@@ -512,17 +512,17 @@ L3 programming layer <2024-11-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14445 strings out of 473682
- 229618 string characters out of 5719215
- 648725 words of memory out of 5000000
- 37324 multiletter control sequences out of 15000+600000
+ 14447 strings out of 473682
+ 229652 string characters out of 5719215
+ 649710 words of memory out of 5000000
+ 37326 multiletter control sequences out of 15000+600000
  565154 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,13n,93p,1267b,497s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on PSimulació_MN2.pdf (6 pages, 215443 bytes).
+Output written on PSimulació_MN2.pdf (6 pages, 215246 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
+ 155 PDF objects out of 1000 (max. 8388607)
  18 named destinations out of 1000 (max. 500000)
  54 words of extra memory for PDF output out of 10000 (max. 10000000)
 
