@@ -16,8 +16,12 @@ program sist_solar
     integer, parameter :: p = 6 !Número de cossos al sistema solar modelitzat.
     integer :: q = n*p !Número d'equacions.
     real(kind=8), dimension(p, n) :: r, v !Vectors posicions i velocitat.
-    real(kind=8), dimension(p, 2*n) :: estat !Vectors d'estat que agrupa posicions i velocitats.
+    real(kind=8), dimension(p, 2*n) :: estat, d_estat !Vectors d'estat que agrupa posicions i velocitats.
+    real(kind=8), dimension(p) :: rx,ry,vx,vy,ax,ay
     real(kind=8), dimension(p) :: m  !Vector amb les masses normalitzades.
+    real(kind=8), dimension(p*n) :: k1, k2, k3, k4, y_temp !Útils per a la implementació del RK4.
+    real(kind=8) :: dx,dy,r_ij,r_ij3,fx,fy
+    
 
     !Masses dels planetes en kg's.
     real(kind=8), parameter :: Ma_mer = 3.30E23
@@ -106,24 +110,34 @@ program sist_solar
 
     !Per treballar més cómodament ara definirem un vecot d'estat que agrupi, per cada cos, (posicions, velocitats). Per exemple, el vector d'estat inicial és:
     
-    call vector_estat(r,v,estat,p)
+    call vector_estat(r,v,estat,p,n)
     open(unit=10, file="estat0_ssolar.dat",status="replace") !Arxiu amb el vector estat inicial. Cada fila és un cos i es llegeix com (x,y,vx,vy).
         do i = 1, 6
             write(10,*) (estat(i,:))
         end do
     close(10)
 
+    !Implementem el mètode numèric RK4. Calculem els diferents coeficients k1, k2, k3 i k4.
+    
+   
+    call deriv_estat(r,v,estat,d_estat,p,n,rx,ry,vx,vy,ax,ay)
+    open(unit=10, file="d_estat0_ssolar.dat",status="replace") !Arxiu amb el vector derivada estat inicial. Cada fila és un cos i es llegeix com (vx,vy,ax,ay).
+        do i = 1, 6
+            write(10,*) (d_estat(i,:))
+        end do
+    close(10)
     
     
-
-
-
-
-
+    
+    
+    
+    
     contains
-        subroutine vector_estat(r,v,estat,p)
-            implicit none(type, external)
+        
+        subroutine vector_estat(r,v,estat,p,n)!Subrutina que calcula el vector d'estat (x,y,vx,vy).
+            implicit none(type, external) 
             integer, intent(in) :: p
+            integer, intent(in) :: n
             real(kind=8), dimension(p, n), intent(in) :: r,v
             real(kind=8), dimension(p, 2*n), intent(out) :: estat
             integer :: i
@@ -136,6 +150,61 @@ program sist_solar
             end do
         end subroutine
          
-    
+        subroutine deriv_estat(r,v,estat,d_estat,p,n,rx,ry,vx,vy,ax,ay) !Subrutina que calcula la derivada del vector d'estat per cada instant de tempps (vx,vy,ax,ay).
+            integer, intent(in) :: p
+            integer, intent(in) :: n
+            real(kind=8), dimension(p, n), intent(in) :: r,v
+            real(kind=8), dimension(p, 2*n), intent(in) :: estat !(x,y,vx,vy)
+            real(kind=8), dimension(p, 2*n), intent(out) :: d_estat !(vx,vy,ax,ay)
+            real(kind=8), dimension(p), intent(out) :: rx,ry,vx,vy,ax,ay
+            real(kind=8) :: dx,dy,r_ij,r_ij3,fx,fy
 
+            do i = 1, p
+                rx(i) = r(i,1)
+                ry(i) = r(i,2)
+                vx(i) = v(i,1)
+                vy(i) = v(i,2)
+            end do
+
+            do i = 1, p
+                d_estat(i,1) = vx(i)
+                d_estat(i,2) = vy(i)
+                d_estat(i,3) = 0.0 !Inicialitzem les acceleracions a 0.
+                d_estat(i,4) = 0.0
+            end do
+
+            !Calculem les acceleracions a les que cada cos està sotmés.
+
+            do i = 1, p
+                ax(i) = 0.0
+                ay(i) = 0.0
+
+                do j = 1, p 
+                    if (i /=j) then !Naturalment, no té sentit calcular l'acceleració que provoca el cos i sobre ell mateix.
+                        
+                        dx = rx(i) - rx(j) !Distància en x entre dos cossos.
+                        dy = ry(i) - ry(j) !Distància en y entre dos cossos.
+                        r_ij = sqrt(dx**2 + dy**2) !Distància total entre dos cossos.
+                        r_ij3 = r_ij**3
+
+                        fx = -G * m(j) * dx / r_ij3 !Força ponderada en x.
+                        fy = -G * m(j) * dy / r_ij3 !Força ponderada en y.
+
+                        ax(i) = ax(i) + fx
+                        ay(i) = ax(i) + fy
+                    end if
+                end do
+
+            end do
+
+            do i = 1, p
+                d_estat(i,1) = vx(i)
+                d_estat(i,2) = vy(i)
+                d_estat(i,3) = ax(i)
+                d_estat(i,4) = ay(i)
+            end do
+        end subroutine 
+
+
+    
 end program sist_solar
