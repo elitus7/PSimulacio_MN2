@@ -108,8 +108,7 @@ program sist_solar
     Nt = ceiling((t_final - t)/dt)
 
 
-    !Per treballar més cómodament ara definirem un vecot d'estat que agrupi, per cada cos, (posicions, velocitats). Per exemple, el vector d'estat inicial és:
-    
+    !Per treballar més cómodament ara definirem un vecot d'estat que agrupi, per cada cos, (posicions, velocitats). 
     call vector_estat(r,v,estat,p,n)
     open(unit=10, file="estat0_ssolar.dat",status="replace") !Arxiu amb el vector estat inicial. Cada fila és un cos i es llegeix com (x,y,vx,vy).
         do i = 1, 6
@@ -117,24 +116,17 @@ program sist_solar
         end do
     close(10)
 
-    !Implementem el mètode numèric RK4. Calculem els diferents coeficients k1, k2, k3 i k4.
-    
-   
+    !De forma similar, definim la corresponent derivada del vector d'estat, que agrupa per cada cos (velocitats, acceleracions)
     call deriv_estat(r,v,estat,d_estat,p,n,rx,ry,vx,vy,ax,ay)
-    open(unit=10, file="d_estat0_ssolar.dat",status="replace") !Arxiu amb el vector derivada estat inicial. Cada fila és un cos i es llegeix com (vx,vy,ax,ay).
+    open(unit=10, file="d_estat0_ssolar.dat",status="replace") !Arxiu amb la derivada vector estat inicial. Cada fila és un cos i es llegeix com (vx,vy,ax,ay).
         do i = 1, 6
             write(10,*) (d_estat(i,:))
         end do
     close(10)
     
-    
-    
-    
-    
-    
     contains
         
-        subroutine vector_estat(r,v,estat,p,n)!Subrutina que calcula el vector d'estat (x,y,vx,vy).
+        subroutine vector_estat(r,v,estat,p,n) !Subrutina que calcula el vector d'estat (x,y,vx,vy).
             implicit none(type, external) 
             integer, intent(in) :: p
             integer, intent(in) :: n
@@ -174,7 +166,6 @@ program sist_solar
             end do
 
             !Calculem les acceleracions a les que cada cos està sotmés.
-
             do i = 1, p
                 ax(i) = 0.0
                 ay(i) = 0.0
