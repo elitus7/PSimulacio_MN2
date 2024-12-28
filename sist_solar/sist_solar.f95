@@ -1,4 +1,4 @@
-program sist_solar
+program sist_solar !Codi per efectuar la simulació del sistema solar en el pla usant el mètode RK4. El programa està preparat per poder simular tots els cossos, però per simplicitat ens quedarem només amb el sistema Mercuri, Venus, Terra, Mart, Júpiter (i Sol, naturalment).
     implicit none(type, external)
 
     !Primer definim els factors de normalització, algunes constants i les variables que seran necessàries. Molts cops especifiquem (kind=8) per tal de tenir un grau de precissió major.
@@ -16,10 +16,10 @@ program sist_solar
     integer, parameter :: p = 6 !Número de cossos al sistema solar modelitzat.
     integer :: q = n*p !Número d'equacions.
     real(kind=8), dimension(p, n) :: r, v !Vectors posicions i velocitat.
-    real(kind=8), dimension(p, 2*n) :: estat, d_estat !Vectors d'estat que agrupa posicions i velocitats.
+    real(kind=8), dimension(p, 2*n) :: estat, estat_temp, d_estat,d_estat_temp !Vectors d'estat que agrupa posicions i velocitats.
     real(kind=8), dimension(p) :: rx,ry,vx,vy,ax,ay
     real(kind=8), dimension(p) :: m  !Vector amb les masses normalitzades.
-    real(kind=8), dimension(p*n) :: k1, k2, k3, k4, y_temp !Útils per a la implementació del RK4.
+    real(kind=8), dimension(p, 2*n) :: k1, k2, k3, k4 !Útils per a la implementació del RK4.
     real(kind=8) :: dx,dy,r_ij,r_ij3,fx,fy
     
 
@@ -65,7 +65,7 @@ program sist_solar
     !real(kind=8), dimension(2) :: v0_ura = (/ -3.273722830755306E-03, 2.053528375126505E-03 /)
     !real(kind=8), dimension(2) :: v0_nep = (/ 3.941595250081164E-05, 3.160389775728832E-03 /)
 
-        !Inicialitzem tots els vectors.
+    !Inicialitzem tots els vectors.
     m(1) = M_0/M_0
     m(2) = m_mer
     m(3) = m_ven
@@ -91,7 +91,7 @@ program sist_solar
     v(3,:) = v0_ven
     v(4,:) = v0_ter
     v(5,:) = v0_mar
-    !v(6,:) = v0_jup
+    v(6,:) = v0_jup
     !v(7,:) = v0_sat
     !v(8,:) = v0_ura
     !v(9,:) = v0_nep
@@ -123,7 +123,36 @@ program sist_solar
             write(10,*) (d_estat(i,:))
         end do
     close(10)
-    
+
+    !Implementem RK4.
+    open(unit=20, file='results.dat', status='replace')
+    do k = 1, Nt
+        
+        !Calculem les k's que ens permeten actualitzar el vector d'estat
+        k1 = dt * d_estat
+        k2 = dt * d_estat + 0.5 * k1
+        k3 = dt * d_estat + 0.5 * k2
+        k4 = dt * d_estat + k3
+        
+        d_estat = d_estat + (1.0 / 6.0) * (k1 + 2.0 * k2 + 2.0 * k3 + k4)
+
+        !Amb les velocitats (primeres 2 columnes del d_estat), podem trobar les noves posicions per a cada cos.
+        do j = 1, p 
+            estat(j,3) = d_estat(j,1) !Actualitzem vx.
+            estat(j,4) = d_estat(j,2) !Actualitzem vy.
+            estat(j,1) = estat(j,1) + dt * d_estat(j,1) !Actualitzem x.
+            estat(j,2) = estat(j,2) + dt * d_estat(j,2) !Actualitzem y.
+
+            write(20,*) k, estat(j,:)
+        end do
+        
+
+    end do
+
+
+
+
+    close(10)
     contains
         
         subroutine vector_estat(r,v,estat,p,n) !Subrutina que calcula el vector d'estat (x,y,vx,vy).
@@ -178,8 +207,8 @@ program sist_solar
                         r_ij = sqrt(dx**2 + dy**2) !Distància total entre dos cossos.
                         r_ij3 = r_ij**3
 
-                        fx = -G * m(j) * dx / r_ij3 !Força ponderada en x.
-                        fy = -G * m(j) * dy / r_ij3 !Força ponderada en y.
+                        fx = - G * m(j) * dx / r_ij3 !Força ponderada en x.
+                        fy = - G * m(j) * dy / r_ij3 !Força ponderada en y.
 
                         ax(i) = ax(i) + fx
                         ay(i) = ax(i) + fy
