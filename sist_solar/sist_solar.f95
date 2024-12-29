@@ -134,11 +134,11 @@ program sist_solar !Codi per efectuar la simulació del sistema solar en el pla 
 
         !Calculem les k's que ens permeten actualitzar el vector d'estat
         k1 = dt * d_estat
-        k2 = dt * d_estat + 0.5 * k1
-        k3 = dt * d_estat + 0.5 * k2
-        k4 = dt * d_estat + k3
+        k2 = dt * d_estat + (dt/2) * k1
+        k3 = dt * d_estat + (dt/2) * k2
+        k4 = dt * d_estat + dt * k3
         
-        d_estat = d_estat + (1.0 / 6.0) * (k1 + 2.0 * k2 + 2.0 * k3 + k4)
+        d_estat = d_estat + (dt / 6.0) * (k1 + 2.0 * k2 + 2.0 * k3 + k4)
 
         !Amb les velocitats (primeres 2 columnes del d_estat), podem trobar les noves posicions per a cada cos.
         do j = 1, p 
