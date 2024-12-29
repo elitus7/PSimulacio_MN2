@@ -16,11 +16,11 @@ program sist_solar !Codi per efectuar la simulació del sistema solar en el pla 
     integer, parameter :: p = 6 !Número de cossos al sistema solar modelitzat.
     integer :: q = n*p !Número d'equacions.
     real(kind=8), dimension(p, n) :: r, v !Vectors posicions i velocitat.
-    real(kind=8), dimension(p, 2*n) :: estat, estat_temp, d_estat,d_estat_temp !Vectors d'estat que agrupa posicions i velocitats.
+    real(kind=8), dimension(p, 2*n) :: estat, d_estat !Vectors d'estat que agrupa posicions i velocitats.
     real(kind=8), dimension(p) :: rx,ry,vx,vy,ax,ay
     real(kind=8), dimension(p) :: m  !Vector amb les masses normalitzades.
     real(kind=8), dimension(p, 2*n) :: k1, k2, k3, k4 !Útils per a la implementació del RK4.
-    real(kind=8) :: dx,dy,r_ij,r_ij3,fx,fy
+    
     
 
     !Masses dels planetes en kg's.
@@ -116,18 +116,22 @@ program sist_solar !Codi per efectuar la simulació del sistema solar en el pla 
         end do
     close(10)
 
+    !FINS AQUÍ TOT BÉ (o això sembla).
+
+
     !De forma similar, definim la corresponent derivada del vector d'estat, que agrupa per cada cos (velocitats, acceleracions)
-    call deriv_estat(r,v,estat,d_estat,p,n,rx,ry,vx,vy,ax,ay)
+    call deriv_estat(estat,d_estat,p,n,rx,ry,vx,vy,ax,ay)
     open(unit=10, file="d_estat0_ssolar.dat",status="replace") !Arxiu amb la derivada vector estat inicial. Cada fila és un cos i es llegeix com (vx,vy,ax,ay).
         do i = 1, 6
             write(10,*) (d_estat(i,:))
         end do
     close(10)
-
+    
     !Implementem RK4.
     open(unit=20, file='results.dat', status='replace')
     do k = 1, Nt
         
+
         !Calculem les k's que ens permeten actualitzar el vector d'estat
         k1 = dt * d_estat
         k2 = dt * d_estat + 0.5 * k1
@@ -146,13 +150,14 @@ program sist_solar !Codi per efectuar la simulació del sistema solar en el pla 
             write(20,*) k, estat(j,:)
         end do
         
+        !Ara que tenim un nou vector d'estat hem de recalcular el d_estat!
+        call deriv_estat(estat,d_estat,p,n,rx,ry,vx,vy,ax,ay)
 
     end do
 
+    close(20)
 
 
-
-    close(10)
     contains
         
         subroutine vector_estat(r,v,estat,p,n) !Subrutina que calcula el vector d'estat (x,y,vx,vy).
@@ -171,30 +176,29 @@ program sist_solar !Codi per efectuar la simulació del sistema solar en el pla 
             end do
         end subroutine
          
-        subroutine deriv_estat(r,v,estat,d_estat,p,n,rx,ry,vx,vy,ax,ay) !Subrutina que calcula la derivada del vector d'estat per cada instant de tempps (vx,vy,ax,ay).
+        subroutine deriv_estat(estat,d_estat,p,n,rx,ry,vx,vy,ax,ay) !Subrutina que calcula la derivada del vector d'estat per cada instant de tempps (vx,vy,ax,ay).
             integer, intent(in) :: p
             integer, intent(in) :: n
-            real(kind=8), dimension(p, n), intent(in) :: r,v
             real(kind=8), dimension(p, 2*n), intent(in) :: estat !(x,y,vx,vy)
             real(kind=8), dimension(p, 2*n), intent(out) :: d_estat !(vx,vy,ax,ay)
             real(kind=8), dimension(p), intent(out) :: rx,ry,vx,vy,ax,ay
-            real(kind=8) :: dx,dy,r_ij,r_ij3,fx,fy
+            real(kind=8) :: dx,dy,fx,fy,d
 
             do i = 1, p
-                rx(i) = r(i,1)
-                ry(i) = r(i,2)
-                vx(i) = v(i,1)
-                vy(i) = v(i,2)
+                rx(i) = estat(i,1) !r(i,1) 
+                ry(i) = estat(i,2) !r(i,2) 
+                vx(i) = estat(i,3) !v(i,1) 
+                vy(i) = estat(i,4) !v(i,2)
             end do
 
             do i = 1, p
-                d_estat(i,1) = vx(i)
-                d_estat(i,2) = vy(i)
+                d_estat(i,1) = estat(i,3)
+                d_estat(i,2) = estat(i,4)
                 d_estat(i,3) = 0.0 !Inicialitzem les acceleracions a 0.
                 d_estat(i,4) = 0.0
             end do
 
-            !Calculem les acceleracions a les que cada cos està sotmés.
+            !Calculem les acceleracions (normalitzades a les unitats de treball) a les que cada cos està sotmés.
             do i = 1, p
                 ax(i) = 0.0
                 ay(i) = 0.0
@@ -204,11 +208,10 @@ program sist_solar !Codi per efectuar la simulació del sistema solar en el pla 
                         
                         dx = rx(i) - rx(j) !Distància en x entre dos cossos.
                         dy = ry(i) - ry(j) !Distància en y entre dos cossos.
-                        r_ij = sqrt(dx**2 + dy**2) !Distància total entre dos cossos.
-                        r_ij3 = r_ij**3
+                        d = (dx**2 + dy**2)**(0.5)
 
-                        fx = - G * m(j) * dx / r_ij3 !Força ponderada en x.
-                        fy = - G * m(j) * dy / r_ij3 !Força ponderada en y.
+                        fx = - m(j) * dx / d**3 !Força (unitats normalitzades) en x.
+                        fy = - m(j) * dy / d**3 !Força (unitats normalitzades) en y.
 
                         ax(i) = ax(i) + fx
                         ay(i) = ax(i) + fy
@@ -217,14 +220,13 @@ program sist_solar !Codi per efectuar la simulació del sistema solar en el pla 
 
             end do
 
+            !Introduim els nous valors a d_estat.
             do i = 1, p
-                d_estat(i,1) = vx(i)
-                d_estat(i,2) = vy(i)
+                d_estat(i,1) = estat(i,3)
+                d_estat(i,2) = estat(i,4)
                 d_estat(i,3) = ax(i)
                 d_estat(i,4) = ay(i)
             end do
         end subroutine 
-
-
     
 end program sist_solar
