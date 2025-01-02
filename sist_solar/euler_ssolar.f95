@@ -6,7 +6,6 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
     real, parameter :: M_0 = 1.98847E30 !Massa del Sol (kilograms).
     real, parameter :: G = 6.67384E-11 !Constant de la gravitació universal.
     real(kind=8), parameter :: t_0 = ((d_0**3)/(M_0*G))**(0.5) !Factor de normalització temporal (segons).
-    real(kind=8) :: v_0 = d_0 / t_0 !Factor de normalització per velocitats.
     real(kind=8) :: dt = 3600*24 !Discretització temporal en segons. Més tard el normalitzem usant t_0.
     real(kind=8) :: t = 0 !Temps. El fixem inicialment a 0.
     real(kind=8) :: t_final = 365*24*3600 !Temps final a un any (en segons), més tard el normalitzarem.
@@ -106,7 +105,19 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
 
 
     open(unit=10, file='results_euler.dat', status='replace')
-    open(unit=20, file='terra.dat', status='replace')
+    open(unit=20, file='sol.dat', status='replace')
+        write(20,*) rx(1), ry(1)
+    open(unit=30, file='mercuri.dat', status='replace')
+        write(30,*) rx(2), ry(2)
+    open(unit=40, file='venus.dat', status='replace')
+        write(40,*) rx(3), ry(3)
+    open(unit=50, file='planets\terra.dat', status='replace')
+        write(50,*) rx(4), ry(4)
+    open(unit=60, file='mart.dat', status='replace')
+        write(60,*) rx(5), ry(5)
+    open(unit=70, file='jupiter.dat', status='replace')
+        write(70,*) rx(6), ry(6)
+
     do i = 1, Nt
         ! Inicialitza acceleracions a zero
         ax = 0
@@ -140,11 +151,20 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
             write(10,*) i, rx(k), ry(k), vx(k), vy(k), ax(k), ay(k)
         end do
     
-        write(20,*) rx(4), ry(4)  ! Resultats per la Terra (index 4)
+        write(20,*) rx(1), ry(1)  
+        write(30,*) rx(2), ry(2)  
+        write(40,*) rx(3), ry(3)  
+        write(50,*) rx(4), ry(4)  
+        write(60,*) rx(5), ry(5)  
+        write(70,*) rx(6), ry(6)  
     end do
-    
     
     close(10)
     close(20)
+    close(30)
+    close(40)
+    close(50)
+    close(60)
+    close(70)
 
 end program euler_sist_solar
