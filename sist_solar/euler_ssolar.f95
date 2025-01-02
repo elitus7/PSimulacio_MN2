@@ -99,9 +99,6 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
     Nt = ceiling((t_final - t)/dt)
 
 
-    
-    
-
     rx = r(:,1)
     ry = r(:,2)
     vx = v(:,1) / (24*3600) * t_0
@@ -109,61 +106,45 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
 
 
     open(unit=10, file='results_euler.dat', status='replace')
-
-
+    open(unit=20, file='terra.dat', status='replace')
     do i = 1, Nt
-        !Calculem les acceleracions sobre cada cos. 
+        ! Inicialitza acceleracions a zero
         ax = 0
         ay = 0
-        do j = 1,p
-
-            do k = 1,p 
-
-                if (k /= j) then !No té sentit calcular l'acceleració que la Terra efectua sobre la Terra...
-                    
-                    dx = rx(j) - rx(k) !Distància en x entre dos cossos.
-                    dy = ry(j) - ry(k) !Distància en y entre dos cossos.
-                    d = (dx**2 + dy**2)**(0.5)
-
-                    fx = - m(k) * dx / d**3 !Força (unitats normalitzades) en x.
-                    fy = - m(k) * dy / d**3 !Força (unitats normalitzades) en y.
-
+    
+        ! 1. Calcula acceleracions per tots els cossos
+        do j = 1, p
+            do k = 1, p
+                if (k /= j) then
+                    dx = rx(j) - rx(k)
+                    dy = ry(j) - ry(k)
+                    d = (dx**2 + dy**2)**0.5
+                    fx = - m(k) * dx / d**3
+                    fy = - m(k) * dy / d**3
                     ax(j) = ax(j) + fx
                     ay(j) = ay(j) + fy
-
-                   
-                    
                 end if
-            
             end do
-
-            
-            
-            !Un cop tenim l'acceleració sobre el planeta j, podem trobar les noves velocitats i, en conseqüència, les noves posicions.
-            do k = 1, p
-                vx(k) = vx(k) + ax(k) * dt
-                vy(k) = vy(k) + ay(k) * dt
-                rx(k) = rx(k) + vx(k) * dt
-                ry(k) = ry(k) + vy(k) * dt
-
-            end do
-
-            r(j,1) = rx(j)
-            r(j,2) = ry(j)
-            v(j,1) = vx(j)
-            v(j,2) = vy(j)
-            a(j,1) = ax(j)
-            a(j,2) = ay(j)
-            
         end do
-
-        do k = 1,p
-            write(10,*) i, r(k,:), v(k,:), a(k,:)
+    
+        ! Actualitza velocitats i posicions per a cada cos
+        do j = 1, p
+            vx(j) = vx(j) + ax(j) * dt
+            vy(j) = vy(j) + ay(j) * dt
+            rx(j) = rx(j) + vx(j) * dt
+            ry(j) = ry(j) + vy(j) * dt
         end do
-
-        
+    
+        ! Escrivim els resultats a cada iteració
+        do k = 1, p
+            write(10,*) i, rx(k), ry(k), vx(k), vy(k), ax(k), ay(k)
+        end do
+    
+        write(20,*) rx(4), ry(4)  ! Resultats per la Terra (index 4)
     end do
-
+    
+    
     close(10)
+    close(20)
 
 end program euler_sist_solar
