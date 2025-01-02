@@ -2,11 +2,12 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
     implicit none(type, external)
 
     !Primer definim els factors de normalització, algunes constants i les variables que seran necessàries. Molts cops especifiquem (kind=8) per tal de tenir un grau de precissió major.
-    real(kind=8), parameter :: d_0 = 1.495978707E11_8 !Unitat astronòmica (metres).
+    real(kind=8), parameter :: d_0 = 1.495978707E11 !Unitat astronòmica (metres).
     real, parameter :: M_0 = 1.98847E30 !Massa del Sol (kilograms).
     real, parameter :: G = 6.67384E-11 !Constant de la gravitació universal.
-    real(kind=8) :: t_0 = ((d_0**3)/(M_0*G))**(0.5) !Factor de normalització temporal (segons).
-    real(kind=8) :: dt = 3600*24 !Discretització temporal, es correspon amb 1 dia. Més tard el normalitzem usant t_0.
+    real(kind=8), parameter :: t_0 = ((d_0**3)/(M_0*G))**(0.5) !Factor de normalització temporal (segons).
+    real(kind=8) :: v_0 = d_0 / t_0 !Factor de normalització per velocitats.
+    real(kind=8) :: dt = 3600*24 !Discretització temporal en segons. Més tard el normalitzem usant t_0.
     real(kind=8) :: t = 0 !Temps. El fixem inicialment a 0.
     real(kind=8) :: t_final = 365*24*3600 !Temps final a un any (en segons), més tard el normalitzarem.
     integer :: Nt !Passos temporals.
@@ -14,7 +15,7 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
 
     integer, parameter :: n = 2 !Dimensions. Treballem en el pla, per tant aquest valor és 2.
     integer, parameter :: p = 6 !Número de cossos al sistema solar modelitzat.
-    real(kind=8), dimension(p, n) :: r, v !Vectors posicions i velocitat.
+    real(kind=8), dimension(p, n) :: r, v, a !Vectors posicions, velocitat i acceleració.
     real(kind=8), dimension(p) :: rx,ry,vx,vy,ax,ay
     real(kind=8), dimension(p) :: m  !Vector amb les masses normalitzades.
     real(kind=8) :: dx,dy,d,fx,fy
@@ -98,16 +99,18 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
     Nt = ceiling((t_final - t)/dt)
 
 
-
-    !Ara implementem el mètode d'Euler.
+    
+    
 
     rx = r(:,1)
     ry = r(:,2)
-    vx = v(:,1)
-    vy = v(:,2)
+    vx = v(:,1) / (24*3600) * t_0
+    vy = v(:,2) / (24*3600) * t_0
 
 
     open(unit=10, file='results_euler.dat', status='replace')
+
+
     do i = 1, Nt
         !Calculem les acceleracions sobre cada cos. 
         ax = 0
@@ -135,32 +138,32 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
             end do
 
             
+            
             !Un cop tenim l'acceleració sobre el planeta j, podem trobar les noves velocitats i, en conseqüència, les noves posicions.
             do k = 1, p
                 vx(k) = vx(k) + ax(k) * dt
                 vy(k) = vy(k) + ay(k) * dt
                 rx(k) = rx(k) + vx(k) * dt
                 ry(k) = ry(k) + vy(k) * dt
+
             end do
 
             r(j,1) = rx(j)
             r(j,2) = ry(j)
             v(j,1) = vx(j)
             v(j,2) = vy(j)
-            
+            a(j,1) = ax(j)
+            a(j,2) = ay(j)
             
         end do
 
         do k = 1,p
-            write(10,*) i, r(k,:)
+            write(10,*) i, r(k,:), v(k,:), a(k,:)
         end do
 
         
     end do
 
     close(10)
-
-
-
 
 end program euler_sist_solar
