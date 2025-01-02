@@ -14,7 +14,6 @@ program sist_solar !Codi per efectuar la simulació del sistema solar en el pla 
 
     integer, parameter :: n = 2 !Dimensions. Treballem en el pla, per tant aquest valor és 2.
     integer, parameter :: p = 6 !Número de cossos al sistema solar modelitzat.
-    integer :: q = n*p !Número d'equacions.
     real(kind=8), dimension(p, n) :: r, v !Vectors posicions i velocitat.
     real(kind=8), dimension(p, 2*n) :: estat, d_estat, estat_inicial !Vectors d'estat que agrupa posicions i velocitats.
     real(kind=8), dimension(p) :: rx,ry,vx,vy,ax,ay
@@ -22,7 +21,6 @@ program sist_solar !Codi per efectuar la simulació del sistema solar en el pla 
     real(kind=8), dimension(p, n) :: k1, k2, k3, k4 !Útils per a la implementació del RK4.
     real(kind=8) :: fx, fy, f_aix, f_aiy
     real(kind=8), dimension(p,n) :: f_vec
-    
     
 
     !Masses dels planetes en kg's.
