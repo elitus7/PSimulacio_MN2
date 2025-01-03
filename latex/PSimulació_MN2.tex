@@ -57,7 +57,6 @@
 Here goes \textit{blahblahblah}
 
 \section{Plantejament del problema del Sistema Solar}
-Here goes more \textit{blahblahblah}  AAAAAAA
 
 \subsection{Modelització del Sistema Solar}
 Per tal de modelitzar el Sistema Solar, partirem de la Segona Llei de Newton i la igualarem a la Lley de la Gravitació Universal, tot dividint per la massa del cos $p$, $M_p$. Fent això ens queda que l'acceleració a la qual està sotmesa aquest cos és:
@@ -66,25 +65,22 @@ Per tal de modelitzar el Sistema Solar, partirem de la Segona Llei de Newton i l
     \derivative[2]{\mathbf{r}^{(p)}}{t} = - G \left[ \sum_{l \neq p} M_l \frac{(\mathbf{r}^{(p)}-\mathbf{r}^{(l)})}{\abs{\mathbf{r}^{(p)} - \mathbf{r}^{(l)}}^3}\right], \hspace{0.25cm} p = 1, 2, \ldots 
 \end{equation}
 
-En aquesta equació el vector $\mathbf{r}^{(p)}$ és el vector posició (marquem els vectors en negreta) del cos $p$ respecte del Sol (que el situem a l'origen de coordenades), $M_l$ la massa dels cossos diferents a $p$ i $\mathbf{r}^{(l)}$ les seves posicions respecte l'origen. Fixem-nos, doncs, que segons aquesta equació, la força que actua sobre un planeta donat es correspon amb la suma de les forces exercides per tots els cossos del sistema solar sobre ell. 
+En aquesta equació el vector $\mathbf{r}^{(p)}$ és el vector posició (marquem els vectors en negreta) del cos $p$ respecte del Sol (de manera que el nostre origen de coordenades serà la posició inicial del Sol), $M_l$ la massa dels cossos diferents a $p$ i $\mathbf{r}^{(l)}$ les seves posicions respecte l'origen. Fixem-nos, doncs, que segons aquesta equació, la força que actua sobre un planeta donat es correspon amb la suma de les forces exercides per tots els cossos del sistema solar sobre ell. 
 
-Simplificarem l'expressió definint $\mathbf{d}_{pl} \equiv (\mathbf{r}^{(p)}-\mathbf{r}^{(l)})$ i treballant amb vectors unitaris, de tal manera que $\mathbf{d}_{pl} = d_{lp}\cdot \hat{u}_{lp}$. Així, la darrera equació queda com
+Simplificarem l'expressió definint $\mathbf{d}_{pl} \equiv (\mathbf{r}^{(p)}-\mathbf{r}^{(l)})$. Així, la darrera equació queda com
 \begin{equation}
-    \derivative[2]{\mathbf{r}^{(p)}}{t} = - G \left[ \sum_{l \neq p} M_l \frac{\hat{u}_{lp}}{d_{lp}^2}\right], \hspace{0.25cm} p = 1, 2, \ldots 
+    \derivative[2]{\mathbf{r}^{(p)}}{t} = - G \left[ \sum_{l \neq p} M_l \frac{\mathbf{d}_{lp}}{\abs{\mathbf{d}_{lp}}^3}\right], \hspace{0.25cm} p = 1, 2, \ldots 
 \end{equation}
 
 Per tal de facilitar-ne la ressolució, podem transformar aquesta equació diferencial de segon ordre a la següent
 
 \begin{equation}
-    \derivative{\mathbf{v}^{(p)}}{t} = -G \left[ \sum_{l \neq p} M_l\frac{\hat{u}_{lp}}{d_{lp}^2} \right], \hspace{0.25cm} p = 1,2 \ldots \label{2}
+    \derivative{\mathbf{v}^{(p)}}{t} = -G \left[ \sum_{l \neq p} M_l\frac{\mathbf{d}_{lp}}{\abs{\mathbf{d}_{lp}}^3}\right], \hspace{0.25cm} p = 1,2 \ldots \label{2}
 \end{equation}
 
-on hem usat que
-
-\begin{equation}
-    \mathbf{v}^{(p)} \equiv \derivative{\mathbf{r}^{(p)}}{t}, \hspace{0.25cm} p = 1,2 \ldots
-\end{equation}
 De forma que tenim ara un conjunt de $n \cross p$ (on $n$ són les dimensions) equacions diferencials de primer ordre a resoldre. A la pràctica, com que tots els planetes del sistema solar tenen orbites coplanàries (a excepció de Plutó, que no el considerarem), podem assumir que estem davant d'un problema bidimensional, de manera que tindre $2 \cross p$ EDOs de primer ordre a resoldre.
+
+Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques. A més a més, el moviment d'aquests cossos serà al pla de l'eclíptica; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques) al repositori de \textit{GitHub} (veure ANNEX!!!!!!!!!!!!!!!!). 
 
 \subsection{Normalització de les equacions}
 Per tal de resoldre el problema minimitzant errors i temps de càlcul cal normalitzar \eqref{2}. Definim unes quantitats característiques del sistema: escollim $M_0 = M_s$ (la massa del Sol) i $d_0 = UA$ (unitat astronòmica), ja que així podrem treballar amb valors propers a la unitat. D'aquí se'n deriva que
@@ -93,16 +89,33 @@ Per tal de resoldre el problema minimitzant errors i temps de càlcul cal normal
 \end{equation*}
 Usant tot això, podem arribar fàcilment a 
 \begin{equation}
-    \derivative[2]{\mathbf{\tilde{r}}^{(p)}}{\tilde{t}} = - \sum_{l \neq p} \frac{\tilde{M_l}}{\tilde{d}_{lp}^2} \tilde{\hat{u}}_{lp}, \hspace{0.25cm} p = 1,2 \ldots
+    \derivative[2]{\mathbf{\tilde{r}}^{(p)}}{\tilde{t}} = - \sum_{l \neq p} \frac{\mathbf{d}_{lp}}{\abs{\mathbf{d}_{lp}}^3}, \hspace{0.25cm} p = 1,2 \ldots
 \end{equation}
 d'on tenim que
 \begin{equation}
-    \boxed{\derivative{\tilde{v}_i^{(p)}}{\tilde{t}} = - \sum_{l \neq p} \alpha_{lp} \tilde{u}_{lp,i}, \hspace{0.25cm} p = 1,2 \ldots, \hspace{0.25cm} i = 1, 2}
+    \boxed{\derivative{\tilde{v}_i^{(p)}}{\tilde{t}} = - \sum_{l \neq p} M_l \frac{d_{lp,i}}{\abs{\mathbf{d}_{lp}}^3} \hspace{0.25cm} p = 1,2 \ldots, \hspace{0.25cm} i = 1, 2} \label{eq5}
 \end{equation}
-on $\alpha_{lp} \equiv \frac{\tilde{M_l}}{\tilde{d}_{lp}^2}$.
 
-\section{Condicions inicials}
-Per tal de conèixer les condicions inicials de cadascun dels cossos del sistema solar modelitzat (això és, $\mathbf{r}^{(p)}$ i $\mathbf{v}^{(p)}$) hem usat la base de dades del \textit{Horizons Ephemeris Service} de la NASA, que podeu trobar a \url{https://ssd.jpl.nasa.gov/horizons/}. Agafem com a punt inicial les posicions i les velocitats el dia 01-01-2025.
+\subsection{Condicions inicials}
+Per tal de conèixer les condicions inicials de cadascun dels cossos del sistema solar modelitzat (això és, $\mathbf{r}^{(p)}$ i $\mathbf{v}^{(p)}$) hem usat la base de dades del \textit{Horizons Ephemeris Service} de la NASA, que podeu trobar a \url{https://ssd.jpl.nasa.gov/horizons/}. Agafem com a punt inicial les posicions i les velocitats el dia 01-01-2025 de tots els cossos rellevants del sistema solar.
+
+\subsection{Mètode numèric i avaluació de l'error}
+El mètode numèric utilitzat ha estat el mètode d'Euler (per sistemes EDOs)\footnote{Les corresponents equacions es poden consultar als apunts de l'assignatura.} aplicat a l'equació \eqref{eq5} per diferents discretitzacions temporals: $dt = 1$ any, $dt = 1$ mes i $dt = 1$ dia.
+
+Per tal d'avaluar l'error comés estudiarem l'evolució de les dues quantitats conservades d'aquest sistema: el moment angular $\abs{\mathbf{L}} \equiv L$ i l'energia total $\varepsilon$. Idealment, a cada cas d'iteració el valor de $E$ i $L$ ha de ser el mateix que a $t_0$; les fluctuacions en aquestes quantitats ens permetran determinar l'error numèric comès segons:
+
+\begin{align}
+    E_{\varepsilon_i} = \left( \frac{\Delta \varepsilon_i}{\varepsilon_0} \right) & = \frac{\abs{\varepsilon_i - \varepsilon_0}}{\varepsilon_0} \\
+    E_{L_i} = \left( \frac{\Delta L_i}{L_0} \right) & = \frac{\abs{L_i - L_0}}{L_0}
+\end{align}
+
+On els valors de $\varepsilon$ i $L$ es poden treure a partir de les equacions fonamentals de la dinàmica.
+
+\section{Resultats i discussió}
+
+\subsection{Sistema Solar}
+
+
 
 
 \newpage
@@ -116,4 +129,5 @@ Per tal de conèixer les condicions inicials de cadascun dels cossos del sistema
 \section{Normalització sistema solar}
 Per tal de dur a terme la normalització definim unes quantitats característiques del sistema: $M_0 = M_s$ i $d_0 = UA$ (unitat astronòmica). Per altra banda, definim també $\mathbf{d}_{pl} = \mathbf{r}^{(p)}-\mathbf{r}^{(l)}$ (distància entre dos cossos del sistema solar).
 
+\section{Repositori de \textit{GitHub}}
 \end{document}
