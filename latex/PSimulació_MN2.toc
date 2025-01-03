@@ -7,5 +7,5 @@
 \contentsline {subsection}{\numberline {2.4}Mètode numèric i avaluació de l'error}{2}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Resultats i discussió}{2}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Sistema Solar}{2}{subsection.3.1}%
-\contentsline {section}{\numberline {A}Normalització sistema solar}{4}{appendix.A}%
-\contentsline {section}{\numberline {B}Repositori de \textit {GitHub}}{4}{appendix.B}%
+\contentsline {section}{\numberline {A}Repositori de \textit {GitHub}}{4}{appendix.A}%
+\contentsline {section}{\numberline {B}Normalització sistema solar}{4}{appendix.B}%

@@ -6,6 +6,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[left=2.15cm, right=2.15cm, top=30mm, bottom=20mm]{geometry}
 \usepackage{parskip}
+\usepackage{subcaption}
 \usepackage{titlesec}
 \usepackage{bookmark}
 \usepackage{multirow}
@@ -80,7 +81,7 @@ Per tal de facilitar-ne la ressolució, podem transformar aquesta equació difer
 
 De forma que tenim ara un conjunt de $n \cross p$ (on $n$ són les dimensions) equacions diferencials de primer ordre a resoldre. A la pràctica, com que tots els planetes del sistema solar tenen orbites coplanàries (a excepció de Plutó, que no el considerarem), podem assumir que estem davant d'un problema bidimensional, de manera que tindre $2 \cross p$ EDOs de primer ordre a resoldre.
 
-Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques. A més a més, el moviment d'aquests cossos serà al pla de l'eclíptica; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques) al repositori de \textit{GitHub} (veure ANNEX!!!!!!!!!!!!!!!!). 
+Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques. A més a més, el moviment d'aquests cossos serà al pla de l'eclíptica; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques) al repositori de \textit{GitHub} (veure \ref{an:a}). 
 
 \subsection{Normalització de les equacions}
 Per tal de resoldre el problema minimitzant errors i temps de càlcul cal normalitzar \eqref{2}. Definim unes quantitats característiques del sistema: escollim $M_0 = M_s$ (la massa del Sol) i $d_0 = UA$ (unitat astronòmica), ja que així podrem treballar amb valors propers a la unitat. D'aquí se'n deriva que
@@ -103,7 +104,6 @@ Per tal de conèixer les condicions inicials de cadascun dels cossos del sistema
 El mètode numèric utilitzat ha estat el mètode d'Euler (per sistemes EDOs)\footnote{Les corresponents equacions es poden consultar als apunts de l'assignatura.} aplicat a l'equació \eqref{eq5} per diferents discretitzacions temporals: $dt = 1$ any, $dt = 1$ mes i $dt = 1$ dia.
 
 Per tal d'avaluar l'error comés estudiarem l'evolució de les dues quantitats conservades d'aquest sistema: el moment angular $\abs{\mathbf{L}} \equiv L$ i l'energia total $\varepsilon$. Idealment, a cada cas d'iteració el valor de $E$ i $L$ ha de ser el mateix que a $t_0$; les fluctuacions en aquestes quantitats ens permetran determinar l'error numèric comès segons:
-
 \begin{align}
     E_{\varepsilon_i} = \left( \frac{\Delta \varepsilon_i}{\varepsilon_0} \right) & = \frac{\abs{\varepsilon_i - \varepsilon_0}}{\varepsilon_0} \\
     E_{L_i} = \left( \frac{\Delta L_i}{L_0} \right) & = \frac{\abs{L_i - L_0}}{L_0}
@@ -114,8 +114,46 @@ On els valors de $\varepsilon$ i $L$ es poden treure a partir de les equacions f
 \section{Resultats i discussió}
 
 \subsection{Sistema Solar}
+Després d'implementar el mètode numèric s'han trobat les òrbites (per a cada valor de $dt$) fins a $t=1$ any (terrestre) que es poden veure a la figura \ref{fig1}. A la figura \ref{fig2}, per la seva banda, podem veure les òrbites per a $t=100$ anys per la discretització $t=1$ dia.
+ 
+\begin{figure}[h]
+    \centering
+    
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../sist_solar/orbites_euler_1_d1hora.png}
+        \caption{Òrbites per $dt=1$ hora.}
+        \label{fig:euler_implicit_solucio}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../sist_solar/orbites_euler_1_d1dia.png}
+        \caption{Òrbites per $dt=1$ dia.}
+        \label{fig:euler_implicit_errors}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../sist_solar/orbites_euler_1_d1mes.png}
+        \caption{Òrbites per $dt=1$ mes.}
+        \label{fig:euler_implicit_errors}
+    \end{subfigure}
+    
+    \caption{Òrbites del sistema solar a $t=1$ any (terrestre) per diferents valors de la discretització obtingudes.}
+    \label{fig1}
+\end{figure}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{../sist_solar/orbites_euler_100_1dia.png}
+    \caption{Òrbites obtingudes per $t = 100$ anys amb una discretització $dt=1$ dia.}
+    \label{fig2}
+\end{figure}
 
+A l'annex \ref{an:a} podeu trobar les gràfiques corresponents a tot el Sistema Solar (amb els cossos no descrits aquí) i una animació d'això últim i de les òrbites representades a la figura \ref{fig2}.
+
+ERRORS AQUÍ!
 
 
 \newpage
@@ -126,8 +164,11 @@ On els valors de $\varepsilon$ i $L$ es poden treure a partir de les equacions f
 \newpage
 \appendix
 {\Huge{\textbf{Annexos}}}
+\section{Repositori de \textit{GitHub}}
+\label{an:a}
+
 \section{Normalització sistema solar}
 Per tal de dur a terme la normalització definim unes quantitats característiques del sistema: $M_0 = M_s$ i $d_0 = UA$ (unitat astronòmica). Per altra banda, definim també $\mathbf{d}_{pl} = \mathbf{r}^{(p)}-\mathbf{r}^{(l)}$ (distància entre dos cossos del sistema solar).
 
-\section{Repositori de \textit{GitHub}}
+
 \end{document}

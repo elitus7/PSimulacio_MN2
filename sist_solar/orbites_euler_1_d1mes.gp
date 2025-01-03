@@ -1,4 +1,4 @@
-set terminal pngcairo enhanced size 1500,1080 font "Cambria, 20"
+set terminal pngcairo enhanced size 1500,1080 font "Cambria, 24"
 set output "orbites_euler_1_d1mes.png" 
 
 set xlabel "x (UA)"
