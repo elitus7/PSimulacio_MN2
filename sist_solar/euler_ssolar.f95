@@ -111,7 +111,7 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
         write(30,*) rx(2), ry(2)
     open(unit=40, file='venus.dat', status='replace')
         write(40,*) rx(3), ry(3)
-    open(unit=50, file='planets\terra.dat', status='replace')
+    open(unit=50, file='terra.dat', status='replace')
         write(50,*) rx(4), ry(4)
     open(unit=60, file='mart.dat', status='replace')
         write(60,*) rx(5), ry(5)
@@ -158,6 +158,7 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
         write(60,*) rx(5), ry(5)  
         write(70,*) rx(6), ry(6)  
     end do
+    
     
     close(10)
     close(20)
