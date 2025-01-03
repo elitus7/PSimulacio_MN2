@@ -8,7 +8,7 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
     real(kind=8), parameter :: t_0 = ((d_0**3)/(M_0*G))**(0.5) !Factor de normalització temporal (segons).
     real(kind=8) :: dt = 3600*24 !Discretització temporal en segons. Més tard el normalitzem usant t_0.
     real(kind=8) :: t = 0 !Temps. El fixem inicialment a 0.
-    real(kind=8) :: t_final = 365*24*3600 !Temps final a un any (en segons), més tard el normalitzarem.
+    real(kind=8) :: t_final = 100*365*24*3600 !Temps final a un any (en segons), més tard el normalitzarem.
     integer :: Nt !Passos temporals.
     integer :: i, j, k
 
@@ -104,18 +104,18 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
     vy = v(:,2) / (24*3600) * t_0
 
 
-    open(unit=10, file='results_euler.dat', status='replace')
-    open(unit=20, file='sol.dat', status='replace')
+    open(unit=10, file='results_euler_100_d1dia.dat', status='replace')
+    open(unit=20, file='sol_100_d1dia.dat', status='replace')
         write(20,*) rx(1), ry(1)
-    open(unit=30, file='mercuri.dat', status='replace')
+    open(unit=30, file='mercuri_100_d1dia.dat', status='replace')
         write(30,*) rx(2), ry(2)
-    open(unit=40, file='venus.dat', status='replace')
+    open(unit=40, file='venus_100_d1dia.dat', status='replace')
         write(40,*) rx(3), ry(3)
-    open(unit=50, file='terra.dat', status='replace')
+    open(unit=50, file='terra_100_d1dia.dat', status='replace')
         write(50,*) rx(4), ry(4)
-    open(unit=60, file='mart.dat', status='replace')
+    open(unit=60, file='mart_100_d1dia.dat', status='replace')
         write(60,*) rx(5), ry(5)
-    open(unit=70, file='jupiter.dat', status='replace')
+    open(unit=70, file='jupiter_100_d1dia.dat', status='replace')
         write(70,*) rx(6), ry(6)
 
     do i = 1, Nt
