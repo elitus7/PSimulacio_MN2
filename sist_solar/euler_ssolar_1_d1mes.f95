@@ -104,18 +104,18 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
     vy = v(:,2) / (24*3600) * t_0
 
 
-    open(unit=10, file='results_euler.dat', status='replace')
-    open(unit=20, file='sol.dat', status='replace')
+    open(unit=10, file='results_euler_1_d1mes.dat', status='replace')
+    open(unit=20, file='sol_1_d1mes.dat', status='replace')
         write(20,*) rx(1), ry(1)
-    open(unit=30, file='mercuri.dat', status='replace')
+    open(unit=30, file='mercuri_1_d1mes.dat', status='replace')
         write(30,*) rx(2), ry(2)
-    open(unit=40, file='venus.dat', status='replace')
+    open(unit=40, file='venus_1_d1mes.dat', status='replace')
         write(40,*) rx(3), ry(3)
-    open(unit=50, file='terra.dat', status='replace')
+    open(unit=50, file='terra_1_d1mes.dat', status='replace')
         write(50,*) rx(4), ry(4)
-    open(unit=60, file='mart.dat', status='replace')
+    open(unit=60, file='mart_1_d1mes.dat', status='replace')
         write(60,*) rx(5), ry(5)
-    open(unit=70, file='jupiter.dat', status='replace')
+    open(unit=70, file='jupiter_1_d1mes.dat', status='replace')
         write(70,*) rx(6), ry(6)
 
     do i = 1, Nt
