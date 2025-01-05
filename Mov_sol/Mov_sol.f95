@@ -8,7 +8,7 @@ program mov_sol
     Real :: H_llum(N_a) !Interval d'hores (en minuts) de llum solar
     Real :: dist(N_a) !Distancia terra - sol en cada dia de l'any
     Real, Allocatable :: pos_sol(:,:) !Posició del sol vist desde la placa solar
-    Real :: Theta_0 = -15 + 10*(30/183) ! Angle d'incidencia maxima de llum del dia 1 de gener
+    Real :: Theta_0 = -15 + 10*0.162! Angle d'incidencia maxima de llum del dia 1 de gener
     Real :: H_llum_0 = 546 ! Minuts de llum del dia 1 de gener
 
     real, dimension(N_a, 2) :: dades_terra, dades_sol, resultat
@@ -53,16 +53,16 @@ program mov_sol
       modul_resultat(i) = sqrt(resultat(i, 1)**2 + resultat(i, 2)**2)
     end do
 
-    Do i = 1,81
-        Theta_max(i) = Theta_0 + i*(30/183)
+    Do i = 1,172
+        Theta_max(i) = Theta_0 + i*0.162
         H_llum(i) = H_llum_0 + i*2.115
     End Do
-    Do i = 82, 356
-        Theta_max(i) = 15 - i*(30/183)
+    Do i = 172, 356
+        Theta_max(i) = 15 - (i-171)*0.162
         H_llum(i) = H_llum(i-1) - 2.115
     End Do
     Do i = 357, 366
-        Theta_max(i) = -15 + i*(30/183)
+        Theta_max(i) = -15 + (i-356)*0.162
         H_llum(i) = H_llum(i-1) + 2.115
     End Do
     ! Definim els diferents theta maxims i les hores de llum que tenim al llarg de l'any 
@@ -84,30 +84,33 @@ program mov_sol
             Theta(j) = j*((Theta_max(i) + 42.5)/(H_llum(i)/2))
             If (Theta(j) > (Theta_max(i) + 42.5)) EXIT !L'angle avança fins arribar a Theta maxima
         END DO
-        DO j = int(H_llum(i)/2)+1, int(H_llum(i))
+        DO j = int(H_llum(i)/2) + 1, int(H_llum(i))
             Theta(j) = Theta(j-1) - ((Theta_max(i) + 42.5)/(H_llum(i)/2))
             If (Theta(j) < 0.15) EXIT !L'angle avança fins arribar a Theta 0
         END DO
+        Do j = 1, int(H_llum(i))
+            Theta(j) = Theta(j) - 42.5
+        END DO
 
         DO j = 1, int(H_llum(i))
-            Phi(j) = - 90 + j*(180/H_llum(i)) !Fem la discretització partint de la sortida de sol per l'esquerra i avança cada 30 minuts
-            If (Phi(j) > 90) EXIT !L'angle va avançant fins arribar a phi = 90 graus
+            Phi(j) = 0 + j*(180/H_llum(i)) !Fem la discretització partint de la sortida de sol per l'esquerra i avança cada 30 minuts
         END DO
 
         
         DO j = 1, int(H_llum(i))
-            Pos_sol(j,1) = modul_resultat(i)*sin(theta(j))*cos(phi(j))
-            Pos_sol(j,2) = modul_resultat(i)*cos(theta(j))
+            Pos_sol(j,1) = modul_resultat(i)*sin(theta(j)*(2*3.14159265)/360)*cos(phi(j)*(2*3.14159265)/360)
+            Pos_sol(j,2) = modul_resultat(i)*cos(theta(j)*(2*3.14159265)/360)
         END DO
 
 
     END Do
     open(unit=10,file="mov_sol.dat",status="replace")
-    DO i = 1, int(H_llum(81))
+    DO i = 1, int(H_llum(N_a))
         WRITE(10,*) Pos_sol(i,:)
     END DO
     Close(10)
     
     Write(*,*) Theta
+    Write(*,*) Phi
 
     End program mov_sol
