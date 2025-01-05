@@ -6,13 +6,13 @@
 \contentsline {subsection}{\numberline {2.3}Condicions inicials}{2}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Mètode numèric i avaluació de l'error}{2}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Plantejament del problema de la placa solar}{2}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Modelització del moviment del Sol sobre Montrós}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}Modelització del moviment del Sol sobre Mont-rós}{2}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Normalització de les equacions}{2}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Condicions inicials}{2}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Mètode numèric i avaluació de l'error}{2}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Resultats i discussió}{2}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Sistema Solar}{2}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Moviment del Sol sobre Montrós}{3}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Moviment del Sol sobre Mont-rós}{3}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Energia subministrada per la placa solar}{3}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Conclusions}{3}{section.5}%
 \contentsline {section}{\numberline {A}Repositori de \textit {GitHub}}{5}{appendix.A}%
