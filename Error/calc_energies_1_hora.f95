@@ -7,7 +7,7 @@ program vels
     real, parameter :: M_0 = 1.98847E30 !Massa del Sol (kilograms).
     real, parameter :: G = 6.67384E-11 !Constant de la gravitació universal.
     real(kind=8), parameter :: t_0 = ((d_0**3)/(M_0*G))**(0.5) !Factor de normalització temporal (segons).
-    real(kind=8) :: dt = 3600*24 !Discretització temporal en segons. Més tard el normalitzem usant t_0.
+    real(kind=8) :: dt = 3600 !Discretització temporal en segons. Més tard el normalitzem usant t_0.
     real(kind=8) :: t = 0 !Temps. El fixem inicialment a 0.
     real(kind=8) :: t_final = 365*24*3600 !Temps final a un any (en segons), més tard el normalitzarem.
     integer :: Nt !Passos temporals.
@@ -22,9 +22,9 @@ program vels
     real(kind=8), dimension(p) :: v2 
     real(kind=8), dimension(p) :: Ek
     real(kind=8), dimension(p) :: Ep
-    real(kind=8), dimension(365,p) :: matr_Ek
-    real(kind=8), dimension(365,p) :: matr_Ep
-    real(kind=8), dimension(365,p) :: matr_E
+    real(kind=8), dimension(8760,p) :: matr_Ek
+    real(kind=8), dimension(8760,p) :: matr_Ep
+    real(kind=8), dimension(8760,p) :: matr_E
 
     !Masses dels planetes en kg's.
     real(kind=8), parameter :: Ma_mer = 3.30E23
@@ -154,19 +154,19 @@ program vels
         matr_E = matr_Ek + matr_Ep
     end do
 
-open(unit=20,file='matriuEks.dat',status='replace')
+open(unit=20,file='matriuEks_1_hora.dat',status='replace')
     do i = 1, Nt
         write(20,*) matr_Ek(i,:)
     end do
 close(20)
 
-open(unit=30,file='matriusEps.dat',status='replace')
+open(unit=30,file='matriusEps_1_hora.dat',status='replace')
     do i = 1, Nt
         write(30,*) matr_Ep(i,:)
     end do
 close(30)
 
-open(unit=40,file='matriusEs.dat',status='replace')
+open(unit=40,file='matriusEs_1_hora.dat',status='replace')
     do i = 1, Nt
         write(40,*) matr_E(i,:)
     end do
