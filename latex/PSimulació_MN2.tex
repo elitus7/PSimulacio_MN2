@@ -81,7 +81,7 @@ Per tal de facilitar-ne la ressolució, podem transformar aquesta equació difer
 
 De forma que tenim ara un conjunt de $n \cross p$ (on $n$ són les dimensions) equacions diferencials de primer ordre a resoldre. A la pràctica, com que tots els planetes del sistema solar tenen orbites coplanàries (a excepció de Plutó, que no el considerarem), podem assumir que estem davant d'un problema bidimensional, de manera que tindre $2 \cross p$ EDOs de primer ordre a resoldre.
 
-Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques. A més a més, el moviment d'aquests cossos serà al pla de l'eclíptica; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques) al repositori de \textit{GitHub} (veure \ref{an:a}). 
+Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques. A més a més, el moviment d'aquests cossos serà al pla de l'eclíptica; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques per diferents temps finals) al repositori de \textit{GitHub} (veure \ref{an:a}). 
 
 \subsection{Normalització de les equacions}
 Per tal de resoldre el problema minimitzant errors i temps de càlcul cal normalitzar \eqref{2}. Definim unes quantitats característiques del sistema: escollim $M_0 = M_s$ (la massa del Sol) i $d_0 = UA$ (unitat astronòmica), ja que així podrem treballar amb valors propers a la unitat. D'aquí se'n deriva que
@@ -157,8 +157,20 @@ ERRORS AQUÍ!
 
 
 \newpage
-\begin{thebibliography}
-    a
+\begin{thebibliography}{99}
+    \bibitem{ref1}
+    \textit{Apunts de l'Assignatura}.
+
+    \bibitem{ref2}
+    Aguilar, L. \textit{Modelizando el Sistema Solar}. Consultat el: 11/12/2024. \url{https://www.astrosen.unam.mx/~aguilar/MySite/Teaching_files/BasicEqns-1.pdf}.
+
+    \bibitem{ref3}
+    \textit{Horizon Ephemeris}, NASA. Consultat el: 23/12/2024 Web de consulta de les posicions de tots els astres del sistema solar. \url{https://ssd.jpl.nasa.gov/horizons/}.
+
+    \bibitem{ref4}
+    Universidad de Granada. \textit{El Sistema Solar y las Galaxias. Una Introducción a la Dinámica Molecular}. Consultat el: 11/12/2024. \url{https://ergodic.ugr.es/cphys/LECCIONES/ssolar/planetas-SLIDES.pdf}
+
+    
 \end{thebibliography}
 
 \newpage
@@ -166,6 +178,8 @@ ERRORS AQUÍ!
 {\Huge{\textbf{Annexos}}}
 \section{Repositori de \textit{GitHub}}
 \label{an:a}
+Podeu trobar els codis usats en \textit{Fortran}, les representacions de les gràfiques usant \textit{Gnuplot}, animacions de les simulacions del sistema solar i més al següent repositori (públic) de \textit{GitHub}: \url{https://github.com/elitus7/PSimulacio_MN2}.
+
 
 \section{Normalització sistema solar}
 Per tal de dur a terme la normalització definim unes quantitats característiques del sistema: $M_0 = M_s$ i $d_0 = UA$ (unitat astronòmica). Per altra banda, definim també $\mathbf{d}_{pl} = \mathbf{r}^{(p)}-\mathbf{r}^{(l)}$ (distància entre dos cossos del sistema solar).
