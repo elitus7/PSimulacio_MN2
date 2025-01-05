@@ -110,14 +110,6 @@ program vels
     vx = v(:,1) / (24*3600) * t_0
     vy = v(:,2) / (24*3600) * t_0
 
-
-    open(unit=10, file='vel_1_d1dia.dat',status='replace')
-        do k = 1,p 
-            write(10,*) vx(k)**2+vy(k)**2
-        end do
- 
-    
-
     do i = 1, Nt
         ! Inicialitza acceleracions a zero
         ax = 0
@@ -161,8 +153,6 @@ program vels
 
         matr_E = matr_Ek + matr_Ep
     end do
-   
-close(10)
 
 open(unit=20,file='matriuEks.dat',status='replace')
     do i = 1, Nt
