@@ -93,19 +93,19 @@ program mov_sol
         END DO
 
         DO j = 1, int(H_llum(i))
-            Phi(j) = - 90 + j*(180/H_llum(i)) !Fem la discretització partint de la sortida de sol per l'esquerra i avança cada 30 minuts
+            Phi(j) = 0 + j*(180/H_llum(i)) !Fem la discretització partint de la sortida de sol per l'esquerra i avança cada 30 minuts
         END DO
 
         
         DO j = 1, int(H_llum(i))
             Pos_sol(j,1) = modul_resultat(i)*sin(theta(j)*(2*3.14159265)/360)*cos(phi(j)*(2*3.14159265)/360)
-            Pos_sol(j,2) = modul_resultat(i)*sin(theta(j)*(2*3.14159265)/360)*sin(phi(j)*(2*3.14159265)/360)
+            Pos_sol(j,2) = modul_resultat(i)*cos(theta(j)*(2*3.14159265)/360)
         END DO
 
 
     END Do
     open(unit=10,file="mov_sol.dat",status="replace")
-    DO i = 1, int(H_llum(81))
+    DO i = 1, int(H_llum(N_a))
         WRITE(10,*) Pos_sol(i,:)
     END DO
     Close(10)
