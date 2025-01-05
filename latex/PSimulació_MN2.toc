@@ -10,8 +10,8 @@
 \contentsline {subsection}{\numberline {3.2}Normalització de les equacions}{2}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Condicions inicials}{2}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Mètode numèric i avaluació de l'error}{2}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Resultats i discussió}{2}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Sistema Solar}{2}{subsection.4.1}%
+\contentsline {section}{\numberline {4}Resultats i discussió}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Sistema Solar}{3}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Moviment del Sol sobre Mont-rós}{3}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Energia subministrada per la placa solar}{3}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Conclusions}{3}{section.5}%

@@ -114,6 +114,9 @@ On els valors de $\varepsilon$ i $L$ es poden treure a partir de les equacions f
 \section{Plantejament del problema de la placa solar}
 
 \subsection{Modelització del moviment del Sol sobre Mont-rós}
+Per modelitzar el moviment del Sol des d'un sistema de referència situat en una teulada a Mont-rós, partim d'unes coordenades esfèriques on un angle $\theta$ indica l'alçada del sol i un angle $\phi$ indica la posició horizontal del sol utilitzant el centre de la placa solar com a origen de coordenades.
+
+Així doncs, partint d'aquests angles, realitzem una discretització de cada angle en funció de les hores de llum solar que té cada dia de l'any (informació que hem extret de https://meteogram.es/sol/espana/vielha/ ). En aquesta discretització tenim en compte els angles $\phi$ que limiten la regió on rebem incidència de llum solar i els angles $\theta$ màxims als quals arriba el sol depenent de l'estació de l'any, aquests últims delimitats en un interval determinat per la latitud de Mont-Rós $\pm 15^\circ$.
 
 \subsection{Normalització de les equacions}
 SI CAL

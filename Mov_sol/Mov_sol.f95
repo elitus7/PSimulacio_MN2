@@ -1,12 +1,10 @@
 program mov_sol
     implicit none
-    Integer, parameter :: N_a = 366 !Passos temporals (tot l'any)
-    Integer, parameter :: N_d = 48 !Passos temporals (tot el dia) 
-    Real, Allocatable :: Theta(:)
+    Integer, parameter :: N_a = 366 !Passos temporals (tot l'any) 
+    Real, Allocatable :: Theta(:) !Angle d'incidencia solar vertical que depén de l'hora del dia
     Real :: Theta_max (N_a) !Angle maxim d'incidencia solar que depén de l'alçada a la qual aquest arriba discretitzarem per cada dia de l'any
     Real, Allocatable :: Phi(:) !Angle d'incidencia solar que depén de l'hora del dia (angle lateral), discretitzarem cada 30 min
-    Real :: H_llum(N_a) !Interval d'hores (en minuts) de llum solar
-    Real :: dist(N_a) !Distancia terra - sol en cada dia de l'any
+    Real :: H_llum(N_a) !Interval de temps (en minuts) de llum solar
     Real, Allocatable :: pos_sol(:,:) !Posició del sol vist desde la placa solar
     Real :: Theta_0 = -15 + 10*0.162! Angle d'incidencia maxima de llum del dia 1 de gener
     Real :: H_llum_0 = 546 ! Minuts de llum del dia 1 de gener
@@ -65,11 +63,12 @@ program mov_sol
         Theta_max(i) = -15 + (i-356)*0.162
         H_llum(i) = H_llum(i-1) + 2.115
     End Do
-    ! Definim els diferents theta maxims i les hores de llum que tenim al llarg de l'any 
+    ! Definim els diferents theta maxims i els minuts de llum que tenim al llarg de l'any 
 
     Allocate(phi(1))
     Allocate(theta(1))
     Allocate(pos_sol(2,1))
+    ! Definim temporalment les dimensions dels vectors per evitar problemes amb Fortran
 
     Do i = 1, N_a
 
@@ -79,13 +78,14 @@ program mov_sol
         Allocate(Theta(int(H_llum(i))))
         Deallocate(Phi)
         Allocate(phi(int(H_llum(i))))
+        ! Donem dimensions a totes les variables segons el temps en què els arriba llum solar
 
         DO j = 1, int(H_llum(i)/2)
-            Theta(j) = j*((Theta_max(i) + 42.5)/(H_llum(i)/2))
+            Theta(j) = j*((Theta_max(i) + 42.5)/(H_llum(i)/2)) !Definim un angle theta que avança en cada pas el valor maxim entre la meitat de les hores de llum 
             If (Theta(j) > (Theta_max(i) + 42.5)) EXIT !L'angle avança fins arribar a Theta maxima
         END DO
         DO j = int(H_llum(i)/2) + 1, int(H_llum(i))
-            Theta(j) = Theta(j-1) - ((Theta_max(i) + 42.5)/(H_llum(i)/2))
+            Theta(j) = Theta(j-1) - ((Theta_max(i) + 42.5)/(H_llum(i)/2)) !Definim un angle theta anàleg a l'anterior pero que decreix durant la segona meitat del dia
             If (Theta(j) < 0.15) EXIT !L'angle avança fins arribar a Theta 0
         END DO
 
@@ -98,7 +98,7 @@ program mov_sol
             Pos_sol(j,1) = modul_resultat(i)*cos(phi(j)*(2*3.14159265)/360)
             Pos_sol(j,2) = modul_resultat(i)*sin(theta(j)*(2*3.14159265)/360)*sin(phi(j)*(2*3.14159265)/360)
         END DO
-
+        ! Apliquem els valors dels angles en coordenades esfèriques per trobar les coordenades x,y cartesianes (z,y en esfèriques) del sol agafant el terra com SR
 
     END Do
     open(unit=10,file="mov_sol.dat",status="replace")
