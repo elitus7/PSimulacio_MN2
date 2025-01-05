@@ -67,9 +67,6 @@ program mov_sol
     ! Definim els diferents theta maxims i les hores de llum que tenim al llarg de l'any 
     Allocate(phi(1))
     Do i = 1, N_a
-        Do j = 1, range(phi)
-            Phi(j) = 0
-        END DO
         Deallocate(Phi)
         Allocate(phi(int(H_llum(i))))
         DO j = 1, int(H_llum(i))
