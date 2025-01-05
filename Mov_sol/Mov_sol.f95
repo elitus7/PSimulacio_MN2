@@ -88,9 +88,6 @@ program mov_sol
             Theta(j) = Theta(j-1) - ((Theta_max(i) + 42.5)/(H_llum(i)/2))
             If (Theta(j) < 0.15) EXIT !L'angle avança fins arribar a Theta 0
         END DO
-        Do j = 1, int(H_llum(i))
-            Theta(j) = Theta(j) - 42.5
-        END DO
 
         DO j = 1, int(H_llum(i))
             Phi(j) = 0 + j*(180/H_llum(i)) !Fem la discretització partint de la sortida de sol per l'esquerra i avança cada 30 minuts
@@ -98,8 +95,8 @@ program mov_sol
 
         
         DO j = 1, int(H_llum(i))
-            Pos_sol(j,1) = modul_resultat(i)*sin(theta(j)*(2*3.14159265)/360)*cos(phi(j)*(2*3.14159265)/360)
-            Pos_sol(j,2) = modul_resultat(i)*cos(theta(j)*(2*3.14159265)/360)
+            Pos_sol(j,1) = modul_resultat(i)*cos(phi(j)*(2*3.14159265)/360)
+            Pos_sol(j,2) = modul_resultat(i)*sin(theta(j)*(2*3.14159265)/360)*sin(phi(j)*(2*3.14159265)/360)
         END DO
 
 
