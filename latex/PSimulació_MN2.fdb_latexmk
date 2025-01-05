@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1736076455.671 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1736076457.06989 0
+["pdflatex"] 1736086898.26256 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1736086899.69439 0
   "../sist_solar/orbites_euler_100_1dia.png" 1735932673 140303 e5a5b4d894caadee6f4e29a1461a54e2 ""
   "../sist_solar/orbites_euler_1_d1dia.png" 1735938464 58794 31d866d31d295836558c658f70f1a3d6 ""
   "../sist_solar/orbites_euler_1_d1hora.png" 1735938466 58558 cbfb105df7d684528c39b381118b218a ""
@@ -138,10 +138,10 @@
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/tocloft/tocloft.sty" 1578908763 37263 3e78d14f0f4b1a30560fea5e04de805d ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "Logo_UAB.png" 1734205029 13234 625c1691be58ba47ff71434956c6b32e ""
-  "PSimulació_MN2.aux" 1736076456 6715 b41c7ac2e5438ba5f1a17376dac7bd01 "pdflatex"
-  "PSimulació_MN2.tex" 1736076453 9970 f31c01213f5ded1fb96a96f1b294dbd3 ""
-  "PSimulació_MN2.toc" 1736076456 911 22aa8d8377cce9eab6afb35e775077fd "pdflatex"
-  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1736076453 9970 f31c01213f5ded1fb96a96f1b294dbd3 ""
+  "PSimulació_MN2.aux" 1736086899 11297 dfc21c723fd0ff4946cf559d666860b1 "pdflatex"
+  "PSimulació_MN2.tex" 1736086896 10401 672bf6648aa60526124d47769fb409da ""
+  "PSimulació_MN2.toc" 1736086899 1685 fc71a034b6105cc6087bc3a173ddf9b8 "pdflatex"
+  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1736086896 10401 672bf6648aa60526124d47769fb409da ""
   (generated)
   "PSimulació_MN2.aux"
   "PSimulació_MN2.log"
