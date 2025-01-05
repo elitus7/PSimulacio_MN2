@@ -29,7 +29,7 @@ program euler_sist_solar !Codi per efectuar la simulació del sistema solar en e
     !real(kind=8), parameter :: Ma_ura = 8.68E25
     !real(kind=8), parameter :: Ma_nep = 1.02E26
 
-    !Masses normalitzaces dels planetes.
+    !Masses normalitzades dels planetes.
     real(kind=8) :: m_mer = Ma_mer/M_0
     real(kind=8) :: m_ven = Ma_ven/M_0
     real(kind=8) :: m_ter = Ma_ter/M_0
