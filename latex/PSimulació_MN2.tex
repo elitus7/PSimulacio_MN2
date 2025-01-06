@@ -54,8 +54,10 @@
 \lhead{\textbf{Pràctica de Simulació}}
 \rhead{\textbf{Mètodes Numèrics II}}
 
-\section{Introducció}
-Here goes \textit{blahblahblah}
+\section{Introducció i Objectius}
+Amb el pretext de poder calcular l'energia subministrada per una placa solar de superfície igual a 2 m$^3$ situada en un habitatge unifamiliar de Mont-rós (poble de la província de Lleida, Catalunya), en aquesta pràctica ens plantegem modelitzar el moviment del Sol sobre aquesta localitat en el transcurs de tot un any. 
+
+Per aconseguir això últim, hem fet una simulació del Sistema Solar usant el mètode d'Euler per a diverses discretitzacions temporals, tenint en compte un seguit d'aproximacions fonamentals, entre les quals en destaquem la consideració que tots els planetes es mouen sobre el pla de l'eclíptica i que el Sistema Solar simulat està conformat pels 5 primer planetes del cas real. En els annexos, però, ampliem aquest estudi considerant un cas més pròxim a la realitat i adjuntant, a més a més, un seguit d'animacions que ens permetran visualitzar millor la dinàmica del sistema caracteritzat. 
 
 \section{Plantejament del problema del Sistema Solar}
 
@@ -190,11 +192,11 @@ Els errors relatius en l'energia associats als diferents planetes es poden veure
 
 Tal i com podem veure a les anteriors tres gràfiques, la discretització amb un major error numèric és la corresponent a $dt = 1$ mes, degut a que els grans salts en el temps fan que els errors asssociats al mètode d'Euler, que de per si no és molt bo, es disparin. En concret, podem veure com l'error associat a l'energia de Venus s'arriba a disparar fins a més d'un 80\%. La Terra i Mercuri tenen també errors relatius grans, sobretot al principi, essent aquests propers al 20\% (valor absolut). 
 
-De fet, si ens fixem en la figura \ref{fig1}, per la discretització $dt=1$ mes, podem veure que Mercuri surt disparat del Sistema Solar. Que això no es vegi reflectit, aparentment, en l'error associat a l'energia de Mercuri (que es manté pràcticament constant en una desviació del 20\%) pot ser degut a què els termes en l'energia cinètica i l'energia potencial d'aquest cos es compensen conforme l'astre s'allunya de la seva posició inicial.
+De fet, si ens fixem en la figura \ref{fig1}, per la discretització $dt=1$ mes, podem veure que Mercuri surt disparat del Sistema Solar. Que això no es vegi reflectit, aparentment, en l'error associat a l'energia de Mercuri (que es manté pràcticament constant en una desviació del 20\%) pot ser degut a què les variacions en els termes en l'energia cinètica i l'energia potencial d'aquest cos es compensen conforme l'astre s'allunya de la seva posició inicial.
 
 Tant a la discretització de $dt = 1$ dia com a la de $dt = 1$ hora tenim errors associats als planetes més exteriors del sistema modelitzat similars, essent aquests lleugerament menors en el cas de la discretització per hores, a costa d'un temps de càlcul major. La principal diferència rau, però, en l'error associat a Mercuri: per a la discretització en dies presenta un error relatiu molt major al de la resta de cossos (exceptuant el Sol), assolint pics de fins a un 2.5\%; per a la discretització en hores aquest efecte es disminueix significativament.
 
-Cal que comentem a part, però, el cas del Sol Per a les tres discretitzacions presenta una evolució de l'error associat a l'energia molt similar: en tots els casos té una clara tendència a desviar-se negativament. Podem explicar això si pensem en què el Sol és, dels 6 cossos modelitzats, el que ha tenir posicions i velocitats menors, de forma que l'acumulació d'errors associats al mètode numèric pot fer que aquestes petites quantiats es vegin afectades de forma significativa.
+Cal que comentem a part, però, el cas del Sol Per a les tres discretitzacions presenta una evolució de l'error associat a l'energia molt similar: en tots els casos té una clara tendència a desviar-se negativament. Podem explicar això si pensem en què el Sol és, dels 6 cossos modelitzats, el que ha tenir posicions i velocitats menors, de forma que l'acumulació d'errors associats al mètode numèric pot fer que aquestes petites quantitats es vegin afectades de forma significativa.
 
 Si fem un estudi de l'evolució del Solar fins a un $t_{final}$ major, usant $dt=1$ dia, els resultats que s'obtenen són els que es poden veure a la figura \ref{fig4}.
 
