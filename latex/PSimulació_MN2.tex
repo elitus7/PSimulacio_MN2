@@ -105,8 +105,8 @@ El mètode numèric utilitzat ha estat el mètode d'Euler (per sistemes EDOs)\fo
 
 Per tal d'avaluar l'error comés estudiarem l'evolució de les dues quantitats conservades d'aquest sistema: el moment angular $\abs{\mathbf{L}} \equiv L$ i l'energia total $\varepsilon$. Idealment, a cada cas d'iteració el valor de $E$ i $L$ ha de ser el mateix que a $t_0$; les fluctuacions en aquestes quantitats ens permetran determinar l'error numèric comès segons:
 \begin{align}
-    E_{\varepsilon_i} = \left( \frac{\Delta \varepsilon_i}{\varepsilon_0} \right) & = \frac{\abs{\varepsilon_i - \varepsilon_0}}{\varepsilon_0} \\
-    E_{L_i} = \left( \frac{\Delta L_i}{L_0} \right) & = \frac{\abs{L_i - L_0}}{L_0}
+    E_{\varepsilon_i} = \left( \frac{\Delta \varepsilon_i}{\varepsilon_0} \right) & = \frac{\varepsilon_i - \varepsilon_0}{\varepsilon_0} \\
+    E_{L_i} = \left( \frac{\Delta L_i}{L_0} \right) & = \frac{{L_i - L_0}}{L_0}
 \end{align}
 
 On els valors de $\varepsilon$ i $L$ es poden treure a partir de les equacions fonamentals de la dinàmica.
@@ -161,14 +161,45 @@ Després d'implementar el mètode numèric s'han trobat les òrbites (per a cada
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{../sist_solar/orbites_euler_100_1dia.png}
+    \includegraphics[width=0.45\linewidth]{../sist_solar/orbites_euler_100_1dia.png}
     \caption{Òrbites obtingudes per $t = 100$ anys amb una discretització $dt=1$ dia.}
     \label{fig2}
 \end{figure}
 
 A l'annex \ref{an:a} podeu trobar les gràfiques corresponents a tot el Sistema Solar (amb els cossos no descrits aquí) i una animació d'això últim i de les òrbites representades a la figura \ref{fig2}.
 
-ERRORS AQUÍ!
+Els errors relatius en l'energia associats als diferents planetes es poden veure a la figura \ref{fig3}
+
+\begin{figure}[h!]
+    \centering
+    
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../Error/error_1_hora.png}
+        \caption{Errors per $dt=1$ hora.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../Error/error_1_dia.png}
+        \caption{Errors per $dt=1$ dia.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../Error/error_1_mes.png}
+        \caption{Errors per $dt=1$ mes.}
+    \end{subfigure}
+    
+    \caption{Errors relatius respecte l'energia inicial pels diferents cossos del Sistema Solar a partir de la solució trobada mitjançant el mètode d'Euler, classificat en funció de la discretització emprada.}
+    \label{fig3}
+\end{figure}
+
+Tal i com podem veure a les anteriors tres gràfiques, la discretització amb un major error numèric és la corresponent a $dt = 1$ mes, degut a que els grans salts en el temps fan que els errors asssociats al mètode d'Euler, que de per si no és molt bo, es disparin. En concret, podem veure com l'error associat a l'energia de Venus s'arriba a disparar fins a més d'un 80\%. La Terra i Mercuri tenen també errors relatius grans, sobretot al principi, essent aquests propers al 20\%.
+
+Tant a la discretització de $dt = 1$ dia com a la de $dt = 1$ hora tenim errors associats als planetes més exteriors del sistema modelitzat similars, essent aquests lleugerament menors en el cas de la discretització per hores, a costa d'un temps de càlcul major. La principal diferència rau, però, en l'error associat a Mercuri: per a la discretització en dies presenta un error relatiu molt major al de la resta de cossos (exceptuant el Sol), assolint pics de fins a un 2.5\%; per a la discretització en hores aquest efecte es disminueix significativament.
+
+Cal que comentem a part, però, el cas del Sol Per a les tres discretitzacions presenta una evolució de l'error associat a l'energia molt similar: en tots els casos té una clara tendència a desviar-se negativament. Podem explicar això si pensem en què el Sol és, dels 6 cossos modelitzats, el que ha tenir posicions i velocitats menors, de forma que l'acumulació d'errors associats al mètode numèric pot fer que aquestes petites quantiats es vegin afectades de forma significativa.
 
 \subsection{Moviment del Sol sobre Mont-rós}
 

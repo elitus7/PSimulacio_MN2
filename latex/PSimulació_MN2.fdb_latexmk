@@ -1,5 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1736118334.16408 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1736118335.74967 0
+["pdflatex"] 1736122472.46971 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1736122474.22949 0
+  "../Error/error_1_dia.png" 1736118951 92447 76f6649dd6c3c907d3c51b73d1eb4427 ""
+  "../Error/error_1_hora.png" 1736119472 56749 050212b2b0a17da74cb4adf9d00d49b4 ""
+  "../Error/error_1_mes.png" 1736119472 67058 999e48607a2c06c7712e8d1adac740ee ""
   "../sist_solar/orbites_euler_100_1dia.png" 1735932673 140303 e5a5b4d894caadee6f4e29a1461a54e2 ""
   "../sist_solar/orbites_euler_1_d1dia.png" 1735938464 58794 31d866d31d295836558c658f70f1a3d6 ""
   "../sist_solar/orbites_euler_1_d1hora.png" 1735938466 58558 cbfb105df7d684528c39b381118b218a ""
@@ -140,10 +143,10 @@
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/tocloft/tocloft.sty" 1578908763 37263 3e78d14f0f4b1a30560fea5e04de805d ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "Logo_UAB.png" 1734205029 13234 625c1691be58ba47ff71434956c6b32e ""
-  "PSimulació_MN2.aux" 1736118335 11315 ce92a1df40d728423a807d14bcd17125 "pdflatex"
-  "PSimulació_MN2.tex" 1736118333 11518 3a2efc08b6cdae78fda99d373ff59715 ""
-  "PSimulació_MN2.toc" 1736118335 1685 ddc95239bdb9f34ab7d20ddf4cced6d2 "pdflatex"
-  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1736118333 11518 3a2efc08b6cdae78fda99d373ff59715 ""
+  "PSimulació_MN2.aux" 1736122474 11879 4d07622d6754b5e2766a0edbc26d9242 "pdflatex"
+  "PSimulació_MN2.tex" 1736122471 14063 355a5131c51784968b5721c7add8d22d ""
+  "PSimulació_MN2.toc" 1736122474 1685 fafcf1828d3ddf2cf4890ddbaeda3f4b "pdflatex"
+  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1736122471 14063 355a5131c51784968b5721c7add8d22d ""
   (generated)
   "PSimulació_MN2.aux"
   "PSimulació_MN2.log"
