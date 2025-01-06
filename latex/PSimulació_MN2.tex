@@ -105,8 +105,8 @@ El mètode numèric utilitzat ha estat el mètode d'Euler (per sistemes EDOs)\fo
 
 Per tal d'avaluar l'error comés estudiarem l'evolució de les dues quantitats conservades d'aquest sistema: el moment angular $\abs{\mathbf{L}} \equiv L$ i l'energia total $\varepsilon$. Idealment, a cada cas d'iteració el valor de $E$ i $L$ ha de ser el mateix que a $t_0$; les fluctuacions en aquestes quantitats ens permetran determinar l'error numèric comès segons:
 \begin{align}
-    E_{\varepsilon_i} = \left( \frac{\Delta \varepsilon_i}{\varepsilon_0} \right) & = \frac{\abs{\varepsilon_i - \varepsilon_0}}{\varepsilon_0} \\
-    E_{L_i} = \left( \frac{\Delta L_i}{L_0} \right) & = \frac{\abs{L_i - L_0}}{L_0}
+    E_{\varepsilon_i} = \left( \frac{\Delta \varepsilon_i}{\varepsilon_0} \right) & = \frac{\varepsilon_i - \varepsilon_0}{\varepsilon_0} \\
+    E_{L_i} = \left( \frac{\Delta L_i}{L_0} \right) & = \frac{{L_i - L_0}}{L_0}
 \end{align}
 
 On els valors de $\varepsilon$ i $L$ es poden treure a partir de les equacions fonamentals de la dinàmica.
@@ -116,7 +116,7 @@ On els valors de $\varepsilon$ i $L$ es poden treure a partir de les equacions f
 \subsection{Modelització del moviment del Sol sobre Mont-rós}
 Per modelitzar el moviment del Sol des d'un sistema de referència situat en una teulada a Mont-rós, partim d'unes coordenades esfèriques on un angle $\theta$ indica l'alçada del sol i un angle $\phi$ indica la posició horizontal del sol utilitzant el centre de la placa solar com a origen de coordenades.
 
-Així doncs, partint d'aquests angles, realitzem una discretització de cada angle en funció de les hores de llum solar que té cada dia de l'any (informació que hem extret de https://meteogram.es/sol/espana/vielha/ ). En aquesta discretització tenim en compte els angles $\phi$ que limiten la regió on rebem incidència de llum solar i els angles $\theta$ màxims als quals arriba el sol depenent de l'estació de l'any, aquests últims delimitats en un interval determinat per la latitud de Mont-Rós $\pm 15^\circ$.
+Així doncs, partint d'aquests angles, realitzem una discretització de cada angle en funció de les hores de llum solar que té cada dia de l'any\footnote{Informació que hem extret de \url{https://meteogram.es/sol/espana/vielha/}}. En aquesta discretització tenim en compte els angles $\phi$ que limiten la regió on rebem incidència de llum solar i els angles $\theta$ màxims als quals arriba el sol depenent de l'estació de l'any, aquests últims delimitats en un interval determinat per la latitud de Mont-Rós $\pm 15^\circ$.
 
 \subsection{Normalització de les equacions}
 SI CAL
@@ -161,14 +161,45 @@ Després d'implementar el mètode numèric s'han trobat les òrbites (per a cada
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{../sist_solar/orbites_euler_100_1dia.png}
+    \includegraphics[width=0.45\linewidth]{../sist_solar/orbites_euler_100_1dia.png}
     \caption{Òrbites obtingudes per $t = 100$ anys amb una discretització $dt=1$ dia.}
     \label{fig2}
 \end{figure}
 
 A l'annex \ref{an:a} podeu trobar les gràfiques corresponents a tot el Sistema Solar (amb els cossos no descrits aquí) i una animació d'això últim i de les òrbites representades a la figura \ref{fig2}.
 
-ERRORS AQUÍ!
+Els errors relatius en l'energia associats als diferents planetes es poden veure a la figura \ref{fig3}
+
+\begin{figure}[h!]
+    \centering
+    
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../Error/error_1_hora.png}
+        \caption{Errors per $dt=1$ hora.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../Error/error_1_dia.png}
+        \caption{Errors per $dt=1$ dia.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../Error/error_1_mes.png}
+        \caption{Errors per $dt=1$ mes.}
+    \end{subfigure}
+    
+    \caption{Errors relatius respecte l'energia inicial pels diferents cossos del Sistema Solar a partir de la solució trobada mitjançant el mètode d'Euler, classificat en funció de la discretització emprada.}
+    \label{fig3}
+\end{figure}
+
+Tal i com podem veure a les anteriors tres gràfiques, la discretització amb un major error numèric és la corresponent a $dt = 1$ mes, degut a que els grans salts en el temps fan que els errors asssociats al mètode d'Euler, que de per si no és molt bo, es disparin. En concret, podem veure com l'error associat a l'energia de Venus s'arriba a disparar fins a més d'un 80\%. La Terra i Mercuri tenen també errors relatius grans, sobretot al principi, essent aquests propers al 20\%.
+
+Tant a la discretització de $dt = 1$ dia com a la de $dt = 1$ hora tenim errors associats als planetes més exteriors del sistema modelitzat similars, essent aquests lleugerament menors en el cas de la discretització per hores, a costa d'un temps de càlcul major. La principal diferència rau, però, en l'error associat a Mercuri: per a la discretització en dies presenta un error relatiu molt major al de la resta de cossos (exceptuant el Sol), assolint pics de fins a un 2.5\%; per a la discretització en hores aquest efecte es disminueix significativament.
+
+Cal que comentem a part, però, el cas del Sol Per a les tres discretitzacions presenta una evolució de l'error associat a l'energia molt similar: en tots els casos té una clara tendència a desviar-se negativament. Podem explicar això si pensem en què el Sol és, dels 6 cossos modelitzats, el que ha tenir posicions i velocitats menors, de forma que l'acumulació d'errors associats al mètode numèric pot fer que aquestes petites quantiats es vegin afectades de forma significativa.
 
 \subsection{Moviment del Sol sobre Mont-rós}
 
@@ -183,16 +214,19 @@ ERRORS AQUÍ!
 \newpage
 \begin{thebibliography}{99}
     \bibitem{ref1}
-    \textit{Apunts de l'Assignatura}.
+    Escartín, J.M. i Navau, C. \textit{Mètodes Numèrics II}. Apunts de l'Assignatura (veure CV).
 
     \bibitem{ref2}
     Aguilar, L. \textit{Modelizando el Sistema Solar}. Consultat el: 11/12/2024. \url{https://www.astrosen.unam.mx/~aguilar/MySite/Teaching_files/BasicEqns-1.pdf}.
 
     \bibitem{ref3}
-    \textit{Horizon Ephemeris}, NASA. Consultat el: 23/12/2024 Web de consulta de les posicions de tots els astres del sistema solar. \url{https://ssd.jpl.nasa.gov/horizons/}.
+    \textit{Horizon Ephemeris}, NASA. Web de consulta de les posicions de tots els astres del sistema solar. Consultat el: 23/12/2024. \url{https://ssd.jpl.nasa.gov/horizons/}.
 
     \bibitem{ref4}
-    Universidad de Granada. \textit{El Sistema Solar y las Galaxias. Una Introducción a la Dinámica Molecular}. Consultat el: 11/12/2024. \url{https://ergodic.ugr.es/cphys/LECCIONES/ssolar/planetas-SLIDES.pdf}
+    Universidad de Granada. \textit{El Sistema Solar y las Galaxias. Una Introducción a la Dinámica Molecular}. Consultat el: 11/12/2024. \url{https://ergodic.ugr.es/cphys/LECCIONES/ssolar/planetas-SLIDES.pdf}.
+
+    \bibitem{ref5}
+    \textit{MeteoGram}. Web per a consultar els horaris de les sortides i postes del Sol a tot el planeta. Consultat el: 05/01/2024. \url{https://meteogram.es/sol/espana/vielha/}.
 
     
 \end{thebibliography}
