@@ -1,5 +1,5 @@
 set terminal pngcairo enhanced size 1500,1080 font "Cambria, 24"
-set output "orbites_euler_100_1dia.png" 
+set output "orbites_euler_100_d1dia.png" 
 
 set xlabel "x (UA)"
 set ylabel "y (UA)"

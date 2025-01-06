@@ -129,7 +129,7 @@ SI FEU ALGO D'AIXÒ
 \section{Resultats i discussió}
 
 \subsection{Sistema Solar}
-Després d'implementar el mètode numèric s'han trobat les òrbites (per a cada valor de $dt$) fins a $t=1$ any (terrestre) que es poden veure a la figura \ref{fig1}. A la figura \ref{fig2}, per la seva banda, podem veure les òrbites per a $t=100$ anys per la discretització $t=1$ dia.
+Després d'implementar el mètode numèric s'han trobat les òrbites (per a cada valor de $dt$) fins a $t=1$ any (terrestre) que es poden veure a la figura \ref{fig1}. Més tard, a la figura \ref{fig4}, podem veure les òrbites per a $t=100$ anys per la discretització $dt=1$ dia amb el corresponent error.
  
 \begin{figure}[h]
     \centering
@@ -159,14 +159,7 @@ Després d'implementar el mètode numèric s'han trobat les òrbites (per a cada
     \label{fig1}
 \end{figure}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.45\linewidth]{../sist_solar/orbites_euler_100_1dia.png}
-    \caption{Òrbites obtingudes per $t = 100$ anys amb una discretització $dt=1$ dia.}
-    \label{fig2}
-\end{figure}
-
-A l'annex \ref{an:a} podeu trobar les gràfiques corresponents a tot el Sistema Solar (amb els cossos no descrits aquí) i una animació d'això últim i de les òrbites representades a la figura \ref{fig2}.
+A l'annex \ref{an:a} podeu trobar les gràfiques corresponents a tot el Sistema Solar (amb els cossos no descrits aquí) i un seguit d'animacions per tal de visualitzar més clarament l'evolució temporal de tots els cossos fins a un $t_{final}=15$ anys.
 
 Els errors relatius en l'energia associats als diferents planetes es poden veure a la figura \ref{fig3}
 
@@ -191,15 +184,41 @@ Els errors relatius en l'energia associats als diferents planetes es poden veure
         \caption{Errors per $dt=1$ mes.}
     \end{subfigure}
     
-    \caption{Errors relatius respecte l'energia inicial pels diferents cossos del Sistema Solar a partir de la solució trobada mitjançant el mètode d'Euler, classificat en funció de la discretització emprada.}
+    \caption{Errors relatius respecte l'energia inicial pels diferents cossos del Sistema Solar a partir de la solució trobada mitjançant el mètode d'Euler, classificat en funció de la discretització emprada, fins a $t_{final}=1$ any.}
     \label{fig3}
 \end{figure}
 
-Tal i com podem veure a les anteriors tres gràfiques, la discretització amb un major error numèric és la corresponent a $dt = 1$ mes, degut a que els grans salts en el temps fan que els errors asssociats al mètode d'Euler, que de per si no és molt bo, es disparin. En concret, podem veure com l'error associat a l'energia de Venus s'arriba a disparar fins a més d'un 80\%. La Terra i Mercuri tenen també errors relatius grans, sobretot al principi, essent aquests propers al 20\%.
+Tal i com podem veure a les anteriors tres gràfiques, la discretització amb un major error numèric és la corresponent a $dt = 1$ mes, degut a que els grans salts en el temps fan que els errors asssociats al mètode d'Euler, que de per si no és molt bo, es disparin. En concret, podem veure com l'error associat a l'energia de Venus s'arriba a disparar fins a més d'un 80\%. La Terra i Mercuri tenen també errors relatius grans, sobretot al principi, essent aquests propers al 20\% (valor absolut). 
+
+De fet, si ens fixem en la figura \ref{fig1}, per la discretització $dt=1$ mes, podem veure que Mercuri surt disparat del Sistema Solar. Que això no es vegi reflectit, aparentment, en l'error associat a l'energia de Mercuri (que es manté pràcticament constant en una desviació del 20\%) pot ser degut a què els termes en l'energia cinètica i l'energia potencial d'aquest cos es compensen conforme l'astre s'allunya de la seva posició inicial.
 
 Tant a la discretització de $dt = 1$ dia com a la de $dt = 1$ hora tenim errors associats als planetes més exteriors del sistema modelitzat similars, essent aquests lleugerament menors en el cas de la discretització per hores, a costa d'un temps de càlcul major. La principal diferència rau, però, en l'error associat a Mercuri: per a la discretització en dies presenta un error relatiu molt major al de la resta de cossos (exceptuant el Sol), assolint pics de fins a un 2.5\%; per a la discretització en hores aquest efecte es disminueix significativament.
 
 Cal que comentem a part, però, el cas del Sol Per a les tres discretitzacions presenta una evolució de l'error associat a l'energia molt similar: en tots els casos té una clara tendència a desviar-se negativament. Podem explicar això si pensem en què el Sol és, dels 6 cossos modelitzats, el que ha tenir posicions i velocitats menors, de forma que l'acumulació d'errors associats al mètode numèric pot fer que aquestes petites quantiats es vegin afectades de forma significativa.
+
+Si fem un estudi de l'evolució del Solar fins a un $t_{final}$ major, usant $dt=1$ dia, els resultats que s'obtenen són els que es poden veure a la figura \ref{fig4}.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../sist_solar/orbites_euler_100_d1dia.png}
+        \caption{Òrbites fins a $t_{final}=100$ anys amb $dt=1$ dia.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{../Error/error_100_dia.png}
+        \caption{Errors per $dt=1$ dia.}
+    \end{subfigure}
+    \caption{Estudi de l'evolució del Sistema Solar a $t_{final}$ major.}
+    \label{fig4}
+\end{figure}
+
+Ara es posa de manifest el caràcter oscil·latori de l'error relatiu per tots els cossos del Sistema Solar. Podem veure com l'error màxim obtingut és proper al 6.5\% (valor absolut) en el cas del Sol, pels motius ja comentats abans\footnote{Per motius de qualitat de, la gràfica associada a l'error per $t_{final}=100$ anys arriba només fins als 50 anys. Podeu trobar més informació a l'enllaç de l'annex \ref{an:a}}. La resta de planetes, exceptuant el cas de Mercuri, no arriben en cap cas a errors superiors al 1\%.
+
+
+
 
 \subsection{Moviment del Sol sobre Mont-rós}
 
