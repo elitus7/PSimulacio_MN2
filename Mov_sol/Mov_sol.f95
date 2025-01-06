@@ -99,15 +99,14 @@ program mov_sol
             Pos_sol(j,2) = modul_resultat(i)*sin(theta(j)*(2*3.14159265)/360)*sin(phi(j)*(2*3.14159265)/360)
         END DO
         ! Apliquem els valors dels angles en coordenades esfèriques per trobar les coordenades x,y cartesianes (z,y en esfèriques) del sol agafant el terra com SR
-
+        
+        open(unit=10,file="mov_sol.dat",status="unknown", access = "append")
+        DO j = 1, int(H_llum(i))
+            WRITE(10,*) Pos_sol(j,:)
+        END DO
+        WRITE(10,*) !
+        Close(10)
+        
     END Do
-    open(unit=10,file="mov_sol.dat",status="replace")
-    DO i = 1, int(H_llum(N_a))
-        WRITE(10,*) Pos_sol(i,:)
-    END DO
-    Close(10)
-    
-    Write(*,*) Theta
-    Write(*,*) Phi
-
+ 
     End program mov_sol
