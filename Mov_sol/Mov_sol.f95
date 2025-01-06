@@ -53,8 +53,8 @@ program mov_sol
     end do
 
     Do i = 1,172
-        Theta_max(i) = Theta_0 + i*0.162
-        H_llum(i) = H_llum_0 + i*2.115
+        Theta_max(i) = Theta_0 + (i-1)*0.162
+        H_llum(i) = H_llum_0 + (i-1)*2.115
     End Do
     Do i = 172, 356
         Theta_max(i) = 15 - (i-171)*0.162

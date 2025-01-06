@@ -8,8 +8,6 @@ program placa_solar
     Real, Allocatable :: pos_sol(:,:) !Posició del sol vist desde la placa solar
     Real :: Theta_0 = -15 + 10*0.162! Angle d'incidencia maxima de llum del dia 1 de gener
     Real :: H_llum_0 = 546 ! Minuts de llum del dia 1 de gener
-    logical :: exists
-
     real, dimension(N_a, 2) :: dades_terra, dades_sol, resultat
     real, dimension(N_a) :: modul_resultat  ! Matriu pels mòduls
     character(len=100) :: fitxer_terra, fitxer_sol
@@ -53,8 +51,8 @@ program placa_solar
     end do
 
     Do i = 1,172
-        Theta_max(i) = Theta_0 + i*0.162
-        H_llum(i) = H_llum_0 + i*2.115
+        Theta_max(i) = Theta_0 + (i-1)*0.162
+        H_llum(i) = H_llum_0 + (i-1)*2.115
     End Do
     Do i = 172, 356
         Theta_max(i) = 15 - (i-171)*0.162
@@ -96,6 +94,7 @@ program placa_solar
         DO j = 1, int(H_llum(i))
             Phi(j) = -90 + j*(180/H_llum(i)) !Fem la discretització partint de la sortida de sol per l'esquerra i avança cada 30 minuts (desde el SR de la placa)
         END DO
+
     End do
 
 
