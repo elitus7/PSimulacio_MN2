@@ -106,7 +106,7 @@ program mov_sol
         END DO
         WRITE(10,*) !
         Close(10)
-        
+        ! Anem recopilant la posició de tots els dies en una mateix arxiu .dat
     END Do
  
     End program mov_sol
