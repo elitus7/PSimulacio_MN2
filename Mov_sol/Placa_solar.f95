@@ -66,7 +66,7 @@ program placa_solar
             IF (Phi(j) >= -80 .AND. Phi(j) <= 80) THEN
                 W_inc(j) = W_max*cos(theta(j)*(2*3.14159265)/360)*cos(phi(j)*(2*3.14159265)/360)
             ELSE
-                W_inc(j) = 0.0 ! Eliminem les dades que estiguin per sota de -80 graus i per sobre de 80 graus (considerem les munyanyes del voltant)
+                W_inc(j) = 0.0 ! Eliminem les dades que estiguin per sota de -80 graus i per sobre de 80 graus (considerem les muntanyes del voltant)
             END IF
         END DO
         ! Calculem la quantitat d'irradació solar que rebem en cada discretització de temps
