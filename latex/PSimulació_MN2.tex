@@ -120,12 +120,16 @@ Per modelitzar el moviment del Sol des d'un sistema de referència situat en una
 
 Així doncs, partint d'aquests angles, realitzem una discretització de cada angle en funció de les hores de llum solar que té cada dia de l'any\footnote{Informació que hem extret de \url{https://meteogram.es/sol/espana/vielha/}}. En aquesta discretització tenim en compte els angles $\phi$ que limiten la regió on rebem incidència de llum solar i els angles $\theta$ màxims als quals arriba el sol depenent de l'estació de l'any, aquests últims delimitats en un interval determinat per la latitud de Mont-Rós $\pm 15^\circ$.
 
-\subsection{Normalització de les equacions}
-SI CAL
+\textbf{(falta imagen de las coordenadas utilizadas)}
 
-\subsection{Condicions inicials}
+\subsection{Modelització de l'electricitat generada per la placa solar}
+A partir del model del moviment solar, plantegem els mateixos angles $\theta$ i $\phi$ però escollint com a origen de coordenades el centre de la placa solar; d'aquesta manera podrem definir la incidència lumínica que rebem en cada discretització temporal com $W = W_{max}\cos(\theta)\cos(\phi)$, on $W_{max} = 1000 \text{ W/m$^2$}$. Amb aquesta expressió ja podem calcular l'electricitat generada en tot l'any tenint en compte la variació horària i del moviment solar en les diferents estacions.
 
-\subsection{Mètode numèric i avaluació de l'error}
+D'altra banda, en el nostre model també tenim en compte l'horizont de Montrós (el qual es caracteritza per estar envoltat de muntanyes) mitjançant una variació en els angles $\phi$ inicials i finals, i les possibles variacions climàtiques al llarg de l'any mitjançant un factor $0<K<1$ que varia depenent l'època de l'any.
+
+\textbf{(estaria guay poner una imagen del sistema desde la placa, si se puede)}
+
+\subsection{Avaluació de l'error?}
 SI FEU ALGO D'AIXÒ
 
 \section{Resultats i discussió}

@@ -5,56 +5,18 @@ program placa_solar
     Real :: Theta_max (N_a) !Angle maxim d'incidencia solar que depén de l'alçada a la qual aquest arriba discretitzarem per cada dia de l'any
     Real, Allocatable :: Phi(:) !Angle d'incidencia solar que depén de l'hora del dia (angle lateral), discretitzarem cada 30 min
     Real :: H_llum(N_a) !Interval de temps (en minuts) de llum solar
-    Real, Allocatable :: pos_sol(:,:) !Posició del sol vist desde la placa solar
     Real :: Theta_0 = -15 + 10*0.162! Angle d'incidencia maxima de llum del dia 1 de gener
     Real :: H_llum_0 = 546 ! Minuts de llum del dia 1 de gener
-    real, dimension(N_a, 2) :: dades_terra, dades_sol, resultat
-    real, dimension(N_a) :: modul_resultat  ! Matriu pels mòduls
-    character(len=100) :: fitxer_terra, fitxer_sol
-    real :: x, y
-    integer :: i, j, k
-  
-    fitxer_terra = 'terra_1_d1dia.dat'
-    fitxer_sol = 'sol_1_d1dia.dat'  
-    
-    ! Obrim arxiu Terra
-    open(unit=10, file=fitxer_terra, status='old')
-    
-    ! Llegim les dades del primer fitxer (dades de la terra)
-    do i = 1, N_a
-      read(10, *) x, y
-      dades_terra(i, 1) = x
-      dades_terra(i, 2) = y
-    end do
-    close(10)
-  
-    ! Obrim arxiu Sol
-    open(unit=20, file=fitxer_sol, status='old')
-  
-    ! Llegim les dades del segon fitxer (dades del sol)
-    do i = 1, N_a
-      read(20, *) x, y
-      dades_sol(i, 1) = x
-      dades_sol(i, 2) = y
-    end do
-    close(20)
-  
-    ! Restem les matrius de les posicons de la Terra amb les del Sol 
-    do i = 1, N_a
-      resultat(i, 1) = dades_terra(i, 1) - dades_sol(i, 1)  
-      resultat(i, 2) = dades_terra(i, 2) - dades_sol(i, 2)  
-    end do
-  
-    ! Calcular el mòdul per cada fila de la matriu resultat
-    do i = 1, N_a
-      modul_resultat(i) = sqrt(resultat(i, 1)**2 + resultat(i, 2)**2)
-    end do
+    Real, Allocatable :: W_inc(:) ! Potencia per m^2 que incideix sobre la placa en cada discretització
+    Real :: W_max = 1000
+    Logical :: exists
+    Integer :: i, j
 
     Do i = 1,172
         Theta_max(i) = Theta_0 + (i-1)*0.162
         H_llum(i) = H_llum_0 + (i-1)*2.115
     End Do
-    Do i = 172, 356
+    Do i = 173, 356
         Theta_max(i) = 15 - (i-171)*0.162
         H_llum(i) = H_llum(i-1) - 2.115
     End Do
@@ -66,17 +28,22 @@ program placa_solar
 
     Allocate(phi(1))
     Allocate(theta(1))
-    Allocate(pos_sol(2,1))
+    Allocate(W_inc(1))
     ! Definim temporalment les dimensions dels vectors per evitar problemes amb Fortran
-    
+   
+    inquire(file="mov_sol.dat", exist=exists)
+    if (exists) then 
+        call system("del /f W_sol.dat") !Elimina l'arxiu W_sol.dat creat previament (si existeix)
+    end if
+
     Do i = 1, N_a
 
-        Deallocate(Pos_sol)
-        Allocate(Pos_sol((int(H_llum(i))),2))
         Deallocate(Theta)
         Allocate(Theta(int(H_llum(i))))
         Deallocate(Phi)
         Allocate(phi(int(H_llum(i))))
+        Deallocate(W_inc)
+        Allocate(W_inc(int(H_llum(i))))
         ! Donem dimensions a totes les variables segons el temps en què els arriba llum solar
 
         DO j = 1, int(H_llum(i)/2)
@@ -95,11 +62,20 @@ program placa_solar
             Phi(j) = -90 + j*(180/H_llum(i)) !Fem la discretització partint de la sortida de sol per l'esquerra i avança cada 30 minuts (desde el SR de la placa)
         END DO
 
+        DO j = 1, int(H_llum(i))
+            W_inc(j) = W_max * cos(theta(j)*(2*3.14159265)/360) * cos(phi(j)*(2*3.14159265)/360)
+        END DO
+        ! Calculem la quantitat d'irradació solar que rebem en cada discretització de temps
+
+        open(unit=10,file="W_sol.dat",status="unknown", access = "append")
+        DO j = 1, int(H_llum(i))
+            WRITE(10,*) W_inc(j)
+        END DO
+        WRITE(10,*) !
+        Close(10)
+        ! FALTA PONER LA ELECTRICIDAD PRODUCIDA EN FUNCION DE LA LUZ INCIDENTE (MIRAR GUION)
+        ! Anem recopilant les dades en un fitxer .dat
+
     End do
-
-
-    Write(*,*) Theta
-    Write(*,*) Phi 
-
 
 end program placa_solar

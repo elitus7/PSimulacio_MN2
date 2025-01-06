@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1736179263.39595 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1736179265.69009 0
+["pdflatex"] 1736186711.28302 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1736186713.46121 0
   "../Error/error_100_dia.png" 1736153969 231851 268ad8061e4b7e010719da99a25027b9 ""
   "../Error/error_1_dia.png" 1736118951 92447 76f6649dd6c3c907d3c51b73d1eb4427 ""
   "../Error/error_1_hora.png" 1736119472 56749 050212b2b0a17da74cb4adf9d00d49b4 ""
@@ -148,10 +148,10 @@
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/tocloft/tocloft.sty" 1578908763 37263 3e78d14f0f4b1a30560fea5e04de805d ""
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "Logo_UAB.png" 1734205029 13234 625c1691be58ba47ff71434956c6b32e ""
-  "PSimulació_MN2.aux" 1736179265 12047 0e94a30eae816691ea1080aadaa479ec "pdflatex"
-  "PSimulació_MN2.tex" 1736179262 16618 bfa962b5ab33a7deaea72c9daf8ca966 ""
-  "PSimulació_MN2.toc" 1736179265 1697 013bde4181c585e8335c8a04bc252535 "pdflatex"
-  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1736179262 16618 bfa962b5ab33a7deaea72c9daf8ca966 ""
+  "PSimulació_MN2.aux" 1736186713 11763 d5ccd13113d0978abbfc8df964ee505c "pdflatex"
+  "PSimulació_MN2.tex" 1736186708 17563 991803ff46a1a11c507b1692098dd8b0 ""
+  "PSimulació_MN2.toc" 1736186713 1622 1ac610c2e0a7df3f736944b271002a19 "pdflatex"
+  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1736186708 17563 991803ff46a1a11c507b1692098dd8b0 ""
   (generated)
   "PSimulació_MN2.aux"
   "PSimulació_MN2.log"
