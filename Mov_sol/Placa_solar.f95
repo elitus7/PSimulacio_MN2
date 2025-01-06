@@ -9,6 +9,7 @@ program placa_solar
     Real :: H_llum_0 = 546 ! Minuts de llum del dia 1 de gener
     Real, Allocatable :: W_inc(:) ! Potencia per m^2 que incideix sobre la placa en cada discretització
     Real :: W_max = 1000
+    Logical :: exists
     Integer :: i, j, k
 
     Do i = 1,172
@@ -29,7 +30,12 @@ program placa_solar
     Allocate(theta(1))
     Allocate(W_inc(1))
     ! Definim temporalment les dimensions dels vectors per evitar problemes amb Fortran
-    
+   
+    inquire(file="mov_sol.dat", exist=exists)
+    if (exists) then 
+        call system("del /f W_sol.dat") !Elimina l'arxiu W_sol.dat creat previament (si existeix)
+    end if
+
     Do i = 1, N_a
 
         Deallocate(Theta)
@@ -57,7 +63,7 @@ program placa_solar
         END DO
 
         DO j = 1, int(H_llum(i))
-            W_inc(j) = W_max * cos(theta(j)) * cos(phi(j))
+            W_inc(j) = W_max * cos(theta(j)*(2*3.14159265)/360) * cos(phi(j)*(2*3.14159265)/360)
         END DO
         ! Calculem la quantitat d'irradació solar que rebem en cada discretització de temps
 
