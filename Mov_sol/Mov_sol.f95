@@ -8,6 +8,7 @@ program mov_sol
     Real, Allocatable :: pos_sol(:,:) !Posició del sol vist desde la placa solar
     Real :: Theta_0 = -15 + 10*0.162! Angle d'incidencia maxima de llum del dia 1 de gener
     Real :: H_llum_0 = 546 ! Minuts de llum del dia 1 de gener
+    logical :: exists
 
     real, dimension(N_a, 2) :: dades_terra, dades_sol, resultat
     real, dimension(N_a) :: modul_resultat  ! Matriu pels mòduls
@@ -69,6 +70,11 @@ program mov_sol
     Allocate(theta(1))
     Allocate(pos_sol(2,1))
     ! Definim temporalment les dimensions dels vectors per evitar problemes amb Fortran
+    
+    inquire(file="mov_sol.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol.dat") !Elimina l'arxiu mov_sol.dat creat previament (si existeix)
+    end if
 
     Do i = 1, N_a
 
