@@ -59,11 +59,15 @@ program placa_solar
         END DO !canviem al sistema de referència de la placa solar, la qual esta inclinada 42.5 graus 
 
         DO j = 1, int(H_llum(i))
-            Phi(j) = -80 + j*(160/H_llum(i)) !Fem la discretització partint de la sortida de sol per l'esquerra i avança cada 30 minuts (desde el SR de la placa)
+            Phi(j) = -90 + j*(180/H_llum(i)) !Fem la discretització partint de la sortida de sol per l'esquerra i avança cada 30 minuts (desde el SR de la placa)
         END DO
 
         DO j = 1, int(H_llum(i))
-            W_inc(j) = W_max * cos(theta(j)*(2*3.14159265)/360) * cos(phi(j)*(2*3.14159265)/360)
+            IF (Phi(j) >= -80 .AND. Phi(j) <= 80) THEN
+                W_inc(j) = W_max*cos(theta(j)*(2*3.14159265)/360)*cos(phi(j)*(2*3.14159265)/360)
+            ELSE
+                W_inc(j) = 0.0 ! Eliminem les dades que estiguin per sota de -80 graus i per sobre de 80 graus (considerem les munyanyes del voltant)
+            END IF
         END DO
         ! Calculem la quantitat d'irradació solar que rebem en cada discretització de temps
 
