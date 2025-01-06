@@ -10,7 +10,7 @@ program placa_solar
     Real, Allocatable :: W_inc(:) ! Potencia per m^2 que incideix sobre la placa en cada discretització
     Real :: W_max = 1000
     Logical :: exists
-    Integer :: i, j, k
+    Integer :: i, j
 
     Do i = 1,172
         Theta_max(i) = Theta_0 + (i-1)*0.162
@@ -73,13 +73,9 @@ program placa_solar
         END DO
         WRITE(10,*) !
         Close(10)
+        ! FALTA PONER LA ELECTRICIDAD PRODUCIDA EN FUNCION DE LA LUZ INCIDENTE (MIRAR GUION)
         ! Anem recopilant les dades en un fitxer .dat
 
     End do
-
-
-    Write(*,*) Theta
-    Write(*,*) Phi 
-
 
 end program placa_solar

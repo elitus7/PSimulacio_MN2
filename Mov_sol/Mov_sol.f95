@@ -9,12 +9,11 @@ program mov_sol
     Real :: Theta_0 = -15 + 10*0.162! Angle d'incidencia maxima de llum del dia 1 de gener
     Real :: H_llum_0 = 546 ! Minuts de llum del dia 1 de gener
     logical :: exists
-
     real, dimension(N_a, 2) :: dades_terra, dades_sol, resultat
     real, dimension(N_a) :: modul_resultat  ! Matriu pels mòduls
     character(len=100) :: fitxer_terra, fitxer_sol
     real :: x, y
-    integer :: i, j, k
+    integer :: i, j
   
     fitxer_terra = 'terra_1_d1dia.dat'
     fitxer_sol = 'sol_1_d1dia.dat'  
