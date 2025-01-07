@@ -11,6 +11,7 @@ program placa_solar
     Real :: W_max = 1000
     Logical :: exists
     Integer :: i, j
+    real :: factor_pluja_neu
 
     Do i = 1,172
         Theta_max(i) = Theta_0 + (i-1)*0.162
@@ -70,6 +71,21 @@ program placa_solar
             END IF
         END DO
         ! Calculem la quantitat d'irradació solar que rebem en cada discretització de temps
+
+        select case(i)
+            case (1:75) ! Gener a mitjans de Març
+                factor_pluja_neu = 0.85 ! Reducció per neu 
+            case (91:151) ! Abril-Maig
+                factor_pluja_neu = 0.8 ! Reducció del 20% rendiment (Pluges intenses)
+            case (152:181, 244:273)  ! Juny, Setembre i Octubre
+                factor_pluja_neu = 0.9 ! Reducció del 10% rendiment (Pluges moderades)
+            case default
+                factor_pluja_neu = 1.0 ! Tots els altres mesos no s'aplica cap reducció
+        end select
+
+        do j = 1, int(H_llum(i))
+            W_inc(j) = W_inc(j)*factor_pluja_neu
+        end do 
 
         open(unit=10,file="W_sol.dat",status="unknown", access = "append")
         DO j = 1, int(H_llum(i))
