@@ -1,11 +1,11 @@
-set terminal pngcairo size 800,600 enhanced font 'Arial,12'
+set terminal pngcairo enhanced size 1500,1080 font "Cambria, 24"
 set output 'histograma.png'
 
 set boxwidth 0.8 relative
 set style fill solid 0.5 border -1
 
 set xlabel "Mesos"
-set ylabel "Energia Generada (kWh)"
+set ylabel "Energia Generada (kW h)"
 
 set xtics rotate by -45
 set grid ytics
