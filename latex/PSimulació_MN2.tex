@@ -236,7 +236,7 @@ Horitzó no pla
 Les muntanyes que envolten el poble tenen un impacte significatiu a les hores de llum diaries. Les muntanyes a l'est, per on surt el Sol, són més pronunciades que les de l'oest, per on es pon. Per aquest motiu, hem exclòs les dades corresponents a angles inferiors a -70° i superiors a 80°, ja que no contribueixen de manera significativa a la irradiació efectiva sobre les plaques.
 
 Meteorologia 
-S'ha dut a terme un estudi climàtic basat en dades històriques (he deposar l'enllaç), per predir l'impacte de pluges i nevades sobre el rendiment de les plaques solars:
+S'ha dut a terme un estudi climàtic basat en dades històriques\footnote{NASA POWER: https://power.larc.nasa.gov/data-access-viewer/}, per predir l'impacte de pluges i nevades sobre el rendiment de les plaques solars:
 
 \textbf{Pluges}
 
@@ -253,7 +253,7 @@ En cas necessari, es podria instal·lar un sistema antidesglaç o una cobertura 
 
 \textbf{Temperatura}
 
-Les plaques fotovoltaiques comencen a perdre eficiència a temperatures superiors als 25 °C, amb una disminució del 0,3\% per grau ( posar enllaç). A Mont-rós, les temperatures màximes s'observen a l'estiu, arribant als 31 °C durant 1-2 hores al migdia (entre les 12:00 i les 15:00). Aquestes temperatures no són prou significatives per afectar de manera rellevant el rendiment global, per la qual cosa s'ha considerat negligible aquest efecte.
+Les plaques fotovoltaiques comencen a perdre eficiència a temperatures superiors als 25 °C, amb una disminució del 0,3\%. A Mont-rós, les temperatures són generalment baixes, amb un clima més fred a causa de la seva altitud. El problema només es presentaria a l'estiu, quan les temperatures poden superar els 25°C entre les 12:00 i les 15:00 hores, arribant a un màxim de 31°C, però durant un període breu. Per la qual cosa s'ha considerat negligible aquest efecte.
 
 Un cop considerats tots els factors mencionats, hem procedit amb el càlcul de l'energia elèctrica generada per la placa fotovoltaica. 
 
@@ -277,18 +277,19 @@ Aquesta informació l'hem comparat amb un model referencial que presenta caracte
 
 \begin{table}[h!]
     \centering
+    \resizebox{\textwidth}{!}{ % Reduïm la taula a l'amplada de la pàgina
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
     \hline
-     & Gener & Febrer & Març & Abril & Maig & Juny & Juliol & Agost & Setembre & Octubre & Novembre & Desembre \\
+    E (kWh) & Gener & Febrer & Març & Abril & Maig & Juny & Juliol & Agost & Setembre & Octubre & Novembre & Desembre \\
     \hline
     PVGIS & 42,05 & 47,35 & 55,13 & 50,56 & 54,98 & 55,54 & 62,04 & 61,03 & 54,57 & 48,27 & 38,93 & 39,81 \\
     \hline
     Nostre Model & 53,91 & 56,99 & 76,17 & 67,97 & 77,00 & 90,62 & 104,73 & 95,69 & 72,34 & 78,60 & 67,46 & 61,87 \\
     \hline
     \end{tabular}
+    }
     \caption{Taula comparativa de l'energia generada durant un any amb el model PVGIS i el nostre. }
-    \end{table}
-    
+\end{table}
 
 \section{Conclusions}
 

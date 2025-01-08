@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  8 JAN 2025 20:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.8)  8 JAN 2025 20:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -553,26 +553,21 @@ File: ../Error/error_100_dia.png Graphic file (type png)
 Package pdftex.def Info: ../Error/error_100_dia.png  used on input line 216.
 (pdftex.def)             Requested size: 228.07542pt x 164.20499pt.
  [4 <../sist_solar/orbites_euler_100_d1dia.png> <../Error/error_100_dia.png>]
-<Histograma_PVGIS.png, id=124, 446.41782pt x 304.88907pt>
+<Histograma_PVGIS.png, id=126, 446.41782pt x 304.88907pt>
 File: Histograma_PVGIS.png Graphic file (type png)
 <use Histograma_PVGIS.png>
 Package pdftex.def Info: Histograma_PVGIS.png  used on input line 265.
 (pdftex.def)             Requested size: 213.82117pt x 146.03339pt.
-<../Mov_sol/histograma.png, id=125, 803.0pt x 602.25pt>
+<../Mov_sol/histograma.png, id=127, 803.0pt x 602.25pt>
 File: ../Mov_sol/histograma.png Graphic file (type png)
 <use ../Mov_sol/histograma.png>
 Package pdftex.def Info: ../Mov_sol/histograma.png  used on input line 271.
 (pdftex.def)             Requested size: 213.82117pt x 160.3674pt.
-
-Overfull \hbox (100.46466pt too wide) in paragraph at lines 280--289
- [][] 
- []
-
-[5 <./Histograma_PVGIS.png> <../Mov_sol/histograma.png>] [6]
-<../sist_solar/orbites_euler_TOTS_150_d1dia.png, id=153, 1806.75pt x 1084.05pt>
+ [5 <./Histograma_PVGIS.png> <../Mov_sol/histograma.png>] [6]
+<../sist_solar/orbites_euler_TOTS_150_d1dia.png, id=155, 1806.75pt x 1084.05pt>
 File: ../sist_solar/orbites_euler_TOTS_150_d1dia.png Graphic file (type png)
 <use ../sist_solar/orbites_euler_TOTS_150_d1dia.png>
-Package pdftex.def Info: ../sist_solar/orbites_euler_TOTS_150_d1dia.png  used on input line 333.
+Package pdftex.def Info: ../sist_solar/orbites_euler_TOTS_150_d1dia.png  used on input line 334.
 (pdftex.def)             Requested size: 475.16138pt x 285.08844pt.
  [7 <../sist_solar/orbites_euler_TOTS_150_d1dia.png>] (PSimulació_MN2.aux)
  ***********
@@ -585,17 +580,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14857 strings out of 474486
- 238076 string characters out of 5743756
+ 14858 strings out of 474486
+ 238087 string characters out of 5743756
  1941542 words of memory out of 5000000
  36886 multiletter control sequences out of 15000+600000
  571590 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,13n,93p,1266b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\natvi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/natvi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on PSimulació_MN2.pdf (9 pages, 1208439 bytes).
+Output written on PSimulació_MN2.pdf (9 pages, 1211590 bytes).
 PDF statistics:
- 329 PDF objects out of 1000 (max. 8388607)
- 47 named destinations out of 1000 (max. 500000)
+ 331 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
  197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
