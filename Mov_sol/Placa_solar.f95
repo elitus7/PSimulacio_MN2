@@ -1,7 +1,7 @@
 program placa_solar
     implicit none
-    Integer, parameter :: N_a = 365 !Passos temporals (tot l'any)
-    Integer, parameter :: dies_mesos(12) = (/ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 /) ! Matriu que conté quants dies té cada mes
+    Integer, parameter :: N_a = 366 !Passos temporals (tot l'any)
+    Integer, parameter :: dies_mesos(12) = (/ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 /) ! Matriu que conté quants dies té cada mes
     Real, Allocatable :: Theta(:) !Angle d'incidencia solar vertical que depén de l'hora del dia
     Real :: Theta_max(N_a) !Angle maxim d'incidencia solar que depén de l'alçada a la qual aquest arriba discretitzarem per cada dia de l'any
     Real, Allocatable :: Phi(:) !Angle d'incidencia solar que depén de l'hora del dia (angle lateral), discretitzarem cada 30 min
@@ -30,7 +30,7 @@ program placa_solar
         Theta_max(i) = 15 - (i-171)*0.162
         H_llum(i) = H_llum(i-1) - 2.115
     End Do
-    Do i = 357, 365
+    Do i = 357, 366
         Theta_max(i) = -15 + (i-356)*0.162
         H_llum(i) = H_llum(i-1) + 2.115
     End Do
@@ -100,7 +100,7 @@ program placa_solar
         ! Factor pluja/neu
         select case(i)
             case (1:75) ! Gener a mitjans de Març
-                factor_pluja_neu = 0.8 ! Reducció del 20% per neu 
+                factor_pluja_neu = 0.8 ! Reducció del 10% per neu 
             case (91:151) ! Abril-Maig
                 factor_pluja_neu = 0.75 ! Reducció del 25% rendiment (Pluges intenses)
             case (152:181, 244:273) ! Juny, Setembre i Octubre
@@ -138,7 +138,7 @@ program placa_solar
             sumes_mes(mes_actual) = sumes_mes(mes_actual) + W_gen(j)
         END DO
 
-        ! Control del canvi de mes
+        ! Control per canviar de mes
         dia_actual = dia_actual + 1
         if (dia_actual > dies_mesos(mes_actual)) then
             mes_actual = mes_actual + 1
@@ -153,7 +153,7 @@ program placa_solar
     end do
     close(30)
 
-    ! Arxiu de l'energia generada per mesos en kWh amb noms dels mesos
+    ! Arxiu de l'energia generada per mesos en kWh 
     open(unit=40, file="Energia_mesos_kWh.dat", status="replace", action="write")
     do i = 1, 12
         select case(i)
@@ -184,6 +184,5 @@ program placa_solar
         end select
     end do
     close(40)
-
 
 end program placa_solar
