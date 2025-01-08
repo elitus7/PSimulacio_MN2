@@ -28,7 +28,7 @@
 \vspace{3cm}
 {\Large G01 \par}
 \vspace{0.5cm}
-{\Large 1548086: Bujones Umbert, Jun Shan\\1666739: Franco Avilés, Eric\\  1672980: González Barea, Eric\\1644841: Vilarrúbias Morral, Natàlia \par}
+{\Large 1549086: Bujones Umbert, Jun Shan\\1666739: Franco Avilés, Eric\\  1672980: González Barea, Eric\\1644841: Vilarrúbias Morral, Natàlia \par}
 \vspace{2cm}
 {\Large Gener 2025 \par}
 \vspace{2cm}
@@ -83,7 +83,7 @@ Per tal de facilitar-ne la ressolució, podem transformar aquesta equació difer
 
 De forma que tenim ara un conjunt de $n \cross p$ (on $n$ són les dimensions) equacions diferencials de primer ordre a resoldre. A la pràctica, com que tots els planetes del sistema solar tenen orbites coplanàries (a excepció de Plutó, que no el considerarem), podem assumir que estem davant d'un problema bidimensional, de manera que tindre $2 \cross p$ EDOs de primer ordre a resoldre.
 
-Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques. A més a més, el moviment d'aquests cossos serà al pla de l'eclíptica; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques per diferents temps finals) al repositori de \textit{GitHub} (veure \ref{an:a}). 
+Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques. A més a més, el moviment d'aquests cossos serà al pla de l'eclíptica; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques per diferents temps finals) al repositori de \textit{GitHub} (veure annex \ref{an:a}). A l'annex \ref{an:b} donem un breu resum d'això últim en forma de material extra.
 
 \subsection{Normalització de les equacions}
 Per tal de resoldre el problema minimitzant errors i temps de càlcul cal normalitzar \eqref{2}. Definim unes quantitats característiques del sistema: escollim $M_0 = M_s$ (la massa del Sol) i $d_0 = UA$ (unitat astronòmica), ja que així podrem treballar amb valors propers a la unitat. D'aquí se'n deriva que
@@ -105,13 +105,12 @@ Per tal de conèixer les condicions inicials de cadascun dels cossos del sistema
 \subsection{Mètode numèric i avaluació de l'error}
 El mètode numèric utilitzat ha estat el mètode d'Euler (per sistemes EDOs)\footnote{Les corresponents equacions es poden consultar als apunts de l'assignatura.} aplicat a l'equació \eqref{eq5} per diferents discretitzacions temporals: $dt = 1$ any, $dt = 1$ mes i $dt = 1$ dia.
 
-Per tal d'avaluar l'error comés estudiarem l'evolució de les dues quantitats conservades d'aquest sistema: el moment angular $\abs{\mathbf{L}} \equiv L$ i l'energia total $\varepsilon$. Idealment, a cada cas d'iteració el valor de $E$ i $L$ ha de ser el mateix que a $t_0$; les fluctuacions en aquestes quantitats ens permetran determinar l'error numèric comès segons:
+Per tal d'avaluar l'error comés estudiarem l'evolució d'una de les quantitats conservades d'aquest sistema: L'energia total $\varepsilon$. Idealment, a cada cas d'iteració el valor de $E$ ha de ser el mateix que a $t_0$; les fluctuacions en aquestes quantitats ens permetran determinar l'error numèric comès segons:
 \begin{align}
-    E_{\varepsilon_i} = \left( \frac{\Delta \varepsilon_i}{\varepsilon_0} \right) & = \frac{\varepsilon_i - \varepsilon_0}{\varepsilon_0} \\
-    E_{L_i} = \left( \frac{\Delta L_i}{L_0} \right) & = \frac{{L_i - L_0}}{L_0}
+    E_{\varepsilon_i} = \left( \frac{\Delta \varepsilon_i}{\varepsilon_0} \right) & = \frac{\varepsilon_i - \varepsilon_0}{\varepsilon_0} 
 \end{align}
 
-On els valors de $\varepsilon$ i $L$ es poden treure a partir de les equacions fonamentals de la dinàmica.
+On el valor de $\varepsilon$ i $L$ es pot treure a partir de les equacions fonamentals de la dinàmica.
 
 \section{Plantejament del problema de la placa solar}
 
@@ -263,9 +262,9 @@ Ara es posa de manifest el caràcter oscil·latori de l'error relatiu per tots e
 \label{an:a}
 Podeu trobar els codis usats en \textit{Fortran}, les representacions de les gràfiques usant \textit{Gnuplot}, animacions de les simulacions del sistema solar i més al següent repositori (públic) de \textit{GitHub}: \url{https://github.com/elitus7/PSimulacio_MN2}.
 
+\section{Simulació del Sistema Solar amb més cossos}
+\label{an:b}
+A mode d'extra afegim en aquest annex els resultats de la simulació del Sistema Solar considerant també Saturn, Urà i Neptú (més enllà dels cossos del model del text principal) mantenint, però, la condició que el moviment es dóna en un únic pla. Tot seguit adjuntem les òrbites obtingudes i els corresponents errors.
 
-\section{Normalització sistema solar}
-Per tal de dur a terme la normalització definim unes quantitats característiques del sistema: $M_0 = M_s$ i $d_0 = UA$ (unitat astronòmica). Per altra banda, definim també $\mathbf{d}_{pl} = \mathbf{r}^{(p)}-\mathbf{r}^{(l)}$ (distància entre dos cossos del sistema solar).
-
-
+BLAHBLAHBLAH
 \end{document}
