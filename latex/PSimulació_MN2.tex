@@ -17,6 +17,7 @@
 \usepackage{caption}
 \usepackage{booktabs}
 \captionsetup{labelfont=bf}
+
 \begin{document}
 
 \begin{titlepage}
@@ -125,9 +126,9 @@ Així doncs, partint d'aquests angles, realitzem una discretització de cada ang
 \subsection{Modelització de l'electricitat generada per la placa solar}
 A partir del model del moviment solar, plantegem els mateixos angles $\theta$ i $\phi$ però escollint com a origen de coordenades el centre de la placa solar; d'aquesta manera podrem definir la incidència lumínica que rebem en cada discretització temporal com $W = W_{max}\cos(\theta)\cos(\phi)$, on $W_{max} = 1000 \text{ W/m$^2$}$. Amb aquesta expressió ja podem calcular l'electricitat generada en tot l'any tenint en compte la variació horària i del moviment solar en les diferents estacions.
 
-Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic i/o metereològic que tindrem en compte en el nostre model. L'estudi climàtic s'ha efectuat amb dades extretes de la web de \textit{Nasa Power}, veure \bibitem{6}.
+Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic i/o metereològic que tindrem en compte en el nostre model. L'estudi climàtic s'ha efectuat amb dades extretes de la web de \textit{Nasa Power}, veure .
 \begin{itemize}
-    \item Mont-rós és una localitat amb un horitzó no pla, ja que està envoltat de muntanyes que limiten les hores de llum diàries. Per tal de tenir present aquest fenomen cal introduir una variació en els angles \phi inicials i finals. Eliminem els angles $\phi < -70$ º i $\phi > 80$ º, en tant que no contribueixen de manera significativa a la irradiació efectiva de les plaques solar.
+    \item Mont-rós és una localitat amb un horitzó no pla, ja que està envoltat de muntanyes que limiten les hores de llum diàries. Per tal de tenir present aquest fenomen cal introduir una variació en els angles $\phi$ inicials i finals. Eliminem els angles $\phi < -77$ º i $\phi > 82$ º, en tant que no contribueixen de manera significativa a la irradiació efectiva de les plaques solar. Aquests valors els hem extret estudiant l'alçada relativa al poble de les muntanyes properes a aquestes usant \textit{Google Maps}. 
 \end{itemize}
 
 D'altra banda, en el nostre model també tenim en compte l'horizont de Mont-rós (el qual es caracteritza per estar envoltat de muntanyes) mitjançant una variació en els angles $\phi$ inicials i finals, i les possibles variacions climàtiques al llarg de l'any mitjançant un factor $0<K<1$ que varia depenent l'època de l'any.
@@ -264,6 +265,7 @@ Les plaques fotovoltaiques comencen a perdre eficiència a temperatures superior
 Un cop considerats tots els factors mencionats, hem procedit amb el càlcul de l'energia elèctrica generada per la placa fotovoltaica. 
 
 Aquesta informació l'hem comparada amb un model referencial que presenta característiques i ubicacions semblants a la nostra placa fotovoltaica, obtingut a partir de la plataforma PVGIS. A les figures següents es poden observar els histogrames corresponents a l'energia elèctrica generada cada mes al llarg d'un any de la nostra placa i la obtinguda a PVGIS. 
+
 \begin{figure}[h!]
     \centering
     \begin{minipage}{0.48\linewidth} 
@@ -279,21 +281,6 @@ Aquesta informació l'hem comparada amb un model referencial que presenta caract
         \label{fig:figura2}
     \end{minipage}
 \end{figure}
-
-\resizebox{\textwidth}{!}{
-    \begin{tabular}{ccccccccccccc}
-        \caption{Comparativa anual de l'energia generada amb PVGIS i el nostre model.}
-        \toprule
-        \textbf{E (kW$\cdot$h)} & \textbf{Gener} & \textbf{Febrer} & \textbf{Març} & \textbf{Abril} & \textbf{Maig} & \textbf{Juny} & \textbf{Juliol} & \textbf{Agost} & \textbf{Setembre} & \textbf{Octubre} & \textbf{Novembre} & \textbf{Desembre} \\
-        \midrule
-        PVGIS         & 42.05 & 47.35 & 55.13 & 50.56 & 54.98 & 55.54 & 62.04 & 61.03 & 54.57 & 48.27 & 38.93 & 39.81 \\
-        Model  & 53.91 & 56.99 & 76.17 & 67.97 & 77.00 & 90.62 & 104.73 & 95.69 & 72.34 & 78.60 & 67.46 & 61.87 \\
-        \bottomrule
-    \end{tabular}
-}
-
-
-
 
 \section{Conclusions}
 
