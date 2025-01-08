@@ -233,7 +233,7 @@ Ara es posa de manifest el caràcter oscil·latori de l'error relatiu per tots e
 
 \section{Conclusions}
 
-
+BLAHBLAHBLAH DEL SISTEMA SOLAR
 
 \newpage
 \begin{thebibliography}{99}
@@ -250,7 +250,10 @@ Ara es posa de manifest el caràcter oscil·latori de l'error relatiu per tots e
     Universidad de Granada. \textit{El Sistema Solar y las Galaxias. Una Introducción a la Dinámica Molecular}. Consultat el: 11/12/2024. \url{https://ergodic.ugr.es/cphys/LECCIONES/ssolar/planetas-SLIDES.pdf}.
 
     \bibitem{ref5}
-    \textit{MeteoGram}. Web per a consultar els horaris de les sortides i postes del Sol a tot el planeta. Consultat el: 05/01/2024. \url{https://meteogram.es/sol/espana/vielha/}.
+    \textit{MeteoGram}. Web per a consultar els horaris de les sortides i postes del Sol a tot el planeta. Consultat el: 05/01/2025. \url{https://meteogram.es/sol/espana/vielha/}.
+
+    \bibitem{ref6}
+    \textit{NASA Power}, NASA. Web per consultar la metereología de qualsevol lloc del món. Consultat el 07/01/2025. \url{https://power.larc.nasa.gov/data-access-viewer/}.
 
     
 \end{thebibliography}
@@ -264,7 +267,14 @@ Podeu trobar els codis usats en \textit{Fortran}, les representacions de les gr�
 
 \section{Simulació del Sistema Solar amb més cossos}
 \label{an:b}
-A mode d'extra afegim en aquest annex els resultats de la simulació del Sistema Solar considerant també Saturn, Urà i Neptú (més enllà dels cossos del model del text principal) mantenint, però, la condició que el moviment es dóna en un únic pla. Tot seguit adjuntem les òrbites obtingudes i els corresponents errors.
+A mode d'extra, afegim en aquest annex els resultats de la simulació del Sistema Solar considerant també Saturn, Urà i Neptú (més enllà dels cossos del model del text principal) mantenint, però, la condició que el moviment es dóna en un únic pla. A la figura \ref{fig:an1} podeu veure les òrbites obtingudes usant una discretització de $dt=1$ dia, que com hem vist és la millor pel que fa a temps de càlcul i exactitud, i un $t_{final}=150$ anys.
 
-BLAHBLAHBLAH
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\linewidth]{../sist_solar/orbites_euler_TOTS_150_d1dia.png}
+    \caption{Òrbites obtingudes amb el mètode d'Euler per a una simulació amb $dt=1$ any fins a $t_{final}=150$ anys per tots els cossos importants del Sistema Solar.}
+    \label{fig:an1}
+\end{figure}
+
+Al repositori de \textit{GitHub} podreu veure una animació, a $t_{final}=15$ anys, en la que es poden veure les òrbites anteriors.
 \end{document}
