@@ -9,7 +9,7 @@ program vels
     real(kind=8), parameter :: t_0 = ((d_0**3)/(M_0*G))**(0.5) !Factor de normalització temporal (segons).
     real(kind=8) :: dt = 3600*24 !Discretització temporal en segons. Més tard el normalitzem usant t_0.
     real(kind=8) :: t = 0 !Temps. El fixem inicialment a 0.
-    real(kind=8) :: t_final = 10*365*24*3600 !Temps final a un any (en segons), més tard el normalitzarem.
+    real(kind=8) :: t_final = 1000*365*24*3600 !Temps final a un any (en segons), més tard el normalitzarem.
     integer :: Nt !Passos temporals.
     integer :: i, j, k
 
