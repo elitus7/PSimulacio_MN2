@@ -185,4 +185,6 @@ program placa_solar
     end do
     close(40)
 
+    write(*,*) Theta
+
 end program placa_solar
