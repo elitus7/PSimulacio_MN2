@@ -90,7 +90,7 @@ program placa_solar
 
         ! Càlcul de W_inc
         DO j = 1, int(H_llum(i))
-            IF (Phi(j) >= -80 .AND. Phi(j) <= 80) THEN
+            IF (Phi(j) >= -70 .AND. Phi(j) <= 80) THEN
                 W_inc(j) = W_max*cos(theta(j)*(2*3.14159265)/360)*cos(phi(j)*(2*3.14159265)/360)
             ELSE
                 W_inc(j) = 0.0 ! Eliminem les dades que estiguin per sota de -80 graus i per sobre de 80 graus (considerem les muntanyes del voltant)
@@ -102,9 +102,9 @@ program placa_solar
             case (1:75) ! Gener a mitjans de Març
                 factor_pluja_neu = 0.8 ! Reducció del 20% per neu 
             case (91:151) ! Abril-Maig
-                factor_pluja_neu = 0.8 ! Reducció del 20% rendiment (Pluges intenses)
+                factor_pluja_neu = 0.75 ! Reducció del 25% rendiment (Pluges intenses)
             case (152:181, 244:273) ! Juny, Setembre i Octubre
-                factor_pluja_neu = 0.9 ! Reducció del 10% rendiment (Pluges moderades)
+                factor_pluja_neu = 0.85 ! Reducció del 15% rendiment (Pluges moderades)
             case default
                 factor_pluja_neu = 1.0 ! Tots els altres mesos no s'aplica cap reducció
         end select
