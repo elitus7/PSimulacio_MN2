@@ -15,7 +15,7 @@ program placa_solar
     Logical :: exists
     Integer :: i, j, mes_actual, dia_actual
     Real :: factor_pluja_neu
-
+    
     ! Inicialitzacio de les sumes
     sumes_mes = 0.0
     dia_actual = 1
@@ -153,11 +153,37 @@ program placa_solar
     end do
     close(30)
 
-    ! Arxiu de l'energia generada per mesos en kWh
+    ! Arxiu de l'energia generada per mesos en kWh amb noms dels mesos
     open(unit=40, file="Energia_mesos_kWh.dat", status="replace", action="write")
     do i = 1, 12
-        write(40, *) sumes_mes(i)/(3600000)
+        select case(i)
+            case (1)
+                write(40, '(A20, F10.2)') "Jan", sumes_mes(i)/(3600000)
+            case (2)
+                write(40, '(A20, F10.2)') "Feb", sumes_mes(i)/(3600000)
+            case (3)
+                write(40, '(A20, F10.2)') "Mar", sumes_mes(i)/(3600000)
+            case (4)
+                write(40, '(A20, F10.2)') "Abr", sumes_mes(i)/(3600000)
+            case (5)
+                write(40, '(A20, F10.2)') "May", sumes_mes(i)/(3600000)
+            case (6)
+                write(40, '(A20, F10.2)') "Jun", sumes_mes(i)/(3600000)
+            case (7)
+                write(40, '(A20, F10.2)') "Jul", sumes_mes(i)/(3600000)
+            case (8)
+                write(40, '(A20, F10.2)') "Ago", sumes_mes(i)/(3600000)
+            case (9)
+                write(40, '(A20, F10.2)') "Sep", sumes_mes(i)/(3600000)
+            case (10)
+                write(40, '(A20, F10.2)') "Oct", sumes_mes(i)/(3600000)
+            case (11)
+                write(40, '(A20, F10.2)') "Nov", sumes_mes(i)/(3600000)
+            case (12)
+                write(40, '(A20, F10.2)') "Dec", sumes_mes(i)/(3600000)
+        end select
     end do
     close(40)
+
 
 end program placa_solar
