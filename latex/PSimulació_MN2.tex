@@ -26,7 +26,7 @@
 \vspace{2cm}
 {\Huge \textbf{Pràctica de simulació:} \par}
 \vspace{1cm}
-{\Huge \textbf{TITOLTITOLTITOL} \par}
+{\Huge \textbf{Modelització del comportoment d'una placa fotovoltaica} \par}
 \vspace{3cm}
 {\Large G01 \par}
 \vspace{0.5cm}
@@ -57,9 +57,9 @@
 \rhead{\textbf{Mètodes Numèrics II}}
 
 \section{Introducció i Objectius}
-Amb el pretext de poder calcular l'energia subministrada per una placa solar de superfície igual a 2 m$^3$ situada en un habitatge unifamiliar de Mont-rós (poble de la província de Lleida, Catalunya), en aquesta pràctica ens plantegem modelitzar el moviment del Sol sobre aquesta localitat en el transcurs de tot un any. 
+Amb el pretext de poder calcular l'energia subministrada per una placa solar de superfície igual a 2 m$^2$ situada en un habitatge unifamiliar de Mont-rós (poble de la província de Lleida, Catalunya), en aquesta pràctica ens plantegem modelitzar el moviment del Sol sobre aquesta localitat en el transcurs de tot un any. 
 
-Per aconseguir això últim, hem fet una simulació del Sistema Solar usant el mètode d'Euler per a diverses discretitzacions temporals, tenint en compte un seguit d'aproximacions fonamentals, entre les quals en destaquem la consideració que tots els planetes es mouen sobre el pla de l'eclíptica i que el Sistema Solar simulat està conformat pels 5 primer planetes del cas real. En els annexos, però, ampliem aquest estudi considerant un cas més pròxim a la realitat i adjuntant, a més a més, un seguit d'animacions que ens permetran visualitzar millor la dinàmica del sistema caracteritzat. 
+Per aconseguir això últim, proposem fer una simulació del Sistema Solar usant el mètode d'Euler per a diverses discretitzacions temporals, tenint en compte un seguit d'aproximacions fonamentals, entre les quals en destaquem la consideració que tots els planetes es mouen sobre el pla de l'eclíptica i que el Sistema Solar simulat està conformat pels 5 primer planetes del cas real. En els annexos, però, ampliem aquest estudi considerant un cas més pròxim a la realitat i adjuntant, a més a més, un seguit d'animacions que ens permetran visualitzar millor la dinàmica del sistema caracteritzat. 
 
 \section{Plantejament del problema del Sistema Solar}
 
@@ -126,17 +126,30 @@ Així doncs, partint d'aquests angles, realitzem una discretització de cada ang
 \subsection{Modelització de l'electricitat generada per la placa solar}
 A partir del model del moviment solar, plantegem els mateixos angles $\theta$ i $\phi$ però escollint com a origen de coordenades el centre de la placa solar; d'aquesta manera podrem definir la incidència lumínica que rebem en cada discretització temporal com $W = W_{max}\cos(\theta)\cos(\phi)$, on $W_{max} = 1000 \text{ W/m$^2$}$. Amb aquesta expressió ja podem calcular l'electricitat generada en tot l'any tenint en compte la variació horària i del moviment solar en les diferents estacions.
 
-Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic i/o metereològic que tindrem en compte en el nostre model. L'estudi climàtic s'ha efectuat amb dades extretes de la web de \textit{Nasa Power}, veure .
+Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic i/o metereològic que tindrem en compte en el nostre model. L'estudi climàtic s'ha efectuat amb dades històriques extretes de la web de \textit{Nasa Power}, veure \cite{ref6}.
 \begin{itemize}
     \item Mont-rós és una localitat amb un horitzó no pla, ja que està envoltat de muntanyes que limiten les hores de llum diàries. Per tal de tenir present aquest fenomen cal introduir una variació en els angles $\phi$ inicials i finals. Eliminem els angles $\phi < -77$ º i $\phi > 82$ º, en tant que no contribueixen de manera significativa a la irradiació efectiva de les plaques solar. Aquests valors els hem extret estudiant l'alçada relativa al poble de les muntanyes properes a aquestes usant \textit{Google Maps}. 
+    \item Les precipitacions lleus no només afecten negativament el rendiment de les plaques fotovoltaiques, sinó que també poden ser beneficioses, netejant, per exemple, la seva superfície. En aquest context, hem considerat que (en promig):
+    \begin{itemize}
+        \item Les pluges lleus no afecten el rendiment de les plaques.
+        \item Les pluges moderades (4-10 mm/h) redueixen el rendiment en un 15\%.
+        \item Les pluges intenses ($>$ 10 mm/h) redueixen el rendiment en un 25\%.
+    \end{itemize}
+    \item Pel que fa a les nevades, segons les dades històriques al poble neva, fonamentalment, entre gener i mitjans de març. Tot i que la neu pot arribar a ser altament perjudicial sobre les plaques (bloquejant completament la llum solar), la inclinació de les plaques (de 42.5 º) redueix considerablement aquest risc, així que es negligirà. A tot això cal afegir que les nevades a la zona són puntuals i de baixa intensitat, fet que facilita el desglaç i que la neu acumulada als voltants de la placa podria crear un efecte reflectant, incrementant així la captació solar.
+    En cas necessari es pot instal·lar un sistema antidesglaç o una cobertura hidrofòbica, tot i que aquestes opcions consumirien part de l'energia generada. 
+    Tenint en compte tots els factors comentats s'ha aplicat un factor de reducció del 20\% al rendiment durant el període de neu, com a estimació conservadora.
+    \item Les plaques fotovoltaiques comencen a perdre, en general, eficiència a temperatures superiors a $T=25$ ºC, reduint-se el rendiment en un 0.3\% inicialment. A Mont-rós les temperatures són generalment baixes, amb un clima fred a causa de la seva altitud. El problema de la temperatura només es presentaria, doncs, a l'estiu, quan les temperatures poden superar, segons els registres històrics, els 25 ºC entre les 12:00 i les 15:00 hores, arribant a màximes de 31 ºC, però en períodes breus. 
+    Per tot això, hem considerat que els efectes associats a la temperatura són negligibles sobre el rendiment de la placa fotovoltaica.
 \end{itemize}
-
-D'altra banda, en el nostre model també tenim en compte l'horizont de Mont-rós (el qual es caracteritza per estar envoltat de muntanyes) mitjançant una variació en els angles $\phi$ inicials i finals, i les possibles variacions climàtiques al llarg de l'any mitjançant un factor $0<K<1$ que varia depenent l'època de l'any.
 
 \textbf{(estaria guay poner una imagen del sistema desde la placa, si se puede)}
 
 \subsection{Avaluació de l'error}
-
+Per tal d'evaluar com d'exacte és el nostre model, els resultats obtinguts es compararan amb els del PVGIS \cite{ref7}. Calcularem l'error relatiu associat a l'energia subministrada per la placa fotovoltaica com:
+\begin{equation}
+    E_{placa} = \frac{\abs{\varepsilon_{model}-\varepsilon_{teo}}}{\varepsilon_{teo}}\cdot 100
+\end{equation}
+on $\varepsilon_{model}$ i $\varepsilon_{teo}$ són les energies associades al nostre model i als resultats obtinguts del PVGIS, respectivament.
 
 \section{Resultats i discussió}
 
@@ -229,42 +242,11 @@ Si fem un estudi de l'evolució del Solar fins a un $t_{final}$ major, usant $dt
 
 Ara es posa de manifest el caràcter oscil·latori de l'error relatiu per tots els cossos del Sistema Solar. Podem veure com l'error màxim obtingut és proper al 6.5\% (valor absolut) en el cas del Sol, pels motius ja comentats abans\footnote{Per motius de qualitat, de la gràfica associada a l'error per $t_{final}=100$ anys arriba només fins als 50 anys. Podeu trobar més informació a l'enllaç de l'annex \ref{an:a}.}. La resta de planetes, exceptuant el cas de Mercuri, no arriben en cap cas a errors superiors al 1\%.
 
-
-
-
 \subsection{Moviment del Sol sobre Mont-rós}
-
+\textbf{(això s'ha de fer, gràfiques i tal)}
 
 \subsection{Energia subministrada per la placa solar}
-
-Factors que hem tingut en compte a l'hora de calcular l'energia elèctrica generada: 
-
-Horitzó no pla
-Les muntanyes que envolten el poble tenen un impacte significatiu a les hores de llum diaries. Les muntanyes a l'est, per on surt el Sol, són més pronunciades que les de l'oest, per on es pon. Per aquest motiu, hem exclòs les dades corresponents a angles inferiors a -70° i superiors a 80°, ja que no contribueixen de manera significativa a la irradiació efectiva sobre les plaques.
-
-Meteorologia 
-S'ha dut a terme un estudi climàtic basat en dades històriques\footnote{NASA POWER: https://power.larc.nasa.gov/data-access-viewer/}, per predir l'impacte de pluges i nevades sobre el rendiment de les plaques solars:
-
-\textbf{Pluges}
-
-Les precipitacions lleus no només no afecten negativament el rendiment de les plaques, sinó que poden ser beneficioses, ja que netegen la seva superfície. Tanmateix, hem considerat perjudicials:
-\begin{itemize}
-    \item Pluges moderades (4-10 mm/h): redueixen el rendiment un 15\%
-    \item Pluges intenses ($>$ 10 mm/h): redueixen el rendiment un 25\%
-\end{itemize}
-     
-\textbf{Nevades}
-
-Segons les dades històriques, al poble neva entre gener i mitjans de març. Tot i que la neu és altament perjudicial si s'acumula sobre les plaques (bloquejant completament els raigs solars), la inclinació de les plaques (42,5°) redueix considerablement aquest risc. A més, les nevades a la zona són puntuals i de baixa intensitat, cosa que facilita el desglaç natural.
-En cas necessari, es podria instal·lar un sistema antidesglaç o una cobertura hidrofòbica, tot i que aquestes opcions consumirien part de l'energia generada. A més, la neu acumulada al terra al voltant de les plaques pot crear un efecte reflectant que incrementa lleugerament la captació solar. Finalment, s'ha aplicat una reducció del 20\% al rendiment durant el període de neu, com a estimació conservadora.
-
-\textbf{Temperatura}
-
-Les plaques fotovoltaiques comencen a perdre eficiència a temperatures superiors als 25 °C, amb una disminució del 0,3\%. A Mont-rós, les temperatures són generalment baixes, amb un clima més fred a causa de la seva altitud. El problema només es presentaria a l'estiu, quan les temperatures poden superar els 25°C entre les 12:00 i les 15:00 hores, arribant a un màxim de 31°C, però durant un període breu. Per la qual cosa s'ha considerat negligible aquest efecte.
-
-Un cop considerats tots els factors mencionats, hem procedit amb el càlcul de l'energia elèctrica generada per la placa fotovoltaica. 
-
-Aquesta informació l'hem comparada amb un model referencial que presenta característiques i ubicacions semblants a la nostra placa fotovoltaica, obtingut a partir de la plataforma PVGIS. A les figures següents es poden observar els histogrames corresponents a l'energia elèctrica generada cada mes al llarg d'un any de la nostra placa i la obtinguda a PVGIS. 
+A les figures \ref{fig:figura1} i \ref{fig:figura2} es poden observar els histogrames corresponents a l'energia elèctrica generada cada mes al llarg d'un any de la nostra placa i la obtinguda a segons el model del PVGIS. 
 
 \begin{figure}[h!]
     \centering
@@ -281,6 +263,9 @@ Aquesta informació l'hem comparada amb un model referencial que presenta caract
         \label{fig:figura2}
     \end{minipage}
 \end{figure}
+
+
+\textbf{(algun comentari per aquí)}
 
 \section{Conclusions}
 
@@ -305,6 +290,9 @@ BLAHBLAHBLAH DEL SISTEMA SOLAR
 
     \bibitem{ref6}
     \textit{NASA Power}, NASA. Web per consultar la metereología de qualsevol lloc del món. Consultat el 07/01/2025. \url{https://power.larc.nasa.gov/data-access-viewer/}.
+
+    \bibitem{ref7}
+    \textit{Photovoltaic Geographical Information System (PVGIS)}. Web oficial de la Comissió Europea per a consultar informació sobre la radiació solar i sobre el rendiment i l'energia generada per plaques fotovoltaiques a qualsevol lloc del planeta (a excepció del Pol Nord i el Pol Sud). Consultat el 08/01/2025. \url{https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en}.
 
     
 \end{thebibliography}

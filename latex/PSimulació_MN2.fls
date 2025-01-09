@@ -221,6 +221,7 @@ INPUT C:\Users\ericg\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\ericg\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\ericg\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\ericg\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt8.tfm
+INPUT C:\Users\ericg\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT ..\sist_solar\orbites_euler_1_d1hora.png
 INPUT ..\sist_solar\orbites_euler_1_d1hora.png
 INPUT ..\sist_solar\orbites_euler_1_d1hora.png
@@ -284,7 +285,6 @@ INPUT ..\Error\error_100_dia.png
 INPUT ..\Error\error_100_dia.png
 INPUT ..\Error\error_100_dia.png
 INPUT ..\Error\error_100_dia.png
-INPUT C:\Users\ericg\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT .\Histograma_PVGIS.png
 INPUT .\Histograma_PVGIS.png
 INPUT .\Histograma_PVGIS.png
