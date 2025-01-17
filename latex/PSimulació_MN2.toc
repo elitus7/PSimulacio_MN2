@@ -8,12 +8,14 @@
 \contentsline {section}{\numberline {3}Plantejament del problema de la placa solar}{2}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Modelització del moviment del Sol sobre Mont-rós}{2}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Modelització de l'electricitat generada per la placa solar}{3}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Avaluació de l'error}{3}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Avaluació de l'error}{4}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Resultats i discussió}{4}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Sistema Solar}{4}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Moviment del Sol sobre Mont-rós}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Moviment del Sol sobre Mont-rós}{5}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Energia subministrada per la placa solar}{6}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Conclusions}{6}{section.5}%
-\contentsline {section}{\numberline {A}Repositori de \textit {GitHub}}{8}{appendix.A}%
-\contentsline {section}{\numberline {B}Simulació del Sistema Solar amb més cossos}{8}{appendix.B}%
-\contentsline {section}{\numberline {C}Posicions i velocitats inicials dels cossos del Sistema Solar}{8}{appendix.C}%
+\contentsline {section}{\numberline {A}Repositori de \textit {GitHub}}{9}{appendix.A}%
+\contentsline {section}{\numberline {B}Simulació del Sistema Solar amb més cossos}{9}{appendix.B}%
+\contentsline {section}{\numberline {C}Posicions i velocitats inicials dels cossos del Sistema Solar}{9}{appendix.C}%
+\contentsline {section}{\numberline {D}Millora del model}{10}{appendix.D}%
+\contentsline {section}{\numberline {E}Millora del mètode}{10}{appendix.E}%
