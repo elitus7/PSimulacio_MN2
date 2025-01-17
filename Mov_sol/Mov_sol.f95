@@ -75,10 +75,67 @@ program mov_sol
         call system("del /f mov_sol.dat") !Elimina l'arxiu mov_sol.dat creat previament (si existeix)
     end if
 
-    inquire(file="mov_sol_equinocci.dat", exist=exists)
+    inquire(file="mov_sol_21gener.dat", exist=exists)
     if (exists) then 
-        call system("del /f mov_sol_equinocci.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+        call system("del /f mov_sol_21gener.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
     end if
+
+    inquire(file="mov_sol_21febrer.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21febrer.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+    inquire(file="mov_sol_21marc.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21marc.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+    inquire(file="mov_sol_21abril.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21abril.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+    inquire(file="mov_sol_21maig.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21maig.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+    inquire(file="mov_sol_21juny.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21juny.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+    inquire(file="mov_sol_21juliol.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21juliol.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+    inquire(file="mov_sol_21agost.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21agost.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+    inquire(file="mov_sol_21setembre.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21setembre.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+    inquire(file="mov_sol_21octubre.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21octubre.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+    inquire(file="mov_sol_21novembre.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21novembre.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+    inquire(file="mov_sol_21desembre.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_21desembre.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+
 
 
     Do i = 1, N_a
@@ -118,12 +175,93 @@ program mov_sol
         WRITE(10,*) !
         Close(10)
 
-        IF (i==172) then
-            open(unit=10,file="mov_sol_equinocci.dat",status="unknown", access = "append")
+        IF (i==21) then
+            open(unit=10,file="mov_sol_21gener.dat",status="unknown", access = "append")
             Do j = 1, int(H_llum(i))
                 Write(10,*) Pos_sol(j,:)
             END Do
         End if
+
+        IF (i==52) then
+            open(unit=10,file="mov_sol_21febrer.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        IF (i==80) then
+            open(unit=10,file="mov_sol_21marc.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        IF (i==111) then
+            open(unit=10,file="mov_sol_21abril.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        IF (i==141) then
+            open(unit=10,file="mov_sol_21maig.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        IF (i==172) then
+            open(unit=10,file="mov_sol_21juny.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        IF (i==202) then
+            open(unit=10,file="mov_sol_21juliol.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        IF (i==233) then
+            open(unit=10,file="mov_sol_21agost.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        IF (i==264) then
+            open(unit=10,file="mov_sol_21setembre.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        IF (i==294) then
+            open(unit=10,file="mov_sol_21octubre.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        IF (i==325) then
+            open(unit=10,file="mov_sol_21novembre.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        IF (i==355) then
+            open(unit=10,file="mov_sol_21desembre.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
+
+        
+
+        
         ! Anem recopilant la posició de tots els dies en una mateix arxiu .dat
     END Do
     
