@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1737153412.93044 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1737153415.99571 0
+["pdflatex"] 1737154108.46238 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1737154112.12595 0
   "../Error/error_100_dia.png" 1737119124 189470 f61c9a32f1e3216bd1a9b97dc2096dbb ""
   "../Error/error_1_dia.png" 1736118951 92447 76f6649dd6c3c907d3c51b73d1eb4427 ""
   "../Error/error_1_hora.png" 1736119472 56749 050212b2b0a17da74cb4adf9d00d49b4 ""
@@ -154,10 +154,10 @@
   "Histograma_PVGIS.png" 1736365067 10957 1c80b66a99f51903ef2faf6644b7c1fb ""
   "Logo_UAB.png" 1734205029 13234 625c1691be58ba47ff71434956c6b32e ""
   "MapaMuntanyes.jpg" 1737141839 682130 a37b501027a0a56e3bfb790906097160 ""
-  "PSimulació_MN2.aux" 1737153415 17342 13df4305dafb89fe6e445467d24650d1 "pdflatex"
-  "PSimulació_MN2.tex" 1737153412 35170 c60a5e8eee9e03775e32f6b232426813 ""
-  "PSimulació_MN2.toc" 1737153415 1910 9dc86f968096869cb2fe4e1a406b6c08 "pdflatex"
-  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1737153412 35170 c60a5e8eee9e03775e32f6b232426813 ""
+  "PSimulació_MN2.aux" 1737154111 17342 13df4305dafb89fe6e445467d24650d1 "pdflatex"
+  "PSimulació_MN2.tex" 1737154107 35172 848e7c2cd9f2f1b6af14b845f5c1bdb8 ""
+  "PSimulació_MN2.toc" 1737154111 1910 9dc86f968096869cb2fe4e1a406b6c08 "pdflatex"
+  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1737154107 35172 848e7c2cd9f2f1b6af14b845f5c1bdb8 ""
   "mov_sol_mesos.png" 1737141839 262734 2eaff6931b228eedd412141569924a99 ""
   "mov_sol_solstici.png" 1737141839 59246 ddd79e29489a74ef021b134e2ff2e592 ""
   (generated)
