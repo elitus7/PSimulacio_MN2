@@ -134,20 +134,22 @@ Per determinar la posició del sol segons l'angle prèviament discretitzat usare
 \subsection{Modelització de l'electricitat generada per la placa solar}
 D'entrada suposem que la instal·lació elèctrica d'autoconsum usada per l'habitatge unifamiliar a Mont-rós consta d'un panell fotovoltaic de silici de superfície igual a 2 m$^2$, que genera el seu màxim d'energia elèctrica (400 W de potència), quan 1000 W/m$^2$ d'irradiació solar incideixen perpendicularment sobre ell.
 
-A partir del model del moviment solar, plantegem els mateixos angles $\phi$ (-$\frac{\pi}{2}<\phi <\frac{\pi}{2}$) i $\theta$ però escollint com a origen de coordenades el centre de la placa solar (vegeu la figura \ref{fig:sr}); d'aquesta manera podrem definir la incidència lumínica que rebem en cada discretització temporal com $W = W_{max}\cos(\theta)\cos(\phi)$, on $W_{max} = 1000 \text{ W/m$^2$}$. Amb aquesta expressió ja podem calcular l'electricitat generada en tot l'any tenint en compte la variació horària i del moviment solar en les diferents estacions.
+A partir del model del moviment solar, plantegem els mateixos angles $\phi$ (on -$\frac{\pi}{2}<\phi <\frac{\pi}{2}$) i $\theta$ (on ) però escollint com a origen de coordenades el centre de la placa solar (vegeu la figura \ref{fig:sr}); d'aquesta manera podrem definir la incidència lumínica que rebem en cada discretització temporal com $W = W_{max}\cos(\theta)\cos(\phi)$, on $W_{max} = 1000 \text{ W/m$^2$}$. Amb aquesta expressió ja podem calcular l'electricitat generada en tot l'any tenint en compte la variació horària i del moviment solar en les diferents estacions.
 
 A més a més, en el plantejament d'aquest model, tindrem en compte que  hem inclinat la placa solar en un angle de 42.5 º respecte del terra; això és degut a que es tracta de l'angle òptim per aconseguir el màxim d'incidencia solar al llarg de l'any, ja que es correspon amb la latitud de Mont-rós, i això permet que la pèrdua d'eficiència al llarg de l'any (conforme $\theta$ va variant) sigui mínima.
 
+Notem que els angles estan definits (vegeu la figura \ref{fig:sr}) de forma que $-90\text{º}<\phi < 90$º i $-42.5\text{º} < \theta < 15$º.
+
 Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic i/o metereològic que tindrem en compte en el nostre model. L'estudi climàtic s'ha efectuat amb dades històriques extretes de la web de \textit{Nasa Power} (veure \cite{ref6}):
 \begin{itemize}
-    \item Mont-rós és una localitat amb un horitzó no pla, ja que està envoltat de muntanyes que limiten les hores de llum diàries. Per tal de tenir present aquest fenomen, cal introduir una variació en els angles $\phi$ inicials i finals. Eliminem els angles $\phi < -77$ º i $\phi > 82$ º, en tant que no contribueixen de manera significativa a la irradiació efectiva de les plaques solar. Aquests valors els hem extret estudiant l'alçada relativa al poble de les muntanyes properes a aquestes usant \textit{Google Maps}. 
+    \item Mont-rós és una localitat amb un horitzó no pla, ja que està envoltat de muntanyes que limiten les hores de llum diàries. Per tal de tenir present aquest fenomen, cal introduir una variació en els angles $\phi$ inicials i finals. Eliminem els angles $\phi < -77$º i $\phi > 82$º, en tant que no contribueixen de manera significativa a la irradiació efectiva de les plaques solar. Aquests valors els hem extret estudiant l'alçada relativa al poble de les muntanyes properes a aquestes usant \textit{Google Maps}. 
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.7\textwidth]{MapaMuntanyes.jpg}
         \caption{Alçada relativa de les muntanyes properes a Mont-rós. Extret de \textit{Google Maps}. }
         \label{fig:alçada_muntanyes}
     \end{figure}
-    \item Les precipitacions lleus no només no afecten negativament el rendiment de les plaques fotovoltaiques, sinó que també poden ser beneficioses, netejant, per exemple, la seva superfície. En aquest context, hem considerat que la principal causa de la reducció del rendiment durant les precipitacions és la formació de núvols, els quals bloquegen la radiació solar i limiten la captació d'energia. Hem considerat que (en promig)\cite{ref9}:
+    \item Les precipitacions lleus no només no afecten negativament el rendiment de les plaques fotovoltaiques, sinó que també poden ser beneficioses, netejant, per exemple, la seva superfície. En aquest context, hem considerat que la principal causa de la reducció del rendiment durant les precipitacions és la formació de núvols, els quals bloquegen la radiació solar i limiten la captació d'energia. Usant les dades extretes a \cite{ref9}, en promig podem concloure que:
     \begin{itemize}
         \item Les pluges lleus no afecten el rendiment de les plaques.
         \item Les pluges moderades (4-10 mm/h) redueixen el rendiment en un 15\%.
@@ -288,8 +290,6 @@ Com es pot observar a la figura \ref{fig:mesos}, el moviment del Sol varia en fu
     \end{minipage}
 \end{figure}
 
-\textbf{COMENTAR ALGUNA COSA DE COM ES MOU?}
-
 
 \subsection{Energia subministrada per la placa solar}
 A les figures \ref{fig:figura1} i \ref{fig:figura2} es poden observar els histogrames corresponents a l'energia elèctrica generada cada mes al llarg d'un any de la nostra placa i la obtinguda a segons el model del PVGIS. 
@@ -332,6 +332,7 @@ Es poden observar diferències significatives en els histogrames entre els valor
 
 La motivació principal d'aquesta pràctica era el càlcul de l'energia generada per una placa solar de superfície igual a 2 m$^2$ situada a Mont-rós. Per arribar a trobar aquests resultats s'ha efectuat prèviament una simulació quasi completa del Sistema Solar sota les condicions esmentades, amb el pretext de calcular quines eren les distàncies Terra-Sol en tot moment. D'això últim podem concloure que, a la vista dels resultats, tot i les limitacions ja explicades del mètode d'Euler, les òrbites resultants obtingudes són força bones, en especial si considerem la discretització $dt=1$ dia que, tot i presentar un error bastant major en el cas de Mercuri, no afecta de forma apreciable als resultats en les òrbites de la Terra, que són, al final del dia, les que ens interessen per fer la modelització de la placa solar. A tot això cal sumar-li el fet que la discretització per dies té un temps de càlcul associat molt menor si el comparem amb el de la discretització de $dt=1$ hora, cosa que justifica encara més la nostra elecció.
 
+Pel que fa als resultats obtinguts del moviment del Sol sobre la Terra, adonem-nos que, tot i que aparentment s'ha obtingut un moviment brusc, aquest té bastant sentit si pensem en les trajectòries reals. Tot plegat és degut a la normalització emprada.
 
 Els resultats obtinguts per l'energia generada són prou satisfactoris, ja que, tot i que el nostre model es basa en aproximacions i no és completament precís, proporciona valors raonables i coherents amb les expectatives. Això demostra que el model, tot i la seva simplicitat, és útil per obtenir una estimació acceptable dels valors de producció d'energia.
 
@@ -359,16 +360,16 @@ Els resultats obtinguts per l'energia generada són prou satisfactoris, ja que, 
     \textit{MeteoGram}. Web per a consultar els horaris de les sortides i postes del Sol a tot el planeta. Consultat el: 05/01/2025. \url{https://meteogram.es/sol/espana/vielha/}.
 
     \bibitem{ref6}
-    \textit{NASA Power}, NASA. Web per consultar la metereología de qualsevol lloc del món. Consultat el 07/01/2025. \url{https://power.larc.nasa.gov/data-access-viewer/}.
+    \textit{NASA Power}, NASA. Web per consultar la metereología de qualsevol lloc del món. Consultat el: 07/01/2025. \url{https://power.larc.nasa.gov/data-access-viewer/}.
 
     \bibitem{ref7}
     \textit{Photovoltaic Geographical Information System (PVGIS)}. Web oficial de la Comissió Europea per a consultar informació sobre la radiació solar i sobre el rendiment i l'energia generada per plaques fotovoltaiques a qualsevol lloc del planeta (a excepció del Pol Nord i el Pol Sud). Consultat el 08/01/2025. \url{https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en}.
 
     \bibitem{ref8}
-    \textit{¿Cómo la temperatura afecta a las placas solares?}. Consultat el 06/01/2025. \url{https://www.sfe-solar.com/noticias/articulos/efecto-de-la-temperatura-en-los-paneles-solares/}
+    Alfonso Alonso, J. \textit{¿Cómo la temperatura afecta a las placas solares?}. Consultat el: 06/01/2025. \url{https://www.sfe-solar.com/noticias/articulos/efecto-de-la-temperatura-en-los-paneles-solares/}.
 
     \bibitem{ref9}
-    \textit{¿Influye la lluvia en el rendimiento de los paneles solares?}. Consultat el 06/01/2025. \url{https://energiaycalorextremadura.es/fotovoltaica/influye-la-lluvia-en-el-rendimiento-de-los-paneles-solares/}
+    Correa Díaz, E. \textit{¿Influye la lluvia en el rendimiento de los paneles solares?} Consultat el: 06/01/2025. \url{https://energiaycalorextremadura.es/fotovoltaica/influye-la-lluvia-en-el-rendimiento-de-los-paneles-solares/}.
 \end{thebibliography}
 
 \newpage
@@ -435,7 +436,7 @@ Anàlogament a la secció anterior, proposarem una sèrie de millores que es pod
 
 El mètode numèric que hem seleccionat per aquesta pràctica ha estat el d'Euler. Aquest algorisme és de primer ordre, de manera que l'error comès és proporcional a la discretització amb què s'estigui treballant.
 \begin{itemize}
-    \item \textbf{Reduir la discretització: } Tot i que ja hem presentat les gràfiques d'error amb les diferents discretitzacions provades, l'interval de temps més petit és d'una hora. Així, si es continués reduint la discretització temporal, obtindríem òrbites més properes a la realitat, ja que l'error comès a cada iteració seria menor.
+    \item \textbf{Reduir la discretització: } Tot i que ja hem presentat les gràfiques d'error amb les diferents discretitzacions provades, l'interval de temps més petit és d'una hora. Així, si es continués reduint la discretització temporal, obtindríem òrbites més properes a la realitat, ja que l'error comès a cada iteració seria menor. Tot plegat, però, a costa d'un gran cost computacional.
     \item \textbf{Altres mètodes numèrics més precisos: } Tal com s'ha treballat en l'assinatura de \textit{Mètodes Numèrics II}, hi ha mètodes més precisos que el d'Euler, com per exemple el de Runge-Kutta, el qual es fa més precís a mesura que anem augmentant-ne l'ordre.
 \end{itemize}
 
