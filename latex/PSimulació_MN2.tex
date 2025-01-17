@@ -142,7 +142,13 @@ A més a més, en el plantejament d'aquest model, tindrem en compte que  hem inc
 
 Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic i/o metereològic que tindrem en compte en el nostre model. L'estudi climàtic s'ha efectuat amb dades històriques extretes de la web de \textit{Nasa Power} (veure \cite{ref6}):
 \begin{itemize}
-    \item Mont-rós és una localitat amb un horitzó no pla, ja que està envoltat de muntanyes que limiten les hores de llum diàries. Per tal de tenir present aquest fenomen cal introduir una variació en els angles $\phi$ inicials i finals. Eliminem els angles $\phi < -77$ º i $\phi > 82$ º, en tant que no contribueixen de manera significativa a la irradiació efectiva de les plaques solar. Aquests valors els hem extret estudiant l'alçada relativa al poble de les muntanyes properes a aquestes usant \textit{Google Maps}. 
+    \item Mont-rós és una localitat amb un horitzó no pla, ja que està envoltat de muntanyes que limiten les hores de llum diàries. Per tal de tenir present aquest fenomen, cal introduir una variació en els angles $\phi$ inicials i finals. Eliminem els angles $\phi < -77$ º i $\phi > 82$ º, en tant que no contribueixen de manera significativa a la irradiació efectiva de les plaques solar. Aquests valors els hem extret estudiant l'alçada relativa al poble de les muntanyes properes a aquestes usant \textit{Google Maps}. 
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\textwidth]{MapaMuntanyes.jpg}
+        \caption{Alçada relativa de les muntanyes properes a Mont-rós.}
+        \label{fig:alçada_muntanyes}
+    \end{figure}
     \item Les precipitacions lleus no només afecten negativament el rendiment de les plaques fotovoltaiques, sinó que també poden ser beneficioses, netejant, per exemple, la seva superfície. En aquest context, hem considerat que (en promig):
     \begin{itemize}
         \item Les pluges lleus no afecten el rendiment de les plaques.
@@ -152,8 +158,9 @@ Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic 
     \item Pel que fa a les nevades, segons les dades històriques al poble neva, fonamentalment, entre gener i mitjans de març. Tot i que la neu pot arribar a ser altament perjudicial sobre les plaques (bloquejant completament la llum solar), la inclinació de les plaques (de 42.5 º) redueix considerablement aquest risc, així que es negligirà. A tot això cal afegir que les nevades a la zona són puntuals i de baixa intensitat, fet que facilita el desglaç i que la neu acumulada als voltants de la placa podria crear un efecte reflectant, incrementant així la captació solar.
     En cas necessari es pot instal·lar un sistema antidesglaç o una cobertura hidrofòbica, tot i que aquestes opcions consumirien part de l'energia generada. 
     Tenint en compte tots els factors comentats s'ha aplicat un factor de reducció del 20\% al rendiment durant el període de neu, com a estimació conservadora.
-    \item Les plaques fotovoltaiques comencen a perdre, en general, eficiència a temperatures superiors a $T=25$ ºC, reduint-se el rendiment en un 0.3\% inicialment. A Mont-rós les temperatures són generalment baixes, amb un clima fred a causa de la seva altitud. El problema de la temperatura només es presentaria, doncs, a l'estiu, quan les temperatures poden superar, segons els registres històrics, els 25 ºC entre les 12:00 i les 15:00 hores, arribant a màximes de 31 ºC, però en períodes breus. 
-    Per tot això, hem considerat que els efectes associats a la temperatura són negligibles sobre el rendiment de la placa fotovoltaica.
+    \item Les plaques fotovoltaiques comencen a perdre, en general, eficiència a temperatures superiors a $T=25$ ºC, reduint-se el rendiment en un 0.3\%/ºC. A Mont-rós, les temperatures són generalment baixes, amb un clima fred a causa de la seva altitud. El problema de la temperatura només es presentaria, doncs, a l'estiu, quan les temperatures poden superar, segons els registres històrics, els 25 ºC entre les 12:00 i les 15:00 hores, arribant a màximes de 31 ºC però en períodes breus. 
+    Així doncs, hem considerat que els efectes associats a la temperatura no afecten significativament el rendiment de la placa fotovoltaica.
+
 \end{itemize}
 
 \textbf{(estaria guay poner una imagen del sistema desde la placa, si se puede)}
@@ -284,7 +291,7 @@ Com es pot observar a la figura \ref{fig:mesos}, el moviment del Sol varia en fu
 \subsection{Energia subministrada per la placa solar}
 A les figures \ref{fig:figura1} i \ref{fig:figura2} es poden observar els histogrames corresponents a l'energia elèctrica generada cada mes al llarg d'un any de la nostra placa i la obtinguda a segons el model del PVGIS. 
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
     \begin{minipage}{0.48\linewidth} 
         \centering
@@ -300,14 +307,33 @@ A les figures \ref{fig:figura1} i \ref{fig:figura2} es poden observar els histog
     \end{minipage}
 \end{figure}
 
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5}  % Aumenta el espacio entre filas
+    \caption{Comparativa de l'energia generada (kWh) pel nostre model i el PVGIS més l'error relatiu.}
+    \begin{tabular}{l*{12}{c}} 
+        \hline
+        \textbf{ } & \textbf{Jan} & \textbf{Feb} & \textbf{Mar} & \textbf{Abr} & \textbf{May} & \textbf{Jun} & \textbf{Jul} & \textbf{Ago} & \textbf{Sep} & \textbf{Oct} & \textbf{Nov} & \textbf{Dec} \\
+        \hline
+        \textbf{Nostre Model} & 54.89 & 58.01 & 77.54 & 69.18 & 78.38 & 92.25 & 106.60 & 97.40 & 73.63 & 80.01 & 68.68 & 63.00 \\
+        \textbf{PVGIS} & 42.05 & 47.35 & 55.13 & 50.56 & 54.98 & 55.54 & 62.04 & 61.03 & 54.57 & 48.27 & 38.93 & 39.81 \\
+        \textbf{Error (\%)} & 30.54 & 22.51 & 40.65 & 36.83 & 42.56 & 66.10 & 71.82 & 59.59 & 34.93 & 65.76 & 76.42 & 58.25 \\
+        \hline
+    \end{tabular}
+\end{table}
 
-\textbf{(algun comentari per aquí)}
+
+Es poden observar diferències significatives en els histogrames entre els valors obtinguts pel nostre model i els valors de referència del PVGIS. Tot i això, aquestes diferències segueixen la tendència general dels valors, amb una producció d'energia més baixa durant els mesos d'hivern i una producció més elevada durant els mesos d'estiu, com era d'esperar.
 
 \section{Conclusions}
 
-La motivació principal d'aquesta pràctica era el càlcul de l'energia generada per una placa solar de superfície igual a 2 m$^2$ situada a Mont-rós. Per arribar a trobar aquests resultats s'ha efectuat prèviament una simulació quasi completa del Sistema Solar sota les condicions esmentades, amb el pretext de calcular quines eren les distàncies Terra-Sol en tot moment. D'això últim podem concloure que, a la vista dels resultats, tot i les limitacions ja explicades del mètode d'Euler, les òrbites resultants obtingudes són força bones, en especial si considerem la discretització $dt=1$ dia que, tot i presentar un error bastant major en el cas de Mercuri, no afecta de forma apreciable als resultats en les òrbites de la Terra, que són, al final del dia, les que ens interessen per fer la modelització de la placa solar. A tot això cal sumar-li el fet que la discretització per dies té un temps de càlcul associat molt menor si el comparem amb el de la discretització de $dt=1$ hora, cosa que justifica encara més la nostra elecció. 
+La motivació principal d'aquesta pràctica era el càlcul de l'energia generada per una placa solar de superfície igual a 2 m$^2$ situada a Mont-rós. Per arribar a trobar aquests resultats s'ha efectuat prèviament una simulació quasi completa del Sistema Solar sota les condicions esmentades, amb el pretext de calcular quines eren les distàncies Terra-Sol en tot moment. D'això últim podem concloure que, a la vista dels resultats, tot i les limitacions ja explicades del mètode d'Euler, les òrbites resultants obtingudes són força bones, en especial si considerem la discretització $dt=1$ dia que, tot i presentar un error bastant major en el cas de Mercuri, no afecta de forma apreciable als resultats en les òrbites de la Terra, que són, al final del dia, les que ens interessen per fer la modelització de la placa solar. A tot això cal sumar-li el fet que la discretització per dies té un temps de càlcul associat molt menor si el comparem amb el de la discretització de $dt=1$ hora, cosa que justifica encara més la nostra elecció.
 
-\textbf{(conclusions moviment sol sobre terra + placa solar)}
+
+Els resultats obtinguts per l'energia generada són prou satisfactoris, ja que, tot i que el nostre model es basa en aproximacions i no és completament precís, proporciona valors raonables i coherents amb les expectatives. Això demostra que el model, tot i la seva simplicitat, és útil per obtenir una estimació acceptable dels valors de producció d'energia.
+
+
+\textbf{(conclusions moviment sol sobre terra)}
 \\
 \\
 \textbf{(conclusions globals)}
@@ -334,8 +360,6 @@ La motivació principal d'aquesta pràctica era el càlcul de l'energia generada
 
     \bibitem{ref7}
     \textit{Photovoltaic Geographical Information System (PVGIS)}. Web oficial de la Comissió Europea per a consultar informació sobre la radiació solar i sobre el rendiment i l'energia generada per plaques fotovoltaiques a qualsevol lloc del planeta (a excepció del Pol Nord i el Pol Sud). Consultat el 08/01/2025. \url{https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en}.
-
-    
 \end{thebibliography}
 
 \newpage
