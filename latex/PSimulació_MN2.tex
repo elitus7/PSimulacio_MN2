@@ -256,7 +256,17 @@ Si fem un estudi de l'evolució del Sistema Solar fins a un $t_{final}$ major, u
 Ara es posa de manifest el caràcter oscil·latori de l'error relatiu per tots els cossos del Sistema Solar. Podem veure com l'error màxim obtingut és proper al 6.5\% (valor absolut) en el cas del Sol, pels motius ja comentats abans\footnote{Per motius de qualitat, la gràfica associada a l'error per $t_{final}=100$ anys arriba només fins al 25 anys. Podeu trobar més informació a l'enllaç de l'annex \ref{an:a}.}. La resta de planetes, exceptuant el cas de Mercuri, no arriben en cap cas a errors superiors al 1\%.
 
 \subsection{Moviment del Sol sobre Mont-rós}
-\textbf{(això s'ha de fer, gràfiques i tal)}
+A la figura \ref{fig:movsol} s'ha representat el moviment del Sol sobre Mont-rós el dia de l'equinocci d'estiu que, pel present any 2025, és el dia 21 de juny.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{mov_sol_equinocci.png}
+    \caption{Moviment del Sol sobre Mont-rós a l'equinocci (21 de juny del 2025)}
+    \label{fig:movsol}
+\end{figure}
+
+\textbf{COMENTAR ALGUNA COSA DEL MOVIMENT?}
+
 
 \subsection{Energia subministrada per la placa solar}
 A les figures \ref{fig:figura1} i \ref{fig:figura2} es poden observar els histogrames corresponents a l'energia elèctrica generada cada mes al llarg d'un any de la nostra placa i la obtinguda a segons el model del PVGIS. 
@@ -363,4 +373,24 @@ A continuació adjuntem les posicions i les velocitats dels diferents planetes d
 \end{table}
 
 Podeu trobar un manual d'instruccions sobre com usar el servei \textit{Horizon Ephemeris} a la mateixa web de l'enllaç \cite{ref3}. 
+
+\section{Millora del model}
+Per tal d'obtenir resultats amb un nivell més elevat d'exactitud, entesa com una aproximació més propera a la realitat, es podrien implementar les següents millores pel que respecta al model considerat:
+\begin{itemize}
+    \item \textbf{Consideració de tots els planetes: } Tot i que el codi proporcionat està programat per a poder considerar els efectes de tots els planetes del sistema solar, a la pràctica només s'han tingut en compte els sis primers cossos. Per tant, amb una senzilla modificació del codi es podria incorporar la influència de la resta dels planetes, millorant així la precisió dels resultats.
+    \item \textbf{Pla de l'eclíptica: } Com s'ha mencionat a l'informe, s'ha assumit que tots els cossos es mouen en un mateix pla, fet que no s'ajusta al sistema solar real, especialment si es vol tenir en compte la influència de Plutó \footnote{Tot i que actualment no es considera un planeta, la seva presència també genera interaccions amb la resta de cossos del sistema solar.}, el qual orbita en un pla molt diferent a l'eclíptica de la Terra i el Sol. Pel que fa als altres planetes, si bé és cert que tots orbiten en una eclíptica molt similar, hi ha uns mínims angles d'inclinació que difereixen del pla Terra-Sol.
+    \item \textbf{Cossos puntuals: }Per tal de simplificar el sistema solar i poder-lo modelitzar més còmodament, els cossos, tot i tenir la massa real, es consideren puntuals. Com és evident, aquest model no es correspon a la realitat. La implementació d'aquesta millora, però, pot dificultar i donar molta més complexitat als càlculs realitzats.
+\end{itemize}
+
+\section{Millora del mètode}
+Anàlogament a la secció anterior, proposarem una sèrie de millores que es podrien implementar per tal d'obtenir resultats més propers a la realitat.
+
+El mètode numèric que hem seleccionat per aquesta pràctica ha estat el d'Euler. Aquest algorisme és de primer ordre, de manera que l'error comès és proporcional a la discretització amb què s'estigui treballant.
+\begin{itemize}
+    \item \textbf{Reduir la discretització: } Tot i que ja hem presentat les gràfiques d'error amb les diferents discretitzacions provades, l'interval de temps més petit és d'una hora. Així, si es continués reduint la discretització temporal, obtindríem òrbites més properes a la realitat, ja que l'error comès a cada iteració seria menor.
+    \item \textbf{Altres mètodes numèrics més precisos: } Tal com s'ha treballat en l'assinatura de \textit{Mètodes Numèrics II}, hi ha mètodes més precisos que el d'Euler, com per exemple el de Runge-Kutta, el qual es fa més precís a mesura que anem augmentant-ne l'ordre.
+\end{itemize}
+
+
+
 \end{document}
