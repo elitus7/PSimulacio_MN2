@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  9 JAN 2025 01:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.15)  17 JAN 2025 12:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -531,17 +531,17 @@ l.94 \end{equation*}
                      [1]
 
 [2]
-<../sist_solar/orbites_euler_1_d1hora.png, id=94, 1505.625pt x 1084.05pt>
+<../sist_solar/orbites_euler_1_d1hora.png, id=97, 1505.625pt x 1084.05pt>
 File: ../sist_solar/orbites_euler_1_d1hora.png Graphic file (type png)
 <use ../sist_solar/orbites_euler_1_d1hora.png>
 Package pdftex.def Info: ../sist_solar/orbites_euler_1_d1hora.png  used on input line 164.
 (pdftex.def)             Requested size: 152.05511pt x 109.46999pt.
-<../sist_solar/orbites_euler_1_d1dia.png, id=95, 1505.625pt x 1084.05pt>
+<../sist_solar/orbites_euler_1_d1dia.png, id=98, 1505.625pt x 1084.05pt>
 File: ../sist_solar/orbites_euler_1_d1dia.png Graphic file (type png)
 <use ../sist_solar/orbites_euler_1_d1dia.png>
 Package pdftex.def Info: ../sist_solar/orbites_euler_1_d1dia.png  used on input line 171.
 (pdftex.def)             Requested size: 152.05511pt x 109.46999pt.
-<../sist_solar/orbites_euler_1_d1mes.png, id=96, 1505.625pt x 1084.05pt>
+<../sist_solar/orbites_euler_1_d1mes.png, id=99, 1505.625pt x 1084.05pt>
 File: ../sist_solar/orbites_euler_1_d1mes.png Graphic file (type png)
 <use ../sist_solar/orbites_euler_1_d1mes.png>
 Package pdftex.def Info: ../sist_solar/orbites_euler_1_d1mes.png  used on input line 178.
@@ -550,33 +550,30 @@ Package pdftex.def Info: ../sist_solar/orbites_euler_1_d1mes.png  used on input 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../Error/error_1_hora.png, id=99, 1505.625pt x 1084.05pt>
+
+
+[3]
+<../Error/error_1_hora.png, id=112, 1505.625pt x 1084.05pt>
 File: ../Error/error_1_hora.png Graphic file (type png)
 <use ../Error/error_1_hora.png>
 Package pdftex.def Info: ../Error/error_1_hora.png  used on input line 196.
 (pdftex.def)             Requested size: 152.05511pt x 109.46999pt.
-<../Error/error_1_dia.png, id=100, 1505.625pt x 1084.05pt>
+<../Error/error_1_dia.png, id=113, 1505.625pt x 1084.05pt>
 File: ../Error/error_1_dia.png Graphic file (type png)
 <use ../Error/error_1_dia.png>
 Package pdftex.def Info: ../Error/error_1_dia.png  used on input line 202.
 (pdftex.def)             Requested size: 152.05511pt x 109.46999pt.
-<../Error/error_1_mes.png, id=101, 1505.625pt x 1084.05pt>
+<../Error/error_1_mes.png, id=114, 1505.625pt x 1084.05pt>
 File: ../Error/error_1_mes.png Graphic file (type png)
 <use ../Error/error_1_mes.png>
 Package pdftex.def Info: ../Error/error_1_mes.png  used on input line 208.
 (pdftex.def)             Requested size: 152.05511pt x 109.46999pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-
-[3]
-<../sist_solar/orbites_euler_100_d1dia.png, id=115, 1505.625pt x 1084.05pt>
+<../sist_solar/orbites_euler_100_d1dia.png, id=117, 1505.625pt x 1084.05pt>
 File: ../sist_solar/orbites_euler_100_d1dia.png Graphic file (type png)
 <use ../sist_solar/orbites_euler_100_d1dia.png>
 Package pdftex.def Info: ../sist_solar/orbites_euler_100_d1dia.png  used on input line 230.
 (pdftex.def)             Requested size: 228.07542pt x 164.20499pt.
-<../Error/error_100_dia.png, id=116, 1505.625pt x 1084.05pt>
+<../Error/error_100_dia.png, id=118, 1505.625pt x 1084.05pt>
 File: ../Error/error_100_dia.png Graphic file (type png)
 <use ../Error/error_100_dia.png>
 Package pdftex.def Info: ../Error/error_100_dia.png  used on input line 236.
@@ -618,7 +615,7 @@ Underfull \hbox (badness 4108) in paragraph at lines 295--296
 
 
 [6]
-<../sist_solar/orbites_euler_TOTS_150_d1dia.png, id=160, 1806.75pt x 1084.05pt>
+<../sist_solar/orbites_euler_TOTS_150_d1dia.png, id=163, 1806.75pt x 1084.05pt>
 File: ../sist_solar/orbites_euler_TOTS_150_d1dia.png Graphic file (type png)
 <use ../sist_solar/orbites_euler_TOTS_150_d1dia.png>
 Package pdftex.def Info: ../sist_solar/orbites_euler_TOTS_150_d1dia.png  used on input line 313.
@@ -636,17 +633,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14824 strings out of 473682
- 237428 string characters out of 5719215
- 656990 words of memory out of 5000000
- 37650 multiletter control sequences out of 15000+600000
+ 14827 strings out of 473682
+ 237450 string characters out of 5719215
+ 656075 words of memory out of 5000000
+ 37652 multiletter control sequences out of 15000+600000
  571590 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,13n,93p,1267b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\ericg\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/ericg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on PSimulació_MN2.pdf (9 pages, 1229135 bytes).
+Output written on PSimulació_MN2.pdf (9 pages, 1230741 bytes).
 PDF statistics:
- 336 PDF objects out of 1000 (max. 8388607)
- 48 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 343 PDF objects out of 1000 (max. 8388607)
+ 49 named destinations out of 1000 (max. 500000)
+ 205 words of extra memory for PDF output out of 10000 (max. 10000000)
 

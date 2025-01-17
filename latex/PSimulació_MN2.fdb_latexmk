@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1736381699.75868 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1736381702.25647 0
+["pdflatex"] 1737112190.4645 "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1737112192.86913 0
   "../Error/error_100_dia.png" 1736153969 231851 268ad8061e4b7e010719da99a25027b9 ""
   "../Error/error_1_dia.png" 1736118951 92447 76f6649dd6c3c907d3c51b73d1eb4427 ""
   "../Error/error_1_hora.png" 1736119472 56749 050212b2b0a17da74cb4adf9d00d49b4 ""
@@ -152,10 +152,10 @@
   "C:/Users/ericg/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "Histograma_PVGIS.png" 1736365067 10957 1c80b66a99f51903ef2faf6644b7c1fb ""
   "Logo_UAB.png" 1734205029 13234 625c1691be58ba47ff71434956c6b32e ""
-  "PSimulació_MN2.aux" 1736381701 13175 baee96b3f92935f8ca0005d76022dbd7 "pdflatex"
-  "PSimulació_MN2.tex" 1736381699 22870 0f7f408e3fafaeb3390fa7608a175219 ""
-  "PSimulació_MN2.toc" 1736381702 1637 463163f21b36237533a6b9b00d5b02fe "pdflatex"
-  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1736381699 22870 0f7f408e3fafaeb3390fa7608a175219 ""
+  "PSimulació_MN2.aux" 1737112192 14187 bfe58cb4ffca8edea16b82b60ead66ec "pdflatex"
+  "PSimulació_MN2.tex" 1737112187 23276 312700c13d9926eb08747932e79b24f3 ""
+  "PSimulació_MN2.toc" 1737112192 1755 646407703c1fc248da88e415cdf0c11e "pdflatex"
+  "c:/Users/ericg/OneDrive/Documentos/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1737112187 23276 312700c13d9926eb08747932e79b24f3 ""
   (generated)
   "PSimulació_MN2.aux"
   "PSimulació_MN2.log"

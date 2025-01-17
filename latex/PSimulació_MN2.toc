@@ -2,12 +2,12 @@
 \contentsline {section}{\numberline {1}Introducció i Objectius}{1}{section.1}%
 \contentsline {section}{\numberline {2}Plantejament del problema del Sistema Solar}{1}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Modelització del Sistema Solar}{1}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Normalització de les equacions}{1}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Normalització de les equacions}{2}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Condicions inicials}{2}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Mètode numèric i avaluació de l'error}{2}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Plantejament del problema de la placa solar}{2}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Modelització del moviment del Sol sobre Mont-rós}{2}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Modelització de l'electricitat generada per la placa solar}{2}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Modelització de l'electricitat generada per la placa solar}{3}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Avaluació de l'error}{3}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Resultats i discussió}{3}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Sistema Solar}{3}{subsection.4.1}%
@@ -16,3 +16,4 @@
 \contentsline {section}{\numberline {5}Conclusions}{5}{section.5}%
 \contentsline {section}{\numberline {A}Repositori de \textit {GitHub}}{7}{appendix.A}%
 \contentsline {section}{\numberline {B}Simulació del Sistema Solar amb més cossos}{7}{appendix.B}%
+\contentsline {section}{\numberline {C}Posicions i velocitats inicials dels cossos del Sistema Solar}{7}{appendix.C}%

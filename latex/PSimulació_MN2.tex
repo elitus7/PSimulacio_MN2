@@ -59,33 +59,33 @@
 \section{Introducció i Objectius}
 Amb el pretext de poder calcular l'energia subministrada per una placa solar de superfície igual a 2 m$^2$ situada en un habitatge unifamiliar de Mont-rós (poble de la província de Lleida, Catalunya), en aquesta pràctica ens plantegem modelitzar el moviment del Sol sobre aquesta localitat en el transcurs de tot un any. 
 
-Per aconseguir això últim, proposem fer una simulació del Sistema Solar usant el mètode d'Euler per a diverses discretitzacions temporals, tenint en compte un seguit d'aproximacions fonamentals, entre les quals en destaquem la consideració que tots els planetes es mouen sobre el pla de l'eclíptica i que el Sistema Solar simulat està conformat pels 5 primer planetes del cas real. En els annexos, però, ampliem aquest estudi considerant un cas més pròxim a la realitat i adjuntant, a més a més, un seguit d'animacions que ens permetran visualitzar millor la dinàmica del sistema caracteritzat. 
+Per aconseguir això últim, proposem fer una simulació del Sistema Solar usant el mètode d'Euler per a diverses discretitzacions temporals, tenint en compte un seguit d'aproximacions fonamentals, entre les quals en destaquem la consideració que tots els planetes es mouen sobre el pla de l'eclíptica i que el Sistema Solar simulat està conformat pels 6 primer cossos del cas real. En els annexos, però, ampliem aquest estudi considerant un cas més pròxim a la realitat i adjuntant, a més a més, un seguit d'animacions que ens permetran visualitzar millor la dinàmica del sistema caracteritzat. 
 
 \section{Plantejament del problema del Sistema Solar}
 
 \subsection{Modelització del Sistema Solar}
-Per tal de modelitzar el Sistema Solar, partirem de la Segona Llei de Newton i la igualarem a la Lley de la Gravitació Universal, tot dividint per la massa del cos $p$, $M_p$. Fent això ens queda que l'acceleració a la qual està sotmesa aquest cos és:
+Per tal de modelitzar el Sistema Solar, partirem de la Segona Llei de Newton i la igualarem a la Lley de la Gravitació Universal, tot dividint per la massa del cos $p$, $M_p$. Fent això ens queda que l'acceleració a la qual està sotmesa aquest cos $p$ és:
 
 \begin{equation}
     \derivative[2]{\mathbf{r}^{(p)}}{t} = - G \left[ \sum_{l \neq p} M_l \frac{(\mathbf{r}^{(p)}-\mathbf{r}^{(l)})}{\abs{\mathbf{r}^{(p)} - \mathbf{r}^{(l)}}^3}\right], \hspace{0.25cm} p = 1, 2, \ldots 
 \end{equation}
 
-En aquesta equació el vector $\mathbf{r}^{(p)}$ és el vector posició (marquem els vectors en negreta) del cos $p$ respecte del Sol (de manera que el nostre origen de coordenades serà la posició inicial del Sol), $M_l$ la massa dels cossos diferents a $p$ i $\mathbf{r}^{(l)}$ les seves posicions respecte l'origen. Fixem-nos, doncs, que segons aquesta equació, la força que actua sobre un planeta donat es correspon amb la suma de les forces exercides per tots els cossos del sistema solar sobre ell. 
+En aquesta equació el vector $\mathbf{r}^{(p)}$ és el vector posició (marquem els vectors en negreta) del cos $p$ respecte del Sol (de manera que el nostre origen de coordenades serà la posició inicial del Sol), $M_l$ la massa dels cossos diferents a $p$ i $\mathbf{r}^{(l)}$ les seves posicions respecte l'origen de coordenades. Fixem-nos, doncs, que segons aquesta equació, la força que actua sobre un planeta donat es correspon amb la suma de les forces exercides per tots els cossos del sistema solar sobre ell. 
 
 Simplificarem l'expressió definint $\mathbf{d}_{pl} \equiv (\mathbf{r}^{(p)}-\mathbf{r}^{(l)})$. Així, la darrera equació queda com
 \begin{equation}
     \derivative[2]{\mathbf{r}^{(p)}}{t} = - G \left[ \sum_{l \neq p} M_l \frac{\mathbf{d}_{lp}}{\abs{\mathbf{d}_{lp}}^3}\right], \hspace{0.25cm} p = 1, 2, \ldots 
 \end{equation}
 
-Per tal de facilitar-ne la ressolució, podem transformar aquesta equació diferencial de segon ordre a la següent
+Per tal de facilitar-ne la ressolució, podem transformar aquesta equació diferencial de segon ordre a la següent de primer ordre:
 
 \begin{equation}
     \derivative{\mathbf{v}^{(p)}}{t} = -G \left[ \sum_{l \neq p} M_l\frac{\mathbf{d}_{lp}}{\abs{\mathbf{d}_{lp}}^3}\right], \hspace{0.25cm} p = 1,2 \ldots \label{2}
 \end{equation}
 
-De forma que tenim ara un conjunt de $n \cross p$ (on $n$ són les dimensions) equacions diferencials de primer ordre a resoldre. A la pràctica, com que tots els planetes del sistema solar tenen orbites coplanàries (a excepció de Plutó, que no el considerarem), podem assumir que estem davant d'un problema bidimensional, de manera que tindre $2 \cross p$ EDOs de primer ordre a resoldre.
+De forma que tenim ara un conjunt de $n \cross p$ (on $n$ són les dimensions) equacions diferencials de primer ordre a resoldre. A la pràctica, com que tots els cossos del sistema solar del nostre model tenen orbites coplanàries (a excepció de Plutó, que no el considerarem), podem assumir que estem davant d'un problema bidimensional, de manera que tindre $2 \cross p$ EDOs de primer ordre a resoldre.
 
-Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques. A més a més, el moviment d'aquests cossos serà al pla de l'eclíptica; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques per diferents temps finals) al repositori de \textit{GitHub} (veure annex \ref{an:a}). A l'annex \ref{an:b} donem un breu resum d'això últim en forma de material extra.
+Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques i els resultats. A més a més, el moviment d'aquests cossos serà sobre un pla conjunt; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques per diferents temps finals) al repositori de \textit{GitHub} (veure annex \ref{an:a}). A l'annex \ref{an:b} donem un breu resum d'això últim en forma de material extra.
 
 \subsection{Normalització de les equacions}
 Per tal de resoldre el problema minimitzant errors i temps de càlcul cal normalitzar \eqref{2}. Definim unes quantitats característiques del sistema: escollim $M_0 = M_s$ (la massa del Sol) i $d_0 = UA$ (unitat astronòmica), ja que així podrem treballar amb valors propers a la unitat. D'aquí se'n deriva que
@@ -102,7 +102,7 @@ d'on tenim que
 \end{equation}
 
 \subsection{Condicions inicials}
-Per tal de conèixer les condicions inicials de cadascun dels cossos del sistema solar modelitzat (això és, $\mathbf{r}^{(p)}$ i $\mathbf{v}^{(p)}$) hem usat la base de dades del \textit{Horizons Ephemeris Service} de la NASA, que podeu trobar a \url{https://ssd.jpl.nasa.gov/horizons/}. Agafem com a punt inicial les posicions i les velocitats el dia 01-01-2025 de tots els cossos rellevants del sistema solar.
+Per tal de conèixer les condicions inicials de cadascun dels cossos del sistema solar modelitzat (això és, $\mathbf{r}^{(p)}$ i $\mathbf{v}^{(p)}$) hem usat la base de dades del \textit{Horizons Ephemeris Service} de la NASA (veure \cite{ref3}). Agafem com a punt inicial les posicions i les velocitats el dia 01-01-2025 a les 00:00 UTC (+01:00) de tots els cossos rellevants del sistema solar. Podeu consultar aquestes posicions i velocitats inicials a l'annex \ref{an:c}.
 
 \subsection{Mètode numèric i avaluació de l'error}
 El mètode numèric utilitzat ha estat el mètode d'Euler (per sistemes EDOs)\footnote{Les corresponents equacions es poden consultar als apunts de l'assignatura.} aplicat a l'equació \eqref{eq5} per diferents discretitzacions temporals: $dt = 1$ any, $dt = 1$ mes i $dt = 1$ dia.
@@ -316,4 +316,10 @@ A mode d'extra, afegim en aquest annex els resultats de la simulació del Sistem
 \end{figure}
 
 Al repositori de \textit{GitHub} podreu veure una animació, a $t_{final}=15$ anys, en la que es poden veure les òrbites anteriors.
+
+\section{Posicions i velocitats inicials dels cossos del Sistema Solar}
+\label{an:c}
+A continuació adjuntem les posicions i les velocitats dels diferents planetes del sistema solar, prenent com a origen de coordenades el Sol, el dia 01/01/2025 a les 00:00 UTC (+01:00).
+
+
 \end{document}
