@@ -75,6 +75,12 @@ program mov_sol
         call system("del /f mov_sol.dat") !Elimina l'arxiu mov_sol.dat creat previament (si existeix)
     end if
 
+    inquire(file="mov_sol_equinocci.dat", exist=exists)
+    if (exists) then 
+        call system("del /f mov_sol_equinocci.dat") !Elimina l'arxiu mov_sol_equinocci.dat creat previament (si existeix)
+    end if
+
+
     Do i = 1, N_a
 
         Deallocate(Pos_sol)
@@ -111,6 +117,13 @@ program mov_sol
         END DO
         WRITE(10,*) !
         Close(10)
+
+        IF (i==172) then
+            open(unit=10,file="mov_sol_equinocci.dat",status="unknown", access = "append")
+            Do j = 1, int(H_llum(i))
+                Write(10,*) Pos_sol(j,:)
+            END Do
+        End if
         ! Anem recopilant la posició de tots els dies en una mateix arxiu .dat
     END Do
     
