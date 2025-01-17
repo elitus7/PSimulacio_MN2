@@ -56,15 +56,15 @@
 \lhead{\textbf{Pràctica de Simulació}}
 \rhead{\textbf{Mètodes Numèrics II}}
 
-\section{Introducció i Objectius}
-Amb el pretext de poder calcular l'energia subministrada per una instal·lació elèctrica d'autoconsum, constituida per plaques fotovoltaiques d'unes característiques determinades i situada en un habitatge unifamiliar de Mont-rós (poble de la província de Lleida, Catalunya), en aquesta pràctica ens plantegem modelitzar el moviment del Sol sobre aquesta localitat en el transcurs de tot un any. 
+\section{Introducció i objectius}
+Amb el pretext de poder calcular l'energia subministrada per una instal·lació elèctrica d'autoconsum, constituida per plaques fotovoltaiques d'unes característiques determinades i situada en un habitatge unifamiliar de Mont-rós (poble de la Vall Fosca, província de Lleida, Catalunya), en aquesta pràctica ens plantegem modelitzar el moviment del Sol sobre aquesta localitat en el transcurs de tot un any. 
 
 Per aconseguir això últim, proposem fer una simulació del Sistema Solar usant el mètode d'Euler per a diverses discretitzacions temporals, tenint en compte un seguit d'aproximacions fonamentals, entre les quals en destaquem la consideració que tots els planetes es mouen sobre el pla de l'eclíptica i que el Sistema Solar simulat està conformat pels 6 primer cossos del cas real. En els annexos, però, ampliem aquest estudi considerant un cas més pròxim a la realitat i adjuntant, a més a més, un seguit d'animacions que ens permetran visualitzar millor la dinàmica del sistema caracteritzat. 
 
 \section{Plantejament del problema del Sistema Solar}
 
 \subsection{Modelització del Sistema Solar}
-Per tal de modelitzar el Sistema Solar, partirem de la Segona Llei de Newton i la igualarem a la Lley de la Gravitació Universal, tot dividint per la massa del cos $p$, $M_p$. Fent això ens queda que l'acceleració a la qual està sotmesa aquest cos $p$ és:
+Per tal de modelitzar el Sistema Solar, partirem de la Segona Llei de Newton i la igualarem a la Llei de la Gravitació Universal, tot dividint per la massa del cos $p$, $M_p$. Fent això ens queda que l'acceleració a la qual està sotmesa aquest cos $p$ és:
 
 \begin{equation}
     \derivative[2]{\mathbf{r}^{(p)}}{t} = - G \left[ \sum_{l \neq p} M_l \frac{(\mathbf{r}^{(p)}-\mathbf{r}^{(l)})}{\abs{\mathbf{r}^{(p)} - \mathbf{r}^{(l)}}^3}\right], \hspace{0.25cm} p = 1, 2, \ldots 
@@ -107,7 +107,7 @@ Per tal de conèixer les condicions inicials de cadascun dels cossos del sistema
 \subsection{Mètode numèric i avaluació de l'error}
 El mètode numèric utilitzat ha estat el mètode d'Euler (per sistemes EDOs)\footnote{Les corresponents equacions es poden consultar als apunts de l'assignatura.} aplicat a l'equació \eqref{eq5} per diferents discretitzacions temporals: $dt = 1$ any, $dt = 1$ mes i $dt = 1$ dia.
 
-Per tal d'avaluar l'error comés estudiarem l'evolució d'una de les quantitats conservades d'aquest sistema: L'energia total $\varepsilon$. Idealment, a cada cas d'iteració el valor de $E$ ha de ser el mateix que a $t_0$; les fluctuacions en aquestes quantitats ens permetran determinar l'error numèric comès segons:
+Per tal d'avaluar l'error comés estudiarem l'evolució d'una de les quantitats conservades d'aquest sistema: l'energia total $\varepsilon$. Idealment, a cada cas d'iteració el valor de $E$ ha de ser el mateix que a $t_0$; les fluctuacions en aquestes quantitats ens permetran determinar l'error numèric comès segons:
 \begin{align}
     E_{\varepsilon_i} = \left( \frac{\Delta \varepsilon_i}{\varepsilon_0} \right) & = \frac{\varepsilon_i - \varepsilon_0}{\varepsilon_0} 
 \end{align}
@@ -121,7 +121,7 @@ A l'annex \ref{an:e} es detallen algunes millores que es podrien implementar per
 \subsection{Modelització del moviment del Sol sobre Mont-rós}
 Per modelitzar el moviment del Sol des d'un sistema de referència situat en una teulada a Mont-rós, partim d'unes coordenades esfèriques on un angle $\theta$ indica l'alçada del sol i un angle $\phi$ indica la posició horizontal del sol utilitzant el centre de la placa solar com a origen de coordenades.
 
-Així doncs, partint d'aquests angles, realitzem una discretització de cada angle en funció de les hores de llum solar que té cada dia de l'any\footnote{Informació que hem extret de \cite{ref5}.}. En aquesta discretització tenim en compte els angles $\phi$ que limiten la regió on rebem incidència de llum solar i els angles $\theta$ màxims als quals arriba el sol depenent de l'estació de l'any, aquests últims delimitats en un interval determinat per la latitud de Mont-rós $\pm 15^\circ$, el màxim i mínim del qual corresponen, respectivament, al dia de l'equinocci d'estiu i al dia de l'equinocci d'hivern.
+Així doncs, partint d'aquests angles, realitzem una discretització de cada angle en funció de les hores de llum solar que té cada dia de l'any\footnote{Informació que hem extret de \cite{ref5}.}. En aquesta discretització tenim en compte els angles $\phi$ que limiten la regió on rebem incidència de llum solar i els angles $\theta$ màxims als quals arriba el sol depenent de l'estació de l'any, aquests últims delimitats en un interval determinat per la latitud de Mont-rós $\pm 15^\circ$, el màxim i mínim del qual corresponen, respectivament, al dia dels solstici d'estiu i al dia del solsitici d'estiu d'hivern.
 
 Per determinar la posició del sol segons l'angle prèviament discretitzat usarem:
 \begin{equation}
@@ -134,13 +134,13 @@ Per determinar la posició del sol segons l'angle prèviament discretitzat usare
 \subsection{Modelització de l'electricitat generada per la placa solar}
 D'entrada suposem que la instal·lació elèctrica d'autoconsum usada per l'habitatge unifamiliar a Mont-rós consta d'un panell fotovoltaic de silici de superfície igual a 2 m$^2$, que genera el seu màxim d'energia elèctrica (400 W de potència), quan 1000 W/m$^2$ d'irradiació solar incideixen perpendicularment sobre ell.
 
-A partir del model del moviment solar, plantegem els mateixos angles $\phi$ (on -$\frac{\pi}{2}<\phi <\frac{\pi}{2}$) i $\theta$ (on ) però escollint com a origen de coordenades el centre de la placa solar (vegeu la figura \ref{fig:sr}); d'aquesta manera podrem definir la incidència lumínica que rebem en cada discretització temporal com $W = W_{max}\cos(\theta)\cos(\phi)$, on $W_{max} = 1000 \text{ W/m$^2$}$. Amb aquesta expressió ja podem calcular l'electricitat generada en tot l'any tenint en compte la variació horària i del moviment solar en les diferents estacions.
+A partir del model del moviment solar, plantegem els mateixos angles $\phi$ i $\theta$ però escollint com a origen de coordenades el centre de la placa solar (vegeu la figura \ref{fig:sr}); d'aquesta manera podrem definir la incidència lumínica que rebem en cada discretització temporal com $W = W_{max}\cos(\theta)\cos(\phi)$, on $W_{max} = 1000 \text{ W/m$^2$}$. Amb aquesta expressió ja podem calcular l'electricitat generada en tot l'any tenint en compte la variació horària i del moviment solar en les diferents estacions.
 
 A més a més, en el plantejament d'aquest model, tindrem en compte que  hem inclinat la placa solar en un angle de 42.5 º respecte del terra; això és degut a que es tracta de l'angle òptim per aconseguir el màxim d'incidencia solar al llarg de l'any, ja que es correspon amb la latitud de Mont-rós, i això permet que la pèrdua d'eficiència al llarg de l'any (conforme $\theta$ va variant) sigui mínima.
 
 Notem que els angles estan definits (vegeu la figura \ref{fig:sr}) de forma que $-90\text{º}<\phi < 90$º i $-42.5\text{º} < \theta < 15$º.
 
-Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic i/o metereològic que tindrem en compte en el nostre model. L'estudi climàtic s'ha efectuat amb dades històriques extretes de la web de \textit{Nasa Power} (veure \cite{ref6}):
+Tot seguit presentem el seguit de consideracions extres de caràcter geogràfic i/o metereològic que tindrem en compte en el nostre model. L'estudi climàtic s'ha efectuat amb dades històriques extretes de la web de \textit{Nasa Power} (veure \cite{ref6}):
 \begin{itemize}
     \item Mont-rós és una localitat amb un horitzó no pla, ja que està envoltat de muntanyes que limiten les hores de llum diàries. Per tal de tenir present aquest fenomen, cal introduir una variació en els angles $\phi$ inicials i finals. Eliminem els angles $\phi < -77$º i $\phi > 82$º, en tant que no contribueixen de manera significativa a la irradiació efectiva de les plaques solar. Aquests valors els hem extret estudiant l'alçada relativa al poble de les muntanyes properes a aquestes usant \textit{Google Maps}. 
     \begin{figure}[h!]
@@ -155,10 +155,10 @@ Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic 
         \item Les pluges moderades (4-10 mm/h) redueixen el rendiment en un 15\%.
         \item Les pluges intenses ($>$ 10 mm/h) redueixen el rendiment en un 25\%.
     \end{itemize}
-    \item Pel que fa a les nevades, segons les dades històriques al poble neva, fonamentalment, entre gener i mitjans de març. Tot i que la neu pot arribar a ser altament perjudicial sobre les plaques (bloquejant completament la llum solar), la inclinació de les plaques (de 42.5 º) redueix considerablement aquest risc, així que es negligirà. A tot això cal afegir que les nevades a la zona són puntuals i de baixa intensitat, fet que facilita el desglaç i que la neu acumulada als voltants de la placa podria crear un efecte reflectant, incrementant així la captació solar.
+    \item Pel que fa a les nevades, segons les dades històriques al poble neva, fonamentalment, entre gener i mitjans de març. Tot i que la neu pot arribar a ser altament perjudicial sobre les plaques (bloquejant completament la llum solar), la inclinació de les plaques (de 42.5º) redueix considerablement aquest risc, així que es negligirà. A tot això cal afegir que les nevades a la zona són puntuals i de baixa intensitat, fet que facilita el desglaç i que la neu acumulada als voltants de la placa podria crear un efecte reflectant (popularment conegut com a \textit{efecte Albedo}, \cite{ref10}), incrementant així la captació solar.
     En cas necessari es pot instal·lar un sistema antidesglaç o una cobertura hidrofòbica, tot i que aquestes opcions consumirien part de l'energia generada. 
     Tenint en compte tots els factors comentats s'ha aplicat un factor de reducció del 20\% al rendiment durant el període de neu, com a estimació conservadora.
-    \item Les plaques fotovoltaiques comencen a perdre, en general, eficiència a temperatures superiors a $T=25$ ºC, reduint-se el rendiment en un 0.3\%/ºC \cite{ref8}. A Mont-rós, les temperatures són generalment baixes, amb un clima fred a causa de la seva altitud. El problema de la temperatura només es presentaria, doncs, a l'estiu, quan les temperatures poden superar, segons els registres històrics, els 25 ºC entre les 12:00 i les 15:00 hores, arribant a màximes de 31 ºC però en períodes breus. 
+    \item Les plaques fotovoltaiques comencen a perdre, en general, eficiència a temperatures superiors a $T=25$ ºC, reduint-se el rendiment en un , aproximadament (veure \cite{ref8}). A Mont-rós, les temperatures són generalment baixes, amb un clima fred a causa de la seva altitud. El problema de la temperatura només es presentaria, doncs, a l'estiu, quan les temperatures poden superar, segons els registres històrics, els 25 ºC entre les 12:00 i les 15:00 hores, arribant a màximes de 31 ºC però en períodes breus. 
     Així doncs, hem considerat que els efectes associats a la temperatura no afecten significativament el rendiment de la placa fotovoltaica.
 
 \end{itemize}
@@ -171,7 +171,7 @@ Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic 
 \end{figure}
 
 \subsection{Avaluació de l'error}
-Per tal d'evaluar com d'exacte és el nostre model, els resultats obtinguts es compararan amb els del PVGIS \cite{ref7}. Calcularem l'error relatiu associat a l'energia subministrada per la placa fotovoltaica com:
+Per tal d'avaluar com d'exacte és el nostre model, els resultats obtinguts es compararan amb els del PVGIS \cite{ref7}. Calcularem l'error relatiu associat a l'energia subministrada per la placa fotovoltaica com:
 \begin{equation}
     E_{placa} = \frac{\abs{\varepsilon_{model}-\varepsilon_{teo}}}{\varepsilon_{teo}}\cdot 100
 \end{equation}
@@ -244,7 +244,7 @@ Tal i com podem veure a la figura \ref{fig3}b, la discretització amb un major e
 
 De fet, si ens fixem en la figura \ref{fig3}a, podem veure que Mercuri surt disparat del Sistema Solar. Que això no es vegi reflectit, aparentment, en l'error associat a l'energia de Mercuri (que es manté pràcticament constant en una desviació del 20\%) pot ser degut a què les variacions en els termes en l'energia cinètica i l'energia potencial d'aquest cos es compensen conforme l'astre s'allunya de la seva posició inicial.
 
-Tant a la discretització de $dt = 1$ dia com a la de $dt = 1$ hora (figures \ref{fig1} i \ref{fig2}, respectivament) tenim errors associats als planetes més exteriors del sistema modelitzat similars, essent aquests lleugerament menors en el cas de la discretització per hores, a costa d'un temps de càlcul major. La principal diferència rau, però, en l'error associat a Mercuri: per a la discretització en dies presenta un error relatiu molt major al de la resta de cossos (exceptuant el Sol), assolint pics de fins a un 2.5\%; per a la discretització en hores aquest efecte es disminueix significativament.
+Tant a la discretització de $dt = 1$ dia com a la de $dt = 1$ hora (figures \ref{fig1} i \ref{fig2}, respectivament) tenim errors associats als planetes més exteriors del sistema modelitzat similars, essent aquests lleugerament menors en el cas de la discretització per hores, a costa d'un temps de càlcul major. La principal diferència rau, però, en l'error associat a Mercuri: per a la discretització en dies presenta un error relatiu molt major al de la resta de cossos (exceptuant el Sol), assolint pics de fins a un 2.5\%; per a la discretització en hores aquest efecte disminueix significativament.
 
 El cas del Sol és diferent; per a les tres discretitzacions presenta una evolució de l'error associat a l'energia molt similar. En tots els casos calculats té una clara tendència a desviar-se negativament. Podem explicar això si pensem en què el Sol és, dels 6 cossos modelitzats, el que ha tenir posicions i velocitats menors, de forma que l'acumulació d'errors associats al mètode numèric pot fer que aquestes petites quantitats es vegin afectades de forma significativa.
 
@@ -292,7 +292,7 @@ Com es pot observar a la figura \ref{fig:mesos}, el moviment del Sol varia en fu
 
 
 \subsection{Energia subministrada per la placa solar}
-A les figures \ref{fig:figura1} i \ref{fig:figura2} es poden observar els histogrames corresponents a l'energia elèctrica generada cada mes al llarg d'un any de la nostra placa i la obtinguda a segons el model del PVGIS. 
+A les figures \ref{fig:figura1} i \ref{fig:figura2} es poden observar els histogrames corresponents a l'energia elèctrica generada cada mes al llarg d'un any de la nostra placa i l'obtinguda a segons el model del PVGIS. 
 
 \begin{figure}[!ht]
     \centering
@@ -337,10 +337,6 @@ Pel que fa als resultats obtinguts del moviment del Sol sobre la Terra, adonem-n
 Els resultats obtinguts per l'energia generada són prou satisfactoris, ja que, tot i que el nostre model es basa en aproximacions i no és completament precís, proporciona valors raonables i coherents amb les expectatives. Això demostra que el model, tot i la seva simplicitat, és útil per obtenir una estimació acceptable dels valors de producció d'energia.
 
 
-\textbf{(conclusions moviment sol sobre terra)}
-\\
-\\
-\textbf{(conclusions globals)}
 
 \newpage
 \begin{thebibliography}{99}
@@ -370,6 +366,8 @@ Els resultats obtinguts per l'energia generada són prou satisfactoris, ja que, 
 
     \bibitem{ref9}
     Correa Díaz, E. \textit{¿Influye la lluvia en el rendimiento de los paneles solares?} Consultat el: 06/01/2025. \url{https://energiaycalorextremadura.es/fotovoltaica/influye-la-lluvia-en-el-rendimiento-de-los-paneles-solares/}.
+
+    \bibitem{ref10} Efecte Albedo, Wikipedia. Consultat el 17/01/2025. \url{https://en.wikipedia.org/wiki/Albedo}.
 \end{thebibliography}
 
 \newpage
