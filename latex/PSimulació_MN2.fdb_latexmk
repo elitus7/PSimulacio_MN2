@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1737131951.73487 "c:/Users/juuns/Documents/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1737131954.83913 0
+["pdflatex"] 1737134507.90514 "c:/Users/juuns/Documents/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" "PSimulació_MN2.pdf" "PSimulació_MN2" 1737134511.07827 0
   "../Error/error_100_dia.png" 1737126034 189470 f61c9a32f1e3216bd1a9b97dc2096dbb ""
   "../Error/error_1_dia.png" 1736118494 92447 76f6649dd6c3c907d3c51b73d1eb4427 ""
   "../Error/error_1_hora.png" 1736119199 56749 050212b2b0a17da74cb4adf9d00d49b4 ""
@@ -150,11 +150,12 @@
   "C:/Users/juuns/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "Histograma_PVGIS.png" 1737126036 10957 1c80b66a99f51903ef2faf6644b7c1fb ""
   "Logo_UAB.png" 1734631167 13234 625c1691be58ba47ff71434956c6b32e ""
-  "PSimulació_MN2.aux" 1737131954 15615 2f9e2da2711927655170ef8bd4df43a3 "pdflatex"
-  "PSimulació_MN2.tex" 1737131950 30675 adfbe1117e9ad97d3b3097e8d85e7c96 ""
-  "PSimulació_MN2.toc" 1737131954 1907 0e1119ec5bc377319ccdfc5a884317bf "pdflatex"
-  "c:/Users/juuns/Documents/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1737131950 30675 adfbe1117e9ad97d3b3097e8d85e7c96 ""
-  "mov_sol_equinocci.png" 1737127679 59246 ddd79e29489a74ef021b134e2ff2e592 ""
+  "PSimulació_MN2.aux" 1737134510 16115 59968af191bd6cf12de14bcae70a68e3 "pdflatex"
+  "PSimulació_MN2.tex" 1737134503 31804 308974d07d75097069603832bbd7ce5f ""
+  "PSimulació_MN2.toc" 1737134510 1907 bc00f56974ac02f7a5d5789a6ba5f68a "pdflatex"
+  "c:/Users/juuns/Documents/GitHub/PSimulacio_MN2/latex/PSimulació_MN2.tex" 1737134503 31804 308974d07d75097069603832bbd7ce5f ""
+  "mov_sol_mesos.png" 1737133019 262734 2eaff6931b228eedd412141569924a99 ""
+  "mov_sol_solstici.png" 1737127679 59246 ddd79e29489a74ef021b134e2ff2e592 ""
   (generated)
   "PSimulació_MN2.aux"
   "PSimulació_MN2.log"

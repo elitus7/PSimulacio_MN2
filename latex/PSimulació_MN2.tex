@@ -85,7 +85,7 @@ Per tal de facilitar-ne la ressolució, podem transformar aquesta equació difer
 
 De forma que tenim ara un conjunt de $n \cross p$ (on $n$ són les dimensions) equacions diferencials de primer ordre a resoldre. A la pràctica, com que tots els cossos del sistema solar del nostre model tenen orbites coplanàries (a excepció de Plutó, que no el considerarem), podem assumir que estem davant d'un problema bidimensional, de manera que tindre $2 \cross p$ EDOs de primer ordre a resoldre.
 
-Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques i els resultats. A més a més, el moviment d'aquests cossos serà sobre un pla conjunt; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques per diferents temps finals) al repositori de \textit{GitHub} (veure annex \ref{an:a}). A l'annex \ref{an:b} donem un breu resum d'això últim en forma de material extra.
+Considerarem un model en què els únics cossos del Sistema Solar són Mercuri, Venus, la Terra, Mart i Júpiter (i, naturalment, el Sol), per tal de simplificar les gràfiques i els resultats. A més a més, el moviment d'aquests cossos serà sobre un pla conjunt; no considerarem moviments en l'eix $z$. Es podrà trobar una versió més complexa (amb la modelització de tots els planetes i les corresponents gràfiques per diferents temps finals) al repositori de \textit{GitHub} (veure annex \ref{an:a}). A l'annex \ref{an:b} donem un breu resum d'això últim en forma de material extra. Finalment, a l'annex \ref{an:d} es detallen algunes propostes per tal de millorar aquest model.
 
 \subsection{Normalització de les equacions}
 Per tal de resoldre el problema minimitzant errors i temps de càlcul cal normalitzar \eqref{2}. Definim unes quantitats característiques del sistema: escollim $M_0 = M_s$ (la massa del Sol) i $d_0 = UA$ (unitat astronòmica), ja que així podrem treballar amb valors propers a la unitat. D'aquí se'n deriva que
@@ -113,6 +113,8 @@ Per tal d'avaluar l'error comés estudiarem l'evolució d'una de les quantitats 
 \end{align}
 
 On el valor de $\varepsilon$ es pot treure a partir de les equacions fonamentals de la dinàmica.
+
+A l'annex \ref{an:e} es detallen algunes millores que es podrien implementar per tal d'obtenir uns resultats més propers a la realitat.
 
 \section{Plantejament del problema de la placa solar}
 
@@ -256,16 +258,27 @@ Si fem un estudi de l'evolució del Sistema Solar fins a un $t_{final}$ major, u
 Ara es posa de manifest el caràcter oscil·latori de l'error relatiu per tots els cossos del Sistema Solar. Podem veure com l'error màxim obtingut és proper al 6.5\% (valor absolut) en el cas del Sol, pels motius ja comentats abans\footnote{Per motius de qualitat, la gràfica associada a l'error per $t_{final}=100$ anys arriba només fins al 25 anys. Podeu trobar més informació a l'enllaç de l'annex \ref{an:a}.}. La resta de planetes, exceptuant el cas de Mercuri, no arriben en cap cas a errors superiors al 1\%.
 
 \subsection{Moviment del Sol sobre Mont-rós}
-A la figura \ref{fig:movsol} s'ha representat el moviment del Sol sobre Mont-rós el dia de l'equinocci d'estiu que, pel present any 2025, és el dia 21 de juny.
+A la figura \ref{fig:solstici} s'ha representat el moviment del Sol des de Mont-rós el dia del solstici d'estiu que, pel present any 2025, és el dia 21 de juny.
+
+Com es pot observar a la figura \ref{fig:mesos}, el moviment del Sol varia en funció de l'època de l'any que vulguem considerar. Aquesta gràfica posa també de manifest que el dia 21 de juny es correspon, efectivament, amb el solstici d'estiu, ja que és el dia que el Sol té una trajectòria més llarga, que es tradueix en hores màximes de llum. Per contra, el 21 de desembre serà el solstici d'hivern, és a dir, serà el dia amb un període diürn més curt.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\linewidth]{mov_sol_equinocci.png}
-    \caption{Moviment del Sol sobre Mont-rós a l'equinocci (21 de juny del 2025)}
-    \label{fig:movsol}
+    \begin{minipage}{0.48\linewidth} 
+        \centering
+        \includegraphics[width=\linewidth]{mov_sol_solstici.png}
+        \caption{Moviment del Sol observat des de Mont-rós al solstici d'estiu (21 de juny del 2025).}
+        \label{fig:solstici}
+    \end{minipage}\hfill 
+    \begin{minipage}{0.48\linewidth} 
+        \centering
+        \includegraphics[width=\linewidth]{mov_sol_mesos.png}
+        \caption{Moviment del Sol observat des de Mont-rós pels dies 21 de cada mes del present any 2025.}
+        \label{fig:mesos}
+    \end{minipage}
 \end{figure}
 
-\textbf{COMENTAR ALGUNA COSA DEL MOVIMENT?}
+\textbf{COMENTAR ALGUNA COSA DE COM ES MOU?}
 
 
 \subsection{Energia subministrada per la placa solar}
@@ -375,6 +388,7 @@ A continuació adjuntem les posicions i les velocitats dels diferents planetes d
 Podeu trobar un manual d'instruccions sobre com usar el servei \textit{Horizon Ephemeris} a la mateixa web de l'enllaç \cite{ref3}. 
 
 \section{Millora del model}
+\label{an:d}
 Per tal d'obtenir resultats amb un nivell més elevat d'exactitud, entesa com una aproximació més propera a la realitat, es podrien implementar les següents millores pel que respecta al model considerat:
 \begin{itemize}
     \item \textbf{Consideració de tots els planetes: } Tot i que el codi proporcionat està programat per a poder considerar els efectes de tots els planetes del sistema solar, a la pràctica només s'han tingut en compte els sis primers cossos. Per tant, amb una senzilla modificació del codi es podria incorporar la influència de la resta dels planetes, millorant així la precisió dels resultats.
@@ -383,6 +397,7 @@ Per tal d'obtenir resultats amb un nivell més elevat d'exactitud, entesa com un
 \end{itemize}
 
 \section{Millora del mètode}
+\label{an:e}
 Anàlogament a la secció anterior, proposarem una sèrie de millores que es podrien implementar per tal d'obtenir resultats més propers a la realitat.
 
 El mètode numèric que hem seleccionat per aquesta pràctica ha estat el d'Euler. Aquest algorisme és de primer ordre, de manera que l'error comès és proporcional a la discretització amb què s'estigui treballant.
