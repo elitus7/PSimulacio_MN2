@@ -131,12 +131,10 @@ Per determinar la posició del sol segons l'angle prèviament discretitzat usare
     y = r\sin(\theta)\sin(\phi)
 \end{equation}
 
-\textbf{(falta imagen de las coordenadas utilizadas)}
-
 \subsection{Modelització de l'electricitat generada per la placa solar}
 D'entrada suposem que la instal·lació elèctrica d'autoconsum usada per l'habitatge unifamiliar a Mont-rós consta d'un panell fotovoltaic de silici de superfície igual a 2 m$^2$, que genera el seu màxim d'energia elèctrica (400 W de potència), quan 1000 W/m$^2$ d'irradiació solar incideixen perpendicularment sobre ell.
 
-A partir del model del moviment solar, plantegem els mateixos angles $\theta$ i $\phi$ però escollint com a origen de coordenades el centre de la placa solar; d'aquesta manera podrem definir la incidència lumínica que rebem en cada discretització temporal com $W = W_{max}\cos(\theta)\cos(\phi)$, on $W_{max} = 1000 \text{ W/m$^2$}$. Amb aquesta expressió ja podem calcular l'electricitat generada en tot l'any tenint en compte la variació horària i del moviment solar en les diferents estacions.
+A partir del model del moviment solar, plantegem els mateixos angles $\theta$ (-$\frac{\pi}{2}<\theta <\frac{\pi}{2}$) i $\phi$ però escollint com a origen de coordenades el centre de la placa solar (vegeu la figura \ref{fig:sr}); d'aquesta manera podrem definir la incidència lumínica que rebem en cada discretització temporal com $W = W_{max}\cos(\theta)\cos(\phi)$, on $W_{max} = 1000 \text{ W/m$^2$}$. Amb aquesta expressió ja podem calcular l'electricitat generada en tot l'any tenint en compte la variació horària i del moviment solar en les diferents estacions.
 
 A més a més, en el plantejament d'aquest model, tindrem en compte que  hem inclinat la placa solar en un angle de 42.5 º respecte del terra; això és degut a que es tracta de l'angle òptim per aconseguir el màxim d'incidencia solar al llarg de l'any, ja que es correspon amb la latitud de Mont-rós, i això permet que la pèrdua d'eficiència al llarg de l'any (conforme $\theta$ va variant) sigui mínima.
 
@@ -145,8 +143,8 @@ Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic 
     \item Mont-rós és una localitat amb un horitzó no pla, ja que està envoltat de muntanyes que limiten les hores de llum diàries. Per tal de tenir present aquest fenomen, cal introduir una variació en els angles $\phi$ inicials i finals. Eliminem els angles $\phi < -77$ º i $\phi > 82$ º, en tant que no contribueixen de manera significativa a la irradiació efectiva de les plaques solar. Aquests valors els hem extret estudiant l'alçada relativa al poble de les muntanyes properes a aquestes usant \textit{Google Maps}. 
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.8\textwidth]{MapaMuntanyes.jpg}
-        \caption{Alçada relativa de les muntanyes properes a Mont-rós.}
+        \includegraphics[width=0.7\textwidth]{MapaMuntanyes.jpg}
+        \caption{Alçada relativa de les muntanyes properes a Mont-rós. Extret de \textit{Google Maps}. }
         \label{fig:alçada_muntanyes}
     \end{figure}
     \item Les precipitacions lleus no només afecten negativament el rendiment de les plaques fotovoltaiques, sinó que també poden ser beneficioses, netejant, per exemple, la seva superfície. En aquest context, hem considerat que (en promig):
@@ -163,7 +161,12 @@ Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic 
 
 \end{itemize}
 
-\textbf{(estaria guay poner una imagen del sistema desde la placa, si se puede)}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{../latex/pipo.png}
+    \caption{Sistema de referència usant els angles $\phi$ i $\theta$. El pla format pels eixos $z-y$ es correspon amb la placa fotovoltaica. El vector normal a la placa té direcció $\hat{e}_x$.}
+    \label{fig:sr}
+\end{figure}
 
 \subsection{Avaluació de l'error}
 Per tal d'evaluar com d'exacte és el nostre model, els resultats obtinguts es compararan amb els del PVGIS \cite{ref7}. Calcularem l'error relatiu associat a l'energia subministrada per la placa fotovoltaica com:
@@ -267,7 +270,7 @@ Ara es posa de manifest el caràcter oscil·latori de l'error relatiu per tots e
 \subsection{Moviment del Sol sobre Mont-rós}
 A la figura \ref{fig:solstici} s'ha representat el moviment del Sol des de Mont-rós el dia del solstici d'estiu que, pel present any 2025, és el dia 21 de juny.
 
-Com es pot observar a la figura \ref{fig:mesos}, el moviment del Sol varia en funció de l'època de l'any que vulguem considerar. Aquesta gràfica posa també de manifest que el dia 21 de juny es correspon, efectivament, amb el solstici d'estiu, ja que és el dia que el Sol té una trajectòria més llarga, que es tradueix en hores màximes de llum. Per contra, el 21 de desembre serà el solstici d'hivern, és a dir, serà el dia amb un període diürn més curt.
+Com es pot observar a la figura \ref{fig:mesos}, el moviment del Sol varia en funció de l'època de l'any que vulguem considerar. Aquesta gràfica posa també de manifest que el dia 21 de juny es correspon, efectivament, amb el solstici d'estiu, ja que és el dia que el Sol té una trajectòria més llarga, que es tradueix en hores màximes de llum. Per contra, el 21 de desembre és el solstici d'hivern, és a dir, és el dia amb un període diürn més curt.
 
 \begin{figure}[h!]
     \centering
@@ -315,7 +318,7 @@ A les figures \ref{fig:figura1} i \ref{fig:figura2} es poden observar els histog
         \hline
         \textbf{ } & \textbf{Jan} & \textbf{Feb} & \textbf{Mar} & \textbf{Abr} & \textbf{May} & \textbf{Jun} & \textbf{Jul} & \textbf{Ago} & \textbf{Sep} & \textbf{Oct} & \textbf{Nov} & \textbf{Dec} \\
         \hline
-        \textbf{Nostre Model} & 54.89 & 58.01 & 77.54 & 69.18 & 78.38 & 92.25 & 106.60 & 97.40 & 73.63 & 80.01 & 68.68 & 63.00 \\
+        \textbf{Model} & 54.89 & 58.01 & 77.54 & 69.18 & 78.38 & 92.25 & 106.60 & 97.40 & 73.63 & 80.01 & 68.68 & 63.00 \\
         \textbf{PVGIS} & 42.05 & 47.35 & 55.13 & 50.56 & 54.98 & 55.54 & 62.04 & 61.03 & 54.57 & 48.27 & 38.93 & 39.81 \\
         \textbf{Error (\%)} & 30.54 & 22.51 & 40.65 & 36.83 & 42.56 & 66.10 & 71.82 & 59.59 & 34.93 & 65.76 & 76.42 & 58.25 \\
         \hline
