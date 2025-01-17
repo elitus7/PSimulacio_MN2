@@ -119,12 +119,22 @@ On el valor de $\varepsilon$ es pot treure a partir de les equacions fonamentals
 \subsection{Modelització del moviment del Sol sobre Mont-rós}
 Per modelitzar el moviment del Sol des d'un sistema de referència situat en una teulada a Mont-rós, partim d'unes coordenades esfèriques on un angle $\theta$ indica l'alçada del sol i un angle $\phi$ indica la posició horizontal del sol utilitzant el centre de la placa solar com a origen de coordenades.
 
-Així doncs, partint d'aquests angles, realitzem una discretització de cada angle en funció de les hores de llum solar que té cada dia de l'any\footnote{Informació que hem extret de \url{https://meteogram.es/sol/espana/vielha/}}. En aquesta discretització tenim en compte els angles $\phi$ que limiten la regió on rebem incidència de llum solar i els angles $\theta$ màxims als quals arriba el sol depenent de l'estació de l'any, aquests últims delimitats en un interval determinat per la latitud de Mont-rós $\pm 15^\circ$.
+Així doncs, partint d'aquests angles, realitzem una discretització de cada angle en funció de les hores de llum solar que té cada dia de l'any\footnote{Informació que hem extret de \url{https://meteogram.es/sol/espana/vielha/}}. En aquesta discretització tenim en compte els angles $\phi$ que limiten la regió on rebem incidència de llum solar i els angles $\theta$ màxims als quals arriba el sol depenent de l'estació de l'any, aquests últims delimitats en un interval determinat per la latitud de Mont-rós $\pm 15^\circ$, el màxim i mínim del qual corresponen, respectivament, al dia de l'equinocci d'estiu i al dia de l'equinocci d'hivern.
+
+Per determinar la posició del sol segons l'angle prèviament discretitzat usarem:
+\begin{equation}
+    x = rcos(\phi)
+\end{equation}
+\begin{equation}
+    y = rsin(\theta)sin(\phi)
+\end{equation}
 
 \textbf{(falta imagen de las coordenadas utilizadas)}
 
 \subsection{Modelització de l'electricitat generada per la placa solar}
 A partir del model del moviment solar, plantegem els mateixos angles $\theta$ i $\phi$ però escollint com a origen de coordenades el centre de la placa solar; d'aquesta manera podrem definir la incidència lumínica que rebem en cada discretització temporal com $W = W_{max}\cos(\theta)\cos(\phi)$, on $W_{max} = 1000 \text{ W/m$^2$}$. Amb aquesta expressió ja podem calcular l'electricitat generada en tot l'any tenint en compte la variació horària i del moviment solar en les diferents estacions.
+
+A més, en el plantejament d'aquest model, tindrem en compte que  hem inclinat la placa solar en un agle de 45 graus respecte el terra; això és degut a que es tracta de l'angle òptim per aconseguir el màxim d'incidencia solar al llarg de l'any, ja que correspon a la latitud de Montrós i això permet que la perdúa d'eficàcia al llarg de l'any (quan $\theta$ va variant) sigui mínima.
 
 Tot seguit presentem el seguit de consideracions extres de caràcter geogràgic i/o metereològic que tindrem en compte en el nostre model. L'estudi climàtic s'ha efectuat amb dades històriques extretes de la web de \textit{Nasa Power}, veure \cite{ref6}.
 \begin{itemize}
