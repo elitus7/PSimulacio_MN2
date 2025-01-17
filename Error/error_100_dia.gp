@@ -3,7 +3,7 @@ set output "error_100_dia.png"
 
 set xlabel "Dia"
 set ylabel "Error Relatiu"
-set xrange [2:36600/2] #Per tal de poder visualitzar-ho tot i atès que el comportament és periòdic representem únicament la meitat de les daedes.
+set xrange [2:36600/4] #Per tal de poder visualitzar-ho tot i atès que el comportament és periòdic representem únicament una part de les daedes.
 set yrange [-0.08:0.04]
 set grid
 set format y "%.2f"

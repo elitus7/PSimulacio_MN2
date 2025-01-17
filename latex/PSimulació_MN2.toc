@@ -11,8 +11,8 @@
 \contentsline {subsection}{\numberline {3.3}Avaluació de l'error}{3}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Resultats i discussió}{4}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Sistema Solar}{4}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Moviment del Sol sobre Mont-rós}{5}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Energia subministrada per la placa solar}{5}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.2}Moviment del Sol sobre Mont-rós}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Energia subministrada per la placa solar}{6}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Conclusions}{6}{section.5}%
 \contentsline {section}{\numberline {A}Repositori de \textit {GitHub}}{8}{appendix.A}%
 \contentsline {section}{\numberline {B}Simulació del Sistema Solar amb més cossos}{8}{appendix.B}%
